@@ -18,7 +18,7 @@
                     $('#ulBut').empty();
                     $('#ulBut').append('<span class=ipBut onclick=addNew();hideBlank();showNonBlank();> SUBMIT </span> <br style=margin-bottom:40px;><span class=ipBut onclick=clearNew()> CLEAR </span>');
                     $('#setback').remove();
-                    $('#flexedbox').append(`<br style=margin-bottom:40px;><span id=setback class=ipBut onclick='$(".popboxS").css("display","none");'> BACK </span>`);
+                    $('#flexedbox').append(`<br style=margin-bottom:40px;><button id=setback class=ipBut onclick='$(".popboxS").css("display","none");'> BACK </button>`);
                 }
             });
         </script>
