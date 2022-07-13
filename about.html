@@ -4,6 +4,17 @@
         <title> BookSafe | About </title>
         <link rel=stylesheet href=style.css>
         <link rel="shortcut icon" type=image/x-icon href=lockicon.ico>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <script src=jquery-3.6.0.js></script>
+        <script>
+            $(document).ready(() =>
+            {
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini|Nexus|Nokia/i.test(navigator.userAgent) ) 
+                {
+                    $('#abut').css('width','80%');
+                }
+            });
+        </script>
     </head>
     <body>
         <div id=justifydiv>
@@ -17,7 +28,7 @@
                 <p><b>Where can I find my save file?</b></p>
                 <p>You can find your save file in the downloads folder of your PC/Mac.</p>
                 <p><b>Is BookSafe supported on mobile devices?</b></p>
-                <p>No, BookSafe is not currently optimized for mobile users.</p>
+                <p>Yes, BookSafe is supported on mobile devices.</p>
                 <p><b>More questions?</b></p>
                 <p>Email the developer at <a style=text-decoration:underline;color:blue; href="mailto:horizonzzQuery@gmail.com">horizonzzQuery@gmail.com </a></p>
                 <hr>
