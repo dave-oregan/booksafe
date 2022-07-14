@@ -263,7 +263,7 @@ ul li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: auto;
+    width: auto;
     overflow: auto;
 }
 
@@ -325,7 +325,7 @@ ul li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
+    width: auto;
     overflow: auto;
     padding-bottom: 30px;
 }
@@ -410,10 +410,15 @@ hr {
     width: 50%;
 }
 
-#flexedbox br {
-    display:block !important;
+#flexedbox span {
+    display: inline-block !important;
 }
 
-#ulBut br {
-    display:block !important;
+#flexedbox a span {
+    display: inline-block !important;
 }
+
+#ulBut span {
+    display: inline-block !important;
+}
+
