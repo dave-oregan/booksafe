@@ -422,3 +422,7 @@ hr {
     display: inline-block !important;
 }
 
+#filebox span {
+    display: inline-block !important;
+}
+
