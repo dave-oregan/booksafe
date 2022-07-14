@@ -16,7 +16,7 @@
                 {
                     $('#h1a').html('BookSafe');
                     $('#ulBut').empty();
-                    $('#ulBut').append('<span class=ipBut onclick=addNew();hideBlank();showNonBlank();> SUBMIT </span> <br style=margin-bottom:60px;><span class=ipBut onclick=clearNew()> CLEAR </span>');
+                    $('#ulBut').append('<button class=ipBut onclick=addNew();hideBlank();showNonBlank();> SUBMIT </button> <br style=margin-bottom:60px;><button class=ipBut onclick=clearNew()> CLEAR </button>');
                     $('#setback').remove();
                     $('#flexedbox').append(`<br style=margin-bottom:60px;><span id=setback class=ipBut onclick='$(".popboxS").css("display","none");'> BACK </span>`);
                 }
