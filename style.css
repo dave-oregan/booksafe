@@ -409,3 +409,11 @@ hr {
     border: none;
     width: 50%;
 }
+
+#flexedbox br {
+    display:block !important;
+}
+
+#ulBut br {
+    display:block !important;
+}
