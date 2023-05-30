@@ -7,8 +7,11 @@
         <link rel=stylesheet href=style.css>
     </head>
     <body>
-        <h1 id=title>title</h1>
-        <a href=about.html>about</a>
+        <div id=topbar>
+            <a id=title>BookSafe</a>
+            <a class=button id=aboutbutton href=about.html>ABOUT</a>
+            <a class=button id=newbutton onclick='reveal("na_container")'>NEW</a>
+        </div>
         <div class=hidden id=na_container>
             <div id=newaccount>
                 <h2>New Account</h2>
@@ -33,7 +36,6 @@
             </div>
             <div id=naback onclick='hide("na_container")'></div>
         </div>
-        <span class=button onclick='reveal("na_container")'>NEW</span>
-        <script src=function.js></script>
+        <script src=js/function.js></script>
     </body>
 </html>

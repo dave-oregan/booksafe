@@ -1,4 +1,3 @@
-const title_el = document.getElementById('title')
 const new_sit = document.getElementById('new_sit')
 const new_usn = document.getElementById('new_usn')
 const new_pwd = document.getElementById('new_pwd')
@@ -9,8 +8,6 @@ const new_scq = document.getElementById('new_scq')
 const new_acc = document.getElementById('new_acc')
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
-
-title_el.innerText = api.title
 
 new_acc.addEventListener('click', async () => {
     const sit = new_sit.value

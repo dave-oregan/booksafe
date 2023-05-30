@@ -1,5 +1,41 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
 .hidden {
     display: none !important;
+}
+
+#topbar {
+    width: 100%;
+    overflow: hidden;
+    background-color: red;
+}
+
+#title {
+    font-size: 2em;
+    margin: .3em;
+    display: inline-block;
+}
+
+#searchbar {
+    font-size: 1.12em;
+    height: 2em;
+    margin: .53em;
+    border: ridge;
+    vertical-align: top;
+    display: inline-block;
+}
+
+#newbutton {
+    float: right;
+    text-align: center;
+}
+
+#aboutbutton {
+    float: right;
+    text-align: center;
 }
 
 #na_container {
@@ -16,6 +52,7 @@
 
 #newaccount {
     display: flex;
+    border-radius: .7em;
     flex-direction: column;
     background-color: darkgrey;
     min-width: 60%;
@@ -36,8 +73,8 @@
 }
 
 .button {
-    margin: 1em;
-    padding: 0.5em;
+    margin: .5em;
+    padding: .7em;
     background-color: grey;
     border-radius: .3em;
     cursor: pointer;

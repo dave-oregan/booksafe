@@ -6,6 +6,7 @@ function createWindow () {
     const win = new BrowserWindow({
         width: 1280,
         height: 720,
+        autoHideMenuBar: true,
         icon: __dirname + '/src/lockicon.ico',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
