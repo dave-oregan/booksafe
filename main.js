@@ -6,15 +6,25 @@ function createWindow () {
     const win = new BrowserWindow({
         width: 1280,
         height: 720,
+        icon: __dirname + '/src/lockicon.ico',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
-    });
+    })
 
     ipcMain.handle('create-file', (req, data) => {
         if (!data || !data.sit || !data.content) { return false }
 
-        const filePath = path.join(__dirname, 'passwords', `${data.sit}.txt`)
+        var filePath = path.join(__dirname, 'passwords', `${data.sit}.txt`)
+
+        if (fs.existsSync(filePath)) {
+            var diff = 0
+            while (fs.existsSync(filePath)) {
+                diff++
+                filePath = path.join(__dirname, 'passwords', `${data.sit}${diff}.txt`)
+            }
+        }
+
         fs.writeFileSync(filePath, data.content)
 
         return { success: true, filePath }

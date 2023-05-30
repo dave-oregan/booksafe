@@ -1,5 +1,5 @@
 {
-  "name": "booksafe",
+  "name": "BookSafe",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -7,9 +7,12 @@
     "start": "electron ."
   },
   "keywords": [],
-  "author": "",
+  "author": "David O'Regan",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^25.0.0"
+    "electron": "^25.0.0",
+    "electron-package": "^0.1.0",
+    "install": "^0.13.0",
+    "npm": "^9.6.7"
   }
 }
