@@ -102,6 +102,9 @@ body {
     height: 1em;
     background-color: azure;
     overflow: hidden;
+}
+
+.account:not(:last-child) {
     margin-bottom: 1em;
 }
 
