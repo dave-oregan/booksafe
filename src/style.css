@@ -102,6 +102,7 @@ body {
     height: 1em;
     background-color: azure;
     overflow: hidden;
+    margin-bottom: 1em;
 }
 
 .account.expanded {
