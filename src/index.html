@@ -7,34 +7,137 @@
         <link rel=stylesheet href=style.css>
     </head>
     <body>
-        <div id=topbar>
-            <a id=title>BookSafe</a>
-            <a class=button id=aboutbutton href=about.html>ABOUT</a>
-            <a class=button id=newbutton onclick='reveal("na_container")'>NEW</a>
-        </div>
-        <div class=hidden id=na_container>
-            <div id=newaccount>
-                <h2>New Account</h2>
-                <label for=new_sit>Site:</label>
-                <input type=text id=new_sit placeholder='Type here...'>
-                <label for=new_usn>Username:</label>
-                <input type=text id=new_usn placeholder='Type here...'>
-                <label for=new_pwd>Password:</label>
-                <input type=text id=new_pwd placeholder='Type here...'>
-                <label for=new_pin>PIN:</label>
-                <input type=text id=new_pin placeholder='Type here...'>
-                <label for=new_eml>E-Mail:</label>
-                <input type=text id=new_eml placeholder='Type here...'>
-                <label for=new_num>Phone:</label>
-                <input type=text id=new_num placeholder='Type here...'>
-                <label for=new_scq>Questions:</label>
-                <input type=text id=new_scq placeholder='Type here...'>
-                <div>
-                    <span class=button id=new_acc>ADD</span>
-                    <span class=button onclick='hide("na_container")'>CANCEL</span>
+        <div id=content>
+            <div id=topbar>
+                <a id=title>BookSafe</a>
+                <a class=button id=aboutbutton href=about.html>ABOUT</a>
+                <a class=button id=newbutton onclick='reveal("na_container")'>NEW</a>
+            </div>
+            <div class=hidden id=na_container>
+                <div id=newaccount>
+                    <h2>New Account</h2>
+                    <label for=new_sit>Site:</label>
+                    <input type=text id=new_sit placeholder='Type here...'>
+                    <label for=new_usn>Username:</label>
+                    <input type=text id=new_usn placeholder='Type here...'>
+                    <label for=new_pwd>Password:</label>
+                    <input type=text id=new_pwd placeholder='Type here...'>
+                    <label for=new_pin>PIN:</label>
+                    <input type=text id=new_pin placeholder='Type here...'>
+                    <label for=new_eml>E-Mail:</label>
+                    <input type=text id=new_eml placeholder='Type here...'>
+                    <label for=new_num>Phone:</label>
+                    <input type=text id=new_num placeholder='Type here...'>
+                    <label for=new_oth>Other:</label>
+                    <input type=text id=new_oth placeholder='Type here...'>
+                    <div>
+                        <span class=button id=new_acc>ADD</span>
+                        <span class=button onclick='hide("na_container")'>CANCEL</span>
+                    </div>
+                </div>
+                <div id=naback onclick='hide("na_container")'></div>
+            </div>
+            <div id=accountContainer>
+                <div id=accA>
+                    <h1>A</h1>
+                </div>
+                <div id=accB>
+                    <h1>B</h1>
+                </div>
+                <div id=accC>
+                    <h1>C</h1>
+                </div>
+                <div id=accD>
+                    <h1>D</h1>
+                </div>
+                <div id=accE>
+                    <h1>E</h1>
+                </div>
+                <div id=accF>
+                    <h1>F</h1>
+                </div>
+                <div id=accG>
+                    <h1>G</h1>
+                    <div class=account id=name>
+                        <a class=text id=webname>Google<span id=accExpand onclick='expand(this.parentNode.parentNode, this)'>▼</span></a>
+                        <div class=inneraccountcontainer>
+                            <div class=accountlabels>
+                                <a class=text>Username:</a>
+                                <a class=text>Password:</a>
+                                <a class=text>PIN:</a>
+                                <a class=text>Email:</a>
+                                <a class=text>Other:</a>
+                            </div>
+                            <div class=accountdetails>
+                                <a class=text id=username>placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder</a>
+                                <a class=text id=password>placeholder</a>
+                                <a class=text id=pin>placeholder</a>
+                                <a class=text id=email>placeholder</a>
+                                <a class=text id=other>placeholder</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id=accH>
+                    <h1>H</h1>
+                </div>
+                <div id=accI>
+                    <h1>I</h1>
+                </div>
+                <div id=accJ>
+                    <h1>J</h1>
+                </div>
+                <div id=accK>
+                    <h1>K</h1>
+                </div>
+                <div id=accL>
+                    <h1>L</h1>
+                </div>
+                <div id=accM>
+                    <h1>M</h1>
+                </div>
+                <div id=accN>
+                    <h1>N</h1>
+                </div>
+                <div id=accO>
+                    <h1>O</h1>
+                </div>
+                <div id=accP>
+                    <h1>P</h1>
+                </div>
+                <div id=accQ>
+                    <h1>Q</h1>
+                </div>
+                <div id=accR>
+                    <h1>R</h1>
+                </div>
+                <div id=accS>
+                    <h1>S</h1>
+                </div>
+                <div id=accT>
+                    <h1>T</h1>
+                </div>
+                <div id=accU>
+                    <h1>U</h1>
+                </div>
+                <div id=accV>
+                    <h1>V</h1>
+                </div>
+                <div id=accW>
+                    <h1>W</h1>
+                </div>
+                <div id=accX>
+                    <h1>X</h1>
+                </div>
+                <div id=accY>
+                    <h1>Y</h1>
+                </div>
+                <div id=accZ>
+                    <h1>Z</h1>
+                </div>
+                <div id=acc->
+                    <h1>#</h1>
                 </div>
             </div>
-            <div id=naback onclick='hide("na_container")'></div>
         </div>
         <script src=js/function.js></script>
     </body>

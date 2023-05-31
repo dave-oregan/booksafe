@@ -1,6 +1,23 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
+    height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
+}
+
+#content {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+#innercontent {
+    flex: 1 1 auto;
 }
 
 .hidden {
@@ -8,23 +25,16 @@ body {
 }
 
 #topbar {
-    width: 100%;
-    overflow: hidden;
+    /* width: 100%;
+    height: fit-content;
+    overflow: hidden; */
+    flex: 0 1 auto;
     background-color: red;
 }
 
 #title {
     font-size: 2em;
     margin: .3em;
-    display: inline-block;
-}
-
-#searchbar {
-    font-size: 1.12em;
-    height: 2em;
-    margin: .53em;
-    border: ridge;
-    vertical-align: top;
     display: inline-block;
 }
 
@@ -72,6 +82,60 @@ body {
     background-color: rgba(0, 0, 0, 0.589);
 }
 
+#accountContainer {
+    background-color: brown;
+    min-width: 80%;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 2.5%;
+    margin-bottom: 3.5%;
+    padding: 3%;
+    overflow-y: auto;
+    flex: 1 1 auto;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3em;
+    padding: 2%;
+    height: 1em;
+    background-color: azure;
+    overflow: hidden;
+}
+
+.account.expanded {
+    height: fit-content;
+}
+
+.inneraccountcontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.accountlabels {
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+    margin-right: 1em;
+}
+
+.accountdetails {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.text:not(:last-child) {
+    margin-bottom: .6em
+}
+
+#accExpand {
+    float: right;
+    cursor: pointer;
+    user-select: none;
+}
+
 .button {
     margin: .5em;
     padding: .7em;
@@ -81,4 +145,5 @@ body {
     width: fit-content;
     display: inline-block;
     color: white;
+    user-select: none;
 }
