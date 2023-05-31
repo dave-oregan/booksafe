@@ -12,35 +12,34 @@ const nullkey = '+{akjg--HZN--akjg}+'
 new_acc.addEventListener('click', async () => {
     const sit = new_sit.value
     if (sit == '') { return }
-    const usn = new_usn.value
+    var usn = new_usn.value
     if (usn == '') { usn = nullkey }
-    const pwd = new_pwd.value
+    var pwd = new_pwd.value
     if (pwd == '') { pwd = nullkey }
-    const pin = new_pin.value
+    var pin = new_pin.value
     if (pin == '') { pin = nullkey }
-    const eml = new_eml.value
+    var eml = new_eml.value
     if (eml == '') { eml = nullkey }
-    const num = new_num.value
+    var num = new_num.value
     if (num == '') { num = nullkey }
-    const oth = new_oth.value
+    var oth = new_oth.value
     if (oth == '') { oth = nullkey }
 
     const content = `${sit}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
     
     const save = await api.savePass({ sit, content })
     
-    addAccount(sit, usn, pwd, pin, eml, num, oth)
-
-    new_sit.value = ''
-    new_usn.value = ''
-    new_pwd.value = ''
-    new_pin.value = ''
-    new_eml.value = ''
-    new_num.value = ''
-    new_oth.value = ''
+    location.reload()
 })
 
 function addAccount(site, username, password, pin, email, phone, other) {
+    if (username == nullkey) { username = '' }
+    if (password == nullkey) { password = '' }
+    if (pin == nullkey) { pin = '' }
+    if (email == nullkey) { email = '' }
+    if (phone == nullkey) { phone = '' }
+    if (other == nullkey) { other = '' }
+
     const large = document.createElement('div')
         large.className = 'account'
         large.id = 'name'
@@ -120,7 +119,10 @@ function configure() {
 
 async function loadfiles() {
     const fileArray = await api.loadFile()
-    console.log(fileArray)
+    fileArray.forEach((account) => {
+        const accountArray = account.split(divikey)
+        addAccount(accountArray[0],accountArray[1],accountArray[2],accountArray[3],accountArray[4],accountArray[5],accountArray[6])
+    })
 }
 
 window.onload = async () => {
