@@ -33,6 +33,29 @@ function createWindow () {
         return { success: true, filePath }
     })
 
+    ipcMain.handle('read-dir', async (event) => {
+        const folderPath = path.join(__dirname, 'passwords')
+    
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath)
+        }
+    
+        var fileData = []
+
+        const files = await fs.promises.readdir(folderPath)
+
+        for (const file of files) {
+            const toPath = path.join(folderPath, file)
+            const contents = await fs.promises.readFile(toPath, 'utf-8')
+            fileData.push(contents)
+        }
+
+        console.log('')
+        console.log(fileData)
+
+        return fileData
+    })
+
     win.loadFile('src/index.html')
 }
 

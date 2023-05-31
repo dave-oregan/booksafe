@@ -154,4 +154,5 @@ body {
     display: inline-block;
     color: white;
     user-select: none;
+    text-decoration: none;
 }
