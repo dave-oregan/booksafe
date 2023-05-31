@@ -6,6 +6,8 @@ function createWindow () {
     const win = new BrowserWindow({
         width: 1280,
         height: 720,
+        minWidth: 350,
+        minHeight: 350,
         autoHideMenuBar: true,
         icon: __dirname + '/src/lockicon.ico',
         webPreferences: {

@@ -98,7 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 1.3em;
-    padding: 2%;
+    padding: .8em;
     height: 1em;
     background-color: azure;
     overflow: hidden;
@@ -110,24 +110,28 @@ body {
 
 .inneraccountcontainer {
     display: flex;
+    flex-direction: column;
+}
+
+.site, .accountrow:not(:last-child) {
+    margin-bottom: .6em
+}
+
+.accountrow {
+    display: flex;
     flex-direction: row;
 }
 
-.accountlabels {
-    display: flex;
-    flex-direction: column;
-    min-width: fit-content;
+.textL {
+    flex: 0 0 5em;
+}
+
+.text {
     margin-right: 1em;
-}
-
-.accountdetails {
-    display: flex;
-    flex-direction: column;
-    overflow-x: auto;
-}
-
-.text:not(:last-child) {
-    margin-bottom: .6em
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #accExpand {
