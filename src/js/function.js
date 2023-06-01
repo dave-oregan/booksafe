@@ -42,14 +42,14 @@ function addAccount(site, username, password, pin, email, phone, other) {
 
     const large = document.createElement('div')
         large.className = 'account'
-        large.id = `${site}`
+        large.id = `${site.replace(/ /g,"_").replace(/'/g,"-")}`
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
         site_title.innerHTML = `${site}<span id=accExpand onclick='expand(this.parentNode.parentNode, this)'>▼</span>`
         large.appendChild(site_title)
     const container = document.createElement('div')
-        container.className = 'innercontainer'
+        container.className = 'inneraccountcontainer'
         large.appendChild(container)
     const usnrow = document.createElement('div')
         usnrow.className = 'accountrow'
@@ -99,12 +99,16 @@ function hide(id) {
 }
 
 function expand(parent, element) {
+    console.log(parent.id)
     if (element.innerText == '\u25BC') {
-        parent.classList.add('expanded')
-        element.innerText = '\u25B2'
+        $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('slow', () => {
+            element.innerText = '\u25B2'
+        })
     } else {
-        parent.classList.remove('expanded')
-        element.innerText = '\u25BC'
+        $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('slow', () => {
+            element.innerText = '\u25BC'
+        })
+        
     }
 }
 

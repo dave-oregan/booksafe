@@ -27,9 +27,6 @@ body {
 }
 
 #topbar {
-    /* width: 100%;
-    height: fit-content;
-    overflow: hidden; */
     flex: 0 1 auto;
     background-color: red;
 }
@@ -129,7 +126,9 @@ body {
     flex-direction: column;
     font-size: 1.3em;
     padding: .8em;
-    height: 1em;
+    /* height: 1em; */
+    vertical-align: middle;
+    height: fit-content;
     background-color: azure;
     overflow: hidden;
 }
@@ -138,17 +137,22 @@ body {
     margin-bottom: 1em;
 }
 
-.account.expanded {
-    height: fit-content;
+.account.expanded a:first-of-type {
+    height: 1em;
+    padding-bottom: .8em;
 }
 
 .inneraccountcontainer {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
-.site, .accountrow:not(:last-child) {
+.accountrow:not(:last-child) {
     margin-bottom: .6em
+}
+
+.accountrow:first-child {
+    margin-top: .6em
 }
 
 .accountrow {
