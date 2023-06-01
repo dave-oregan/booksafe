@@ -6,6 +6,16 @@ const new_eml = document.getElementById('new_eml')
 const new_num = document.getElementById('new_num')
 const new_oth = document.getElementById('new_oth')
 const new_acc = document.getElementById('new_acc')
+const res_new_acc = document.getElementById('res_new_acc')
+const cng_sit = document.getElementById('cng_sit')
+const cng_usn = document.getElementById('cng_usn')
+const cng_pwd = document.getElementById('cng_pwd')
+const cng_pin = document.getElementById('cng_pin')
+const cng_eml = document.getElementById('cng_eml')
+const cng_num = document.getElementById('cng_num')
+const cng_oth = document.getElementById('cng_oth')
+const cng_acc = document.getElementById('cng_acc')
+const res_cng_acc = document.getElementById('res_cng_acc')
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
 
@@ -32,21 +42,30 @@ new_acc.addEventListener('click', async () => {
     location.reload()
 })
 
+res_new_acc.addEventListener('click', () => {
+    new_sit.value = ''
+    new_usn.value = ''
+    new_pwd.value = ''
+    new_pin.value = ''
+    new_eml.value = ''
+    new_num.value = ''
+    new_oth.value = ''
+})
+
 function addAccount(site, username, password, pin, email, phone, other) {
-    if (username == nullkey) { username = '' }
-    if (password == nullkey) { password = '' }
-    if (pin == nullkey) { pin = '' }
-    if (email == nullkey) { email = '' }
-    if (phone == nullkey) { phone = '' }
-    if (other == nullkey) { other = '' }
+    let diff = 0
+    while ($(`#${site.replace(/[^a-zA-Z0-9]/g,'_')}`).length != 0) {
+        diff++
+        site = `${site}${diff}`
+    }
 
     const large = document.createElement('div')
         large.className = 'account'
-        large.id = `${site.replace(/ /g,"_").replace(/'/g,"-")}`
+        large.id = `${site.replace(/[^a-zA-Z0-9]/g,'_')}`
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
-        site_title.innerHTML = `${site}<span id=accExpand onclick='expand(this.parentNode.parentNode, this)'>▼</span>`
+        site_title.innerHTML = `${site}<span id=accButtons onclick='expand(this.parentNode.parentNode, this)'>▼</span><span id=accButtons onclick='editFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>EDIT</span>`
         large.appendChild(site_title)
     const container = document.createElement('div')
         container.className = 'inneraccountcontainer'
@@ -54,38 +73,61 @@ function addAccount(site, username, password, pin, email, phone, other) {
     const usnrow = document.createElement('div')
         usnrow.className = 'accountrow'
         usnrow.id = 'usnrow'
-        usnrow.innerHTML = `<a class=textL>Username:</a><a class=text id=username>${username}</a>`
+        usnrow.innerHTML = `<a class=textL>Username:</a><a class=text id=username>${nullkeyReplacement(username)}</a>`
         container.appendChild(usnrow)
     const pwdrow = document.createElement('div')
         pwdrow.className = 'accountrow'
         pwdrow.id = 'pwdrow'
-        pwdrow.innerHTML = `<a class=textL>Password:</a><a class=text id=password>${password}</a>`
+        pwdrow.innerHTML = `<a class=textL>Password:</a><a class=text id=password>${nullkeyReplacement(password)}</a>`
         container.appendChild(pwdrow)
     const pinrow = document.createElement('div')
         pinrow.className = 'accountrow'
         pinrow.id = 'pinrow'
-        pinrow.innerHTML = `<a class=textL>PIN:</a><a class=text id=pin>${pin}</a>`
+        pinrow.innerHTML = `<a class=textL>PIN:</a><a class=text id=pin>${nullkeyReplacement(pin)}</a>`
         container.appendChild(pinrow)
     const emlrow = document.createElement('div')
         emlrow.className = 'accountrow'
         emlrow.id = 'emlrow'
-        emlrow.innerHTML = `<a class=textL>Email:</a><a class=text id=email>${email}</a>`
+        emlrow.innerHTML = `<a class=textL>Email:</a><a class=text id=email>${nullkeyReplacement(email)}</a>`
         container.appendChild(emlrow)
     const numrow = document.createElement('div')
         numrow.className = 'accountrow'
         numrow.id = 'numrow'
-        numrow.innerHTML = `<a class=textL>Phone:</a><a class=text id=phone>${phone}</a>`
+        numrow.innerHTML = `<a class=textL>Phone:</a><a class=text id=phone>${nullkeyReplacement(phone)}</a>`
         container.appendChild(numrow)
     const othrow = document.createElement('div')
         othrow.className = 'accountrow'
         othrow.id = 'othrow'
-        othrow.innerHTML = `<a class=textL>Other:</a><a class=text id=other>${other}</a>`
+        othrow.innerHTML = `<a class=textL>Details:</a><a class=text id=other>${nullkeyReplacement(other)}</a>`
         container.appendChild(othrow)
     var labeldiscriminator
     try { labeldiscriminator = site.charAt(0).toUpperCase() }
     catch { labeldiscriminator = '-' }
     document.getElementById(`acc${labeldiscriminator}`).appendChild(large)
     configure()
+}
+
+async function editFile(fileName) {
+    fileName = fileName.id+''
+    const fileArraySingle = await api.loadFileSingle(fileName)
+    const toFile = fileArraySingle[0]
+    const dataArray = fileArraySingle[1].split(divikey)
+    openEditMenu(toFile, dataArray)
+}
+
+function openEditMenu(path, data) {
+    cng_usn.value = nullkeyReplacement(data[1])
+    cng_pwd.value = nullkeyReplacement(data[2])
+    cng_pin.value = nullkeyReplacement(data[3])
+    cng_eml.value = nullkeyReplacement(data[4])
+    cng_num.value = nullkeyReplacement(data[5])
+    cng_oth.value = nullkeyReplacement(data[6])
+    reveal('cng_container')
+}
+
+function nullkeyReplacement(string) {
+    if (string == nullkey) { string = '' }
+    return string
 }
 
 function reveal(id) {
@@ -99,17 +141,8 @@ function hide(id) {
 }
 
 function expand(parent, element) {
-    console.log(parent.id)
-    if (element.innerText == '\u25BC') {
-        $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('slow', () => {
-            element.innerText = '\u25B2'
-        })
-    } else {
-        $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('slow', () => {
-            element.innerText = '\u25BC'
-        })
-        
-    }
+    if (element.innerText == '\u25BC') { $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('slow', () => { element.innerText = '\u25B2' }) }
+    else { $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('slow', () => { element.innerText = '\u25BC' }) }
 }
 
 function windowScroll(discriminator) {

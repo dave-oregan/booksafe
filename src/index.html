@@ -14,27 +14,34 @@
                 <a class=button id=aboutbutton href=about.html>ABOUT</a>
                 <a class=button id=newbutton onclick='reveal("na_container")'>NEW</a>
             </div>
-            <div class=hidden id=na_container>
-                <div id=newaccount>
-                    <h2>New Account</h2>
-                    <label for=new_sit>Site:</label>
-                    <input type=text id=new_sit placeholder='Type here...'>
-                    <label for=new_usn>Username:</label>
-                    <input type=text id=new_usn placeholder='Type here...'>
-                    <label for=new_pwd>Password:</label>
-                    <input type=text id=new_pwd placeholder='Type here...'>
-                    <label for=new_pin>PIN:</label>
-                    <input type=text id=new_pin placeholder='Type here...'>
-                    <label for=new_eml>E-Mail:</label>
-                    <input type=text id=new_eml placeholder='Type here...'>
-                    <label for=new_num>Phone:</label>
-                    <input type=text id=new_num placeholder='Type here...'>
-                    <label for=new_oth>Other:</label>
-                    <input type=text id=new_oth placeholder='Type here...'>
-                    <div>
-                        <span class=button id=new_acc>ADD</span>
-                        <span class=button onclick='hide("na_container")'>CANCEL</span>
-                    </div>
+            <div class='typerpopouter hidden' id=na_container>
+                <div class=typerpop id=newaccount>
+                    <ul class=submitUL>
+                        <li class=nTitle> New Account </li>
+                        <li>Website: <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
+                        <li>Username: <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
+                        <li>Password: <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
+                        <li>PIN: <input type=text class=ipBox id=new_pin placeholder='Type here...'></li>
+                        <li>Email: <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
+                        <li>Phone: <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
+                        <li>Details: <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
+                        <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button onclick='hide("na_container")'>CANCEL</span></li>
+                    </ul>
+                </div>
+                <div id=naback onclick='hide("na_container")'></div>
+            </div>
+            <div class='typerpopouter hidden' id=cng_container>
+                <div class=typerpop id=cngaccount>
+                    <ul class=submitUL>
+                        <li class=nTitle> Edit Account </li>
+                        <li>Username: <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
+                        <li>Password: <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
+                        <li>PIN: <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
+                        <li>Email: <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
+                        <li>Phone: <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
+                        <li>Details: <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
+                        <li class=ulBut><span class=button id=cng_acc>SUBMIT</span> <span class=button id=res_cng_acc>RESET</span> <span class=button onclick='hide("cng_container")'>CANCEL</span></li>
+                    </ul>
                 </div>
                 <div id=naback onclick='hide("na_container")'></div>
             </div>
@@ -89,7 +96,7 @@
                 <div id=accG>
                     <h1>G</h1>
                     <!-- <div class=account id=name>
-                        <a class=site id=webname>Google<span id=accExpand onclick='expand(this.parentNode.parentNode, this)'>▼</span></a>
+                        <a class=site id=webname>Google<span id=accButtons onclick='expand(this.parentNode.parentNode, this)'>▼</span></a>
                         <div class=inneraccountcontainer>
                             <div class=accountrow id=usnrow>
                                 <a class=textL>Username:</a><a class=text id=username>placeholder</a>

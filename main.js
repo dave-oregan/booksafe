@@ -6,7 +6,7 @@ function createWindow () {
     const win = new BrowserWindow({
         width: 1280,
         height: 720,
-        minWidth: 350,
+        minWidth: 400,
         minHeight: 350,
         autoHideMenuBar: true,
         icon: __dirname + '/src/lockicon.ico',
@@ -15,10 +15,10 @@ function createWindow () {
         }
     })
 
-    ipcMain.handle('create-file', (req, data) => {
+    ipcMain.handle('create-file', (event, data) => {
         if (!data || !data.sit || !data.content) { return false }
 
-        var filePath = path.join(__dirname, 'passwords', `${data.sit}.txt`)
+        var filePath = path.join(__dirname, 'passwords', `${data.sit.replace(/[^a-zA-Z0-9]/g,'_')}.txt`)
 
         if (fs.existsSync(filePath)) {
             var diff = 0
@@ -51,6 +51,15 @@ function createWindow () {
         }
 
         return fileData
+    })
+
+    ipcMain.handle('read-file-single', async (event, fileName) => {
+        var filePathS = path.join(__dirname, 'passwords', `${fileName}.txt`)
+        console.log(filePathS)
+
+        const fileS = await fs.promises.readFile(filePathS, 'utf-8')
+
+        return [ filePathS, fileS ]
     })
 
     win.loadFile('src/index.html')

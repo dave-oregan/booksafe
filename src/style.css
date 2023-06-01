@@ -47,7 +47,7 @@ body {
     text-align: center;
 }
 
-#na_container {
+.typerpopouter {
     top: 0;
     left: 0;
     position: absolute;
@@ -59,19 +59,60 @@ body {
     height: 100%;
 }
 
-#newaccount {
+.typerpop {
     display: flex;
     border-radius: .7em;
     flex-direction: column;
-    background-color: darkgrey;
+    background-color: lightgrey;
     min-width: 60%;
     width: fit-content;
     align-items: center;
     max-width: 90%;
     height: fit-content;
+    max-height: 95%;
     margin: 0 auto;
     z-index: 8;
     position: absolute;
+    overflow-y: auto;
+}
+
+.nTitle {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
+.submitUL {
+    padding: 0;
+    list-style-type: none;
+    width: 80%;
+}
+
+.submitUL li:not(:first-child) {
+    font-size: large;
+}
+
+.ipBox {
+    width: 100%;
+    background-color: white;
+    font-size: large;
+    border-radius: .5em;
+    border-style: none;
+    padding: .5em .9em;
+    margin-top: .4em;
+    margin-bottom: .4em;
+    box-sizing: border-box;
+    transition-duration: 0.25s;
+}
+
+.ipBox:hover {
+    background-color: darkgrey;
+}
+
+.ulBut{
+    text-align: center;
 }
 
 #naback {
@@ -114,7 +155,7 @@ body {
     min-width: 80%;
     max-width: 80%;
     margin: auto;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     padding: 3%;
     padding-top: 1.5%;
     overflow-y: auto;
@@ -161,7 +202,7 @@ body {
 }
 
 .textL {
-    flex: 0 0 5em;
+    flex: 0 0 6em;
 }
 
 .text {
@@ -172,10 +213,13 @@ body {
     word-break: break-all;
 }
 
-#accExpand {
+#accButtons {
     float: right;
     cursor: pointer;
     user-select: none;
+    width: fit-content;
+    margin-left: .5em;
+    font-size: 1em;
 }
 
 #aboutpage {
