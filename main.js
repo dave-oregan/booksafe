@@ -50,9 +50,6 @@ function createWindow () {
             fileData.push(contents)
         }
 
-        console.log('')
-        console.log(fileData)
-
         return fileData
     })
 

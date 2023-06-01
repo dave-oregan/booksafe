@@ -28,7 +28,7 @@ new_acc.addEventListener('click', async () => {
     const content = `${sit}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
     
     const save = await api.savePass({ sit, content })
-    
+
     location.reload()
 })
 
@@ -42,7 +42,7 @@ function addAccount(site, username, password, pin, email, phone, other) {
 
     const large = document.createElement('div')
         large.className = 'account'
-        large.id = 'name'
+        large.id = `${site}`
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
@@ -108,12 +108,22 @@ function expand(parent, element) {
     }
 }
 
+function windowScroll(discriminator) {
+    document.getElementById(`acc${discriminator}`).scrollIntoView({ behavior: "smooth" })
+}
+
 function configure() {
     const headers = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','-' ]
     headers.forEach((x) => {
         const header = document.getElementById(`acc${x}`)
-        if (header.childElementCount == 0 || header.childElementCount == 1) { hide(`acc${x}`) }
-        else { reveal(`acc${x}`) }
+        if (header.childElementCount == 0 || header.childElementCount == 1) {
+            hide(`acc${x}`)
+            hide(`scr${x}`)
+        }
+        else {
+            reveal(`acc${x}`)
+            reveal(`scr${x}`)
+        }
     })
 }
 
