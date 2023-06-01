@@ -16,24 +16,20 @@ const cng_num = document.getElementById('cng_num')
 const cng_oth = document.getElementById('cng_oth')
 const cng_acc = document.getElementById('cng_acc')
 const res_cng_acc = document.getElementById('res_cng_acc')
+const cngaccount = document.getElementById('cngaccount')
+const cng_container = document.getElementById('cng_container')
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
 
 new_acc.addEventListener('click', async () => {
     const sit = new_sit.value
     if (sit == '') { return }
-    var usn = new_usn.value
-    if (usn == '') { usn = nullkey }
-    var pwd = new_pwd.value
-    if (pwd == '') { pwd = nullkey }
-    var pin = new_pin.value
-    if (pin == '') { pin = nullkey }
-    var eml = new_eml.value
-    if (eml == '') { eml = nullkey }
-    var num = new_num.value
-    if (num == '') { num = nullkey }
-    var oth = new_oth.value
-    if (oth == '') { oth = nullkey }
+    var usn = nullkeyReplacement(new_usn.value, false)
+    var pwd = nullkeyReplacement(new_pwd.value, false)
+    var pin = nullkeyReplacement(new_pin.value, false)
+    var eml = nullkeyReplacement(new_eml.value, false)
+    var num = nullkeyReplacement(new_num.value, false)
+    var oth = nullkeyReplacement(new_oth.value, false)
 
     const content = `${sit}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
     
@@ -50,6 +46,23 @@ res_new_acc.addEventListener('click', () => {
     new_eml.value = ''
     new_num.value = ''
     new_oth.value = ''
+})
+
+cng_acc.addEventListener('click', async () => {
+    var usn = nullkeyReplacement(cng_usn.value, false)
+    var pwd = nullkeyReplacement(cng_pwd.value, false)
+    var pin = nullkeyReplacement(cng_pin.value, false)
+    var eml = nullkeyReplacement(cng_eml.value, false)
+    var num = nullkeyReplacement(cng_num.value, false)
+    var oth = nullkeyReplacement(cng_oth.value, false)
+    var name = cngaccount.getAttribute('name')
+    var path = cng_container.getAttribute('name')
+
+    const contentCNG = `${name}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
+    
+    const save = await api.saveOver(path, contentCNG)
+
+    location.reload()
 })
 
 function addAccount(site, username, password, pin, email, phone, other) {
@@ -73,32 +86,32 @@ function addAccount(site, username, password, pin, email, phone, other) {
     const usnrow = document.createElement('div')
         usnrow.className = 'accountrow'
         usnrow.id = 'usnrow'
-        usnrow.innerHTML = `<a class=textL>Username:</a><a class=text id=username>${nullkeyReplacement(username)}</a>`
+        usnrow.innerHTML = `<a class=textL>Username:</a><a class=text id=username>${nullkeyReplacement(username, true)}</a>`
         container.appendChild(usnrow)
     const pwdrow = document.createElement('div')
         pwdrow.className = 'accountrow'
         pwdrow.id = 'pwdrow'
-        pwdrow.innerHTML = `<a class=textL>Password:</a><a class=text id=password>${nullkeyReplacement(password)}</a>`
+        pwdrow.innerHTML = `<a class=textL>Password:</a><a class=text id=password>${nullkeyReplacement(password, true)}</a>`
         container.appendChild(pwdrow)
     const pinrow = document.createElement('div')
         pinrow.className = 'accountrow'
         pinrow.id = 'pinrow'
-        pinrow.innerHTML = `<a class=textL>PIN:</a><a class=text id=pin>${nullkeyReplacement(pin)}</a>`
+        pinrow.innerHTML = `<a class=textL>PIN:</a><a class=text id=pin>${nullkeyReplacement(pin, true)}</a>`
         container.appendChild(pinrow)
     const emlrow = document.createElement('div')
         emlrow.className = 'accountrow'
         emlrow.id = 'emlrow'
-        emlrow.innerHTML = `<a class=textL>Email:</a><a class=text id=email>${nullkeyReplacement(email)}</a>`
+        emlrow.innerHTML = `<a class=textL>Email:</a><a class=text id=email>${nullkeyReplacement(email, true)}</a>`
         container.appendChild(emlrow)
     const numrow = document.createElement('div')
         numrow.className = 'accountrow'
         numrow.id = 'numrow'
-        numrow.innerHTML = `<a class=textL>Phone:</a><a class=text id=phone>${nullkeyReplacement(phone)}</a>`
+        numrow.innerHTML = `<a class=textL>Phone:</a><a class=text id=phone>${nullkeyReplacement(phone, true)}</a>`
         container.appendChild(numrow)
     const othrow = document.createElement('div')
         othrow.className = 'accountrow'
         othrow.id = 'othrow'
-        othrow.innerHTML = `<a class=textL>Details:</a><a class=text id=other>${nullkeyReplacement(other)}</a>`
+        othrow.innerHTML = `<a class=textL>Details:</a><a class=text id=other>${nullkeyReplacement(other, true)}</a>`
         container.appendChild(othrow)
     var labeldiscriminator
     try { labeldiscriminator = site.charAt(0).toUpperCase() }
@@ -116,17 +129,23 @@ async function editFile(fileName) {
 }
 
 function openEditMenu(path, data) {
-    cng_usn.value = nullkeyReplacement(data[1])
-    cng_pwd.value = nullkeyReplacement(data[2])
-    cng_pin.value = nullkeyReplacement(data[3])
-    cng_eml.value = nullkeyReplacement(data[4])
-    cng_num.value = nullkeyReplacement(data[5])
-    cng_oth.value = nullkeyReplacement(data[6])
+    cng_usn.defaultValue = nullkeyReplacement(data[1], true)
+    cng_pwd.defaultValue = nullkeyReplacement(data[2], true)
+    cng_pin.defaultValue = nullkeyReplacement(data[3], true)
+    cng_eml.defaultValue = nullkeyReplacement(data[4], true)
+    cng_num.defaultValue = nullkeyReplacement(data[5], true)
+    cng_oth.defaultValue = nullkeyReplacement(data[6], true)
+    cngaccount.setAttribute('name', data[0])
+    cng_container.setAttribute('name', path)
+
     reveal('cng_container')
+    // implement file updating
+    // implement edit menu reset
 }
 
-function nullkeyReplacement(string) {
-    if (string == nullkey) { string = '' }
+function nullkeyReplacement(string, bool) {
+    if (string == nullkey && bool) { string = '' }
+    if (string == '' && !bool) { string = nullkey }
     return string
 }
 

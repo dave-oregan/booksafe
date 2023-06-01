@@ -55,11 +55,18 @@ function createWindow () {
 
     ipcMain.handle('read-file-single', async (event, fileName) => {
         var filePathS = path.join(__dirname, 'passwords', `${fileName}.txt`)
-        console.log(filePathS)
 
         const fileS = await fs.promises.readFile(filePathS, 'utf-8')
 
         return [ filePathS, fileS ]
+    })
+
+    ipcMain.handle('overwrite-file', (event, toFile, content) => {
+        if (!toFile || !content) { return false }
+
+        fs.writeFileSync(toFile, content)
+
+        return true
     })
 
     win.loadFile('src/index.html')
