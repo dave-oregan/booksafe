@@ -40,10 +40,26 @@
                         <li>Email: <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
                         <li>Phone: <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
                         <li>Details: <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
-                        <li class=ulBut><span class=button id=cng_acc>SUBMIT</span> <span class=button id=res_cng_acc>RESET</span> <span class=button onclick='hide("cng_container")'>CANCEL</span></li>
+                        <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button onclick='hide("cng_container")'>CANCEL</span></li>
                     </ul>
                 </div>
                 <div id=naback onclick='hide("cng_container")'></div>
+            </div>
+            <div class='typerpopouter hidden' id=del_container>
+                <div class=typerpop id=delaccount>
+                    <ul class=submitUL>
+                        <li class=nTitle> Delete Account </li>
+                        <li>Website: <input type=text class=ipBox id=del_sit readonly=readonly></li>
+                        <li>Username: <input type=text class=ipBox id=del_usn readonly=readonly></li>
+                        <li>Password: <input type=text class=ipBox id=del_pwd readonly=readonly></li>
+                        <li>PIN: <input type=text class=ipBox id=del_pin readonly=readonly></li>
+                        <li>Email: <input type=text class=ipBox id=del_eml readonly=readonly></li>
+                        <li>Phone: <input type=text class=ipBox id=del_num readonly=readonly></li>
+                        <li>Details: <input type=text class=ipBox id=del_oth readonly=readonly></li>
+                        <li class=ulBut><span class=button id=del_acc>CONFIRM</span> <span class=button onclick='hide("del_container")'>CANCEL</span></li>
+                    </ul>
+                </div>
+                <div id=naback onclick='hide("del_container")'></div>
             </div>
             <div id=scrollContainer>
                 <a id=scrA onclick='windowScroll("A")'>A</a>
@@ -95,29 +111,6 @@
                 </div>
                 <div id=accG>
                     <h1>G</h1>
-                    <!-- <div class=account id=name>
-                        <a class=site id=webname>Google<span id=accButtons onclick='expand(this.parentNode.parentNode, this)'>▼</span></a>
-                        <div class=inneraccountcontainer>
-                            <div class=accountrow id=usnrow>
-                                <a class=textL>Username:</a><a class=text id=username>placeholder</a>
-                            </div>
-                            <div class=accountrow id=pwdrow>
-                                <a class=textL>Password:</a><a class=text id=password>placeholder</a>
-                            </div>
-                            <div class=accountrow id=pinrow>
-                                <a class=textL>PIN:</a><a class=text id=pin>placeholder</a>
-                            </div>
-                            <div class=accountrow id=emlrow>
-                                <a class=textL>Email:</a><a class=text id=email>placeholder</a>
-                            </div>
-                            <div class=accountrow id=numrow>
-                                <a class=textL>Phone:</a><a class=text id=phone>placeholder</a>
-                            </div>
-                            <div class=accountrow id=othrow>
-                                <a class=textL>Other:</a><a class=text id=other>placeholder</a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <div id=accH>
                     <h1>H</h1>

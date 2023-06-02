@@ -213,7 +213,7 @@ body {
     word-break: break-all;
 }
 
-#accButtons {
+.accButtons {
     float: right;
     cursor: pointer;
     user-select: none;

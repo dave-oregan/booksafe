@@ -69,6 +69,14 @@ function createWindow () {
         return true
     })
 
+    ipcMain.handle('delete-file', (event, toFile) => {
+        if (!toFile) { return false }
+
+        fs.unlinkSync(toFile, () => {})
+
+        return true
+    })
+
     win.loadFile('src/index.html')
 }
 
