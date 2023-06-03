@@ -54,7 +54,7 @@ new_acc.addEventListener('click', async () => {
 
     const content = `${sit}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
     
-    const save = await api.savePass({ sit, content })
+    const save = await api.savePass(sit, content, divikey)
 
     location.reload()
 })

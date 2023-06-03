@@ -16,20 +16,23 @@ function createWindow () {
         }
     })
 
-    ipcMain.handle('create-file', (event, data) => {
-        if (!data || !data.sit || !data.content) { return false }
+    ipcMain.handle('create-file', (event, sit, content, divikey) => {
+        if (!sit || !content || !divikey) { return false }
 
-        var filePath = path.join(__dirname, 'passwords', `${data.sit.replace(/[^a-zA-Z0-9]/g,'_')}.txt`)
+        var filePath = path.join(__dirname, 'passwords', `${sit.replace(/[^a-zA-Z0-9]/g,'_')}.txt`)
 
         if (fs.existsSync(filePath)) {
             var diff = 0
             while (fs.existsSync(filePath)) {
                 diff++
-                filePath = path.join(__dirname, 'passwords', `${data.sit}${diff}.txt`)
+                filePath = path.join(__dirname, 'passwords', `${sit}${diff}.txt`)
+                let splitData = content.split(divikey)
+                splitData[0] = `${sit}${diff}`
+                content = splitData.join(divikey)
             }
         }
 
-        fs.writeFileSync(filePath, data.content)
+        fs.writeFileSync(filePath, content)
 
         return { success: true, filePath }
     })
