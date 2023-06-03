@@ -19,18 +19,21 @@ function createWindow () {
     ipcMain.handle('create-file', (event, sit, content, divikey) => {
         if (!sit || !content || !divikey) { return false }
 
-        var filePath = path.join(__dirname, 'passwords', `${sit.replace(/[^a-zA-Z0-9]/g,'_')}.txt`)
+        const potentialFile = sit.replace(/[^a-zA-Z0-9]/g,'_')
+
+        var filePath = path.join(__dirname, 'passwords', `${potentialFile}.txt`)
+
+        var diff = 0
 
         if (fs.existsSync(filePath)) {
-            var diff = 0
             while (fs.existsSync(filePath)) {
                 diff++
-                filePath = path.join(__dirname, 'passwords', `${sit}${diff}.txt`)
-                let splitData = content.split(divikey)
-                splitData[0] = `${sit}${diff}`
-                content = splitData.join(divikey)
+                filePath = path.join(__dirname, 'passwords', `${potentialFile}${diff}.txt`)
             }
         }
+
+        if (diff > 0) { content += `${divikey}${potentialFile}${diff}` }
+        else { content += `${divikey}${potentialFile}` }
 
         fs.writeFileSync(filePath, content)
 

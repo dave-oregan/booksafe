@@ -103,20 +103,22 @@ cfmdel_acc.addEventListener('click', async () => {
     }
 })
 
-function addAccount(site, username, password, pin, email, phone, other) {
+function addAccount(site, username, password, pin, email, phone, other, file) {
     let diff = 0
-    while ($(`#${site.replace(/[^a-zA-Z0-9]/g,'_')}`).length != 0) {
+    let oldsite = site
+    while ($(`[name="${site}"]`).length != 0) {
         diff++
-        site = `${site}${diff}`
+        site = `${oldsite} (${diff})`
     }
 
     const large = document.createElement('div')
         large.className = 'account'
-        large.id = `${site.replace(/[^a-zA-Z0-9]/g,'_')}`
+        large.id = `${file}`
+        large.setAttribute('name',`${site}`)
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
-        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${site.replace(/[^a-zA-Z0-9]/g,'_')}")'>${xIcon}</span><span class=accButtons onclick='editFile("${site.replace(/[^a-zA-Z0-9]/g,'_')}")'>${eIcon}</span><div>`
+        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
         large.appendChild(site_title)
     const container = document.createElement('div')
         container.className = 'inneraccountcontainer'
@@ -160,7 +162,6 @@ function addAccount(site, username, password, pin, email, phone, other) {
 }
 
 async function editFile(fileName) {
-    fileName = fileName.id+''
     const fileArraySingle = await api.loadFileSingle(fileName)
     const toFile = fileArraySingle[0]
     const dataArray = fileArraySingle[1].split(divikey)
@@ -181,7 +182,6 @@ function openEditMenu(path, data) {
 }
 
 async function deleteFile(fileName) {
-    fileName = fileName
     const fileArraySingle = await api.loadFileSingle(fileName)
     const toFile = fileArraySingle[0]
     const dataArray = fileArraySingle[1].split(divikey)
@@ -248,7 +248,7 @@ async function loadfiles() {
     const fileArray = await api.loadFile()
     fileArray.forEach((account) => {
         const accountArray = account.split(divikey)
-        addAccount(accountArray[0],accountArray[1],accountArray[2],accountArray[3],accountArray[4],accountArray[5],accountArray[6])
+        addAccount(accountArray[0],accountArray[1],accountArray[2],accountArray[3],accountArray[4],accountArray[5],accountArray[6],accountArray[7])
     })
 }
 
