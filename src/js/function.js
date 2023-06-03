@@ -100,7 +100,7 @@ function addAccount(site, username, password, pin, email, phone, other) {
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
-        site_title.innerHTML = `${site}<span class=accButtons onclick='expand(this.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>${xIcon}</span><span class=accButtons onclick='editFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>${eIcon}</span>`
+        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>${xIcon}</span><span class=accButtons onclick='editFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>${eIcon}</span><div>`
         large.appendChild(site_title)
     const container = document.createElement('div')
         container.className = 'inneraccountcontainer'

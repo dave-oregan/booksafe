@@ -222,8 +222,18 @@ body {
     font-size: 1em;
 }
 
+#buttondiv {
+    width: fit-content;
+    float: right;
+}
+
 #aboutpage {
     text-align: center;
+}
+
+.site {
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .button {
