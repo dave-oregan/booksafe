@@ -149,7 +149,7 @@ body {
 
 #accountContainer {
     background-color: brown;
-    border-radius: .9em;
+    border-radius: 2em;
     min-width: 80%;
     max-width: 80%;
     margin: auto;
@@ -158,6 +158,27 @@ body {
     padding-top: 1.5%;
     overflow-y: auto;
     flex: 1 1 auto;
+}
+
+#accountContainer::-webkit-scrollbar-thumb {
+    background-color: red;
+    border: .4em solid transparent;
+    border-radius: 1em;
+    background-clip: padding-box;
+}
+
+#accountContainer::-webkit-scrollbar {
+    width: 1.4em;
+}
+
+#accountContainer::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 1.7em; 
+}
+
+#accountContainer::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 1.7em;
 }
 
 .account {
