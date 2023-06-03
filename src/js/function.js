@@ -70,17 +70,19 @@ res_new_acc.addEventListener('click', () => {
 })
 
 cng_acc.addEventListener('click', async () => {
-    var usn = nullkeyReplacement(cng_usn.value, false)
-    var pwd = nullkeyReplacement(cng_pwd.value, false)
-    var pin = nullkeyReplacement(cng_pin.value, false)
-    var eml = nullkeyReplacement(cng_eml.value, false)
-    var num = nullkeyReplacement(cng_num.value, false)
-    var oth = nullkeyReplacement(cng_oth.value, false)
-    var name = cngaccount.getAttribute('name')
     var path = cng_container.getAttribute('name')
+    var contentArray = []
+    contentArray.push(cngaccount.getAttribute('name'))
+    contentArray.push(nullkeyReplacement(cng_usn.value, false))
+    contentArray.push(nullkeyReplacement(cng_pwd.value, false))
+    contentArray.push(nullkeyReplacement(cng_pin.value, false))
+    contentArray.push(nullkeyReplacement(cng_eml.value, false))
+    contentArray.push(nullkeyReplacement(cng_num.value, false))
+    contentArray.push(nullkeyReplacement(cng_oth.value, false))
+    contentArray.push(cng_usn.getAttribute('name'))
 
-    const contentCNG = `${name}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
-    
+    const contentCNG = contentArray.join(divikey)
+
     const save = await api.saveOver(path, contentCNG)
 
     location.reload()
@@ -126,32 +128,32 @@ function addAccount(site, username, password, pin, email, phone, other, file) {
     const usnrow = document.createElement('div')
         usnrow.className = 'accountrow'
         usnrow.id = 'usnrow'
-        usnrow.innerHTML = `<a class=textL>Username:</a><a class=text id=username>${nullkeyReplacement(username, true)}</a>`
+        usnrow.innerHTML = `<span class=text id=username>${nullkeyReplacement(username, true)}</span><a class=textL>Username:</a>`
         container.appendChild(usnrow)
     const pwdrow = document.createElement('div')
         pwdrow.className = 'accountrow'
         pwdrow.id = 'pwdrow'
-        pwdrow.innerHTML = `<a class=textL>Password:</a><a class=text id=password>${nullkeyReplacement(password, true)}</a>`
+        pwdrow.innerHTML = `<span class=text id=password>${nullkeyReplacement(password, true)}</span><a class=textL>Password:</a>`
         container.appendChild(pwdrow)
     const pinrow = document.createElement('div')
         pinrow.className = 'accountrow'
         pinrow.id = 'pinrow'
-        pinrow.innerHTML = `<a class=textL>PIN:</a><a class=text id=pin>${nullkeyReplacement(pin, true)}</a>`
+        pinrow.innerHTML = `<span class=text id=pin>${nullkeyReplacement(pin, true)}</span><a class=textL>PIN:</a>`
         container.appendChild(pinrow)
     const emlrow = document.createElement('div')
         emlrow.className = 'accountrow'
         emlrow.id = 'emlrow'
-        emlrow.innerHTML = `<a class=textL>Email:</a><a class=text id=email>${nullkeyReplacement(email, true)}</a>`
+        emlrow.innerHTML = `<span class=text id=email>${nullkeyReplacement(email, true)}</span><a class=textL>Email:</a>`
         container.appendChild(emlrow)
     const numrow = document.createElement('div')
         numrow.className = 'accountrow'
         numrow.id = 'numrow'
-        numrow.innerHTML = `<a class=textL>Phone:</a><a class=text id=phone>${nullkeyReplacement(phone, true)}</a>`
+        numrow.innerHTML = `<span class=text id=phone>${nullkeyReplacement(phone, true)}</span><a class=textL>Phone:</a>`
         container.appendChild(numrow)
     const othrow = document.createElement('div')
         othrow.className = 'accountrow'
         othrow.id = 'othrow'
-        othrow.innerHTML = `<a class=textL>Details:</a><a class=text id=other>${nullkeyReplacement(other, true)}</a>`
+        othrow.innerHTML = `<span class=text id=other>${nullkeyReplacement(other, true)}</span><a class=textL>Details:</a>`
         container.appendChild(othrow)
     var labeldiscriminator
     try { labeldiscriminator = site.charAt(0).toUpperCase() }
@@ -170,6 +172,7 @@ async function editFile(fileName) {
 
 function openEditMenu(path, data) {
     cng_usn.defaultValue = nullkeyReplacement(data[1], true)
+    cng_usn.setAttribute('name', data[7])
     cng_pwd.defaultValue = nullkeyReplacement(data[2], true)
     cng_pin.defaultValue = nullkeyReplacement(data[3], true)
     cng_eml.defaultValue = nullkeyReplacement(data[4], true)
@@ -220,6 +223,7 @@ function hide(id) {
 
 function expand(parent, element) {
     $(`#${parent.id}`).children('.inneraccountcontainer').slideToggle('medium')
+    $(`#${parent.id}`).toggleClass('expanded')
     toggleBool = !toggleBool
     if (toggleBool) { element.innerHTML = `${uIcon}` }
     else { element.innerHTML = `${dIcon}` }

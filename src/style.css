@@ -132,9 +132,6 @@ body {
     height: fit-content;
     padding: 1%;
     padding-top: 0;
-    border-radius: .7em;
-    /* margin-top: 1%;
-    margin-bottom: 1%; */
 }
 
 #scrollContainer a {
@@ -152,6 +149,7 @@ body {
 
 #accountContainer {
     background-color: brown;
+    border-radius: .9em;
     min-width: 80%;
     max-width: 80%;
     margin: auto;
@@ -166,30 +164,26 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 1.3em;
-    padding: .8em;
-    /* height: 1em; */
+    padding: 1em;
     vertical-align: middle;
     height: fit-content;
     background-color: azure;
     overflow: hidden;
+    border-radius: .9em;
+}
+
+.account.expanded {
+    padding-bottom: .2em;
 }
 
 .account:not(:last-child) {
     margin-bottom: 1em;
 }
 
-.account.expanded a:first-of-type {
-    height: 1em;
-    padding-bottom: .8em;
-}
-
 .inneraccountcontainer {
     display: none;
     flex-direction: column;
-}
-
-.accountrow:not(:last-child) {
-    margin-bottom: .6em
+    height: fit-content;
 }
 
 .accountrow:first-child {
@@ -198,7 +192,8 @@ body {
 
 .accountrow {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .textL {
@@ -211,6 +206,15 @@ body {
     overflow-y: auto;
     word-wrap: break-word;
     word-break: break-all;
+    margin-bottom: .6em;
+}
+
+.text:empty {
+    display: none;
+}
+
+.text:empty ~ .textL {
+    display: none;
 }
 
 .accButtons {
