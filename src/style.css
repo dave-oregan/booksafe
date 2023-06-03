@@ -28,11 +28,11 @@ body {
 
 #topbar {
     flex: 0 1 auto;
-    background-color: red;
 }
 
 #title {
     font-size: 2em;
+    font-weight: bold;
     margin: .3em;
     display: inline-block;
 }
@@ -130,11 +130,11 @@ body {
     text-align: center;
     margin: auto;
     height: fit-content;
-    padding: 1.2%;
-    background-color: turquoise;
+    padding: 1%;
+    padding-top: 0;
     border-radius: .7em;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    /* margin-top: 1%;
+    margin-bottom: 1%; */
 }
 
 #scrollContainer a {

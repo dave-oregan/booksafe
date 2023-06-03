@@ -6,8 +6,8 @@ const shell = require('electron').shell
 function createWindow () {
     const win = new BrowserWindow({
         width: 1280,
-        height: 720,
-        minWidth: 400,
+        height: 800,
+        minWidth: 560,
         minHeight: 350,
         autoHideMenuBar: true,
         icon: __dirname + '/src/lockicon.ico',
