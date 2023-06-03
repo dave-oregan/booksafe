@@ -56,10 +56,21 @@
                         <li>Email: <input type=text class=ipBox id=del_eml readonly=readonly></li>
                         <li>Phone: <input type=text class=ipBox id=del_num readonly=readonly></li>
                         <li>Details: <input type=text class=ipBox id=del_oth readonly=readonly></li>
-                        <li class=ulBut><span class=button id=del_acc>CONFIRM</span> <span class=button onclick='hide("del_container")'>CANCEL</span></li>
+                        <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button onclick='hide("del_container")'>CANCEL</span></li>
                     </ul>
                 </div>
                 <div id=naback onclick='hide("del_container")'></div>
+            </div>
+            <div class='typerpopouter hidden' id=cfmdel_container>
+                <div class=typerpop id=cmfdelaccount>
+                    <ul class=submitUL>
+                        <li class=nTitle> Delete Account </li>
+                        <li>Please type 'DELETE' below:</li>
+                        <li><input type=text class=ipBox id=cfm_del placeholder='Type here...'></li>
+                        <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button onclick='hide("cfmdel_container")'>CANCEL</span></li>
+                    </ul>
+                </div>
+                <div id=naback onclick='hide("cfmdel_container")'></div>
             </div>
             <div id=scrollContainer>
                 <a id=scrA onclick='windowScroll("A")'>A</a>

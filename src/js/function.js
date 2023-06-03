@@ -7,6 +7,7 @@ const new_num = document.getElementById('new_num')
 const new_oth = document.getElementById('new_oth')
 const new_acc = document.getElementById('new_acc')
 const res_new_acc = document.getElementById('res_new_acc')
+
 const cng_usn = document.getElementById('cng_usn')
 const cng_pwd = document.getElementById('cng_pwd')
 const cng_pin = document.getElementById('cng_pin')
@@ -16,6 +17,7 @@ const cng_oth = document.getElementById('cng_oth')
 const cng_acc = document.getElementById('cng_acc')
 const cngaccount = document.getElementById('cngaccount')
 const cng_container = document.getElementById('cng_container')
+
 const del_sit = document.getElementById('del_sit')
 const del_usn = document.getElementById('del_usn')
 const del_pwd = document.getElementById('del_pwd')
@@ -26,9 +28,14 @@ const del_oth = document.getElementById('del_oth')
 const del_acc = document.getElementById('del_acc')
 const delaccount = document.getElementById('delaccount')
 const del_container = document.getElementById('del_container')
+
+const cfm_del = document.getElementById('cfm_del')
+const cmfdelaccount = document.getElementById('cmfdelaccount')
+const cfmdel_container = document.getElementById('cfmdel_container')
+const cfmdel_acc = document.getElementById('cfmdel_acc')
+
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
-const trashIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/></svg>'
 const xIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>'
 const uIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z"/></svg>'
 const dIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square" viewBox="0 0 16 16"><path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z"/><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2z"/></svg>'
@@ -79,12 +86,21 @@ cng_acc.addEventListener('click', async () => {
     location.reload()
 })
 
-del_acc.addEventListener('click', async () => {
-    var path = del_container.getAttribute('name')
+del_acc.addEventListener('click', () => {
+    reveal('cfmdel_container')
 
-    const deleteFile = await api.deleteFile(path)
+    hide('del_container')
+})
 
-    location.reload()
+cfmdel_acc.addEventListener('click', async () => {
+    if (cfm_del.value == 'DELETE') {
+        var path = del_container.getAttribute('name')
+        const deleteFile = await api.deleteFile(path)
+        location.reload()
+    } else {
+        hide('cfmdel_container')
+        cfm_del.value = ''
+    }
 })
 
 function addAccount(site, username, password, pin, email, phone, other) {
@@ -100,7 +116,7 @@ function addAccount(site, username, password, pin, email, phone, other) {
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
-        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>${xIcon}</span><span class=accButtons onclick='editFile(${site.replace(/[^a-zA-Z0-9]/g,'_')})'>${eIcon}</span><div>`
+        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${site.replace(/[^a-zA-Z0-9]/g,'_')}")'>${xIcon}</span><span class=accButtons onclick='editFile("${site.replace(/[^a-zA-Z0-9]/g,'_')}")'>${eIcon}</span><div>`
         large.appendChild(site_title)
     const container = document.createElement('div')
         container.className = 'inneraccountcontainer'
@@ -138,6 +154,7 @@ function addAccount(site, username, password, pin, email, phone, other) {
     var labeldiscriminator
     try { labeldiscriminator = site.charAt(0).toUpperCase() }
     catch { labeldiscriminator = '-' }
+    if (/[^a-zA-Z]/.test(labeldiscriminator)) { labeldiscriminator = '-' }
     document.getElementById(`acc${labeldiscriminator}`).appendChild(large)
     configure()
 }
@@ -164,7 +181,7 @@ function openEditMenu(path, data) {
 }
 
 async function deleteFile(fileName) {
-    fileName = fileName.id+''
+    fileName = fileName
     const fileArraySingle = await api.loadFileSingle(fileName)
     const toFile = fileArraySingle[0]
     const dataArray = fileArraySingle[1].split(divikey)

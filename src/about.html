@@ -20,10 +20,15 @@
             <p><b>Is BookSafe supported on mobile devices?</b></p>
             <p>Yes, as BookSafe is supported on all devices.</p>
             <p><b>More questions?</b></p>
-            <p>Email the developer at <a style=text-decoration:underline;color:blue; href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
+            <p>Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
             <hr>
-            <p>Developer Website: <a style=text-decoration:underline;color:blue; href=https://horizonzz.com>horizonzz.com</a></p>
+            <p>Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a></p>
             <p>Copyright © 2023 HorizonZz - All Rights Reserved.</p>
-            </div>
+        </div>
+        <script>
+            document.getElementById('linktoweb').addEventListener('click', () => {
+                const openLink = api.openLink('https://horizonzz.com')
+            })
+        </script>
     </body>
 </html>

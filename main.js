@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs')
+const shell = require('electron').shell
 
 function createWindow () {
     const win = new BrowserWindow({
@@ -73,6 +74,14 @@ function createWindow () {
         if (!toFile) { return false }
 
         fs.unlinkSync(toFile, () => {})
+
+        return true
+    })
+
+    ipcMain.handle('open-link', (event, link) => {
+        if (!link) { return false }
+
+        shell.openExternal(link)
 
         return true
     })
