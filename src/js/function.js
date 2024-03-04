@@ -328,6 +328,14 @@ async function loadsettings() {
     setOptions(settingArray[0], settingArray[1])
 }
 
+async function exportZip() {
+    const expZip = await api.packZip()
+}
+
+async function importZip() {
+
+}
+
 window.onload = async () => {
     configure()
     await loadfiles()

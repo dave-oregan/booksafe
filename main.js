@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs')
 const shell = require('electron').shell
+const zipper = require('jszip')
 
 function createWindow () {
     const win = new BrowserWindow({
@@ -122,6 +123,67 @@ function createWindow () {
             return [ filePath, file ]
         }
 
+    })
+
+    ipcMain.handle('pack-zip', async (event) => {
+        const zip = new zipper()
+
+        const passwordFolder = path.join(__dirname, 'passwords')
+        const settingsPath = path.join(__dirname, 'settings.txt')
+
+        const settingsFileContent = fs.readFileSync(settingsPath, 'utf-8')
+        zip.file(path.basename(settingsPath), settingsFileContent)
+
+        const addFolderToZip = (folderPath, relativePath) => {
+            zip.folder(relativePath)
+
+            const files = fs.readdirSync(folderPath)
+
+            files.forEach((file) => {
+                const fullPath = path.join(folderPath, file)
+
+                const relativeFilePath = path.join(relativePath, file)
+
+                if (fs.statSync(fullPath).isDirectory()) {
+                    addFolderToZip(fullPath, relativeFilePath)
+                }
+                else {
+                    const fileContent = fs.readFileSync(fullPath)
+
+                    zip.file(relativeFilePath, fileContent)
+                }
+            })
+        }
+
+        addFolderToZip(passwordFolder, 'passwords')
+
+        return zip.generateAsync({ type: 'nodebuffer' }).then((content) => {
+            const folderPath = path.join(__dirname, 'exports')
+
+            if (!fs.existsSync(folderPath)) {
+                fs.mkdirSync(folderPath)
+            }
+
+            var zipPath = path.join(folderPath, 'booksafe_export.zip')
+
+            let diff = 1
+
+            while (fs.existsSync(zipPath)) {
+                zipPath = path.join(folderPath, `booksafe_export_${diff}.zip`)
+                diff++
+            }
+
+            fs.writeFileSync(zipPath, content)
+
+            console.log('Zip file created successfully at:', zipPath)
+
+            return zipPath
+
+        }).catch((err) => {
+            console.error('Error creating zip file:', err)
+
+            throw err
+        })
     })
 
     win.loadFile('src/index.html')

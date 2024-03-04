@@ -8,5 +8,6 @@ contextBridge.exposeInMainWorld('api', {
     deleteFile: (path) => ipcRenderer.invoke('delete-file', path),
     openLink: (link) => ipcRenderer.invoke('open-link', link),
     saveSettings: (content, divikey) => ipcRenderer.invoke('save-settings', content, divikey),
-    loadSettings: () => ipcRenderer.invoke('load-settings')
+    loadSettings: () => ipcRenderer.invoke('load-settings'),
+    packZip: () => ipcRenderer.invoke('pack-zip')
 })

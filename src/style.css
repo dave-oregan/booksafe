@@ -161,7 +161,8 @@ body {
 }
 
 #scrollContainer a:hover {
-    background-color: darkgrey;
+    background-color: inherit;
+    filter: brightness(120%);
 }
 
 #accountContainer {

@@ -21,7 +21,7 @@
             <div class=typerpop id=about>
                 <div id=aboutpage>
                     <h1>About</h1>
-                    <p>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient way possible.</p>
+                    <p>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.</p>
                     <hr>
                     <p><b>Does BookSafe have any of my data?</b></p>
                     <p>No, BookSafe stores none of your data. Your data is only saved on your device.</p>
@@ -67,7 +67,12 @@
                             <option value='red'>Red</option>
                         </select>
                     </li>
-                    <li class=ulBut><span class=button onclick=resetWindow()>RESET</span><span class=button onclick='hide("s_container")'>CLOSE</span></li>
+                    <li class=ulBut>
+                        <span class=button onclick=importZip()>IMPORT BOOK</span><span class=button onclick='exportZip()'>EXPORT BOOK</span>
+                    </li>
+                    <li class=ulBut>
+                        <span class=button onclick=resetWindow()>RESET</span><span class=button onclick='hide("s_container")'>CLOSE</span>
+                    </li>
                 </ul>
             </div>
             <div id=naback onclick='hide("s_container")'></div>
