@@ -125,7 +125,7 @@ function createWindow () {
 
     })
 
-    ipcMain.handle('pack-zip', async (event) => {
+    ipcMain.handle('pack-zip', async (event, zipName) => {
         const zip = new zipper()
 
         const passwordFolder = path.join(__dirname, 'passwords')
@@ -164,13 +164,22 @@ function createWindow () {
                 fs.mkdirSync(folderPath)
             }
 
-            var zipPath = path.join(folderPath, 'booksafe_export.zip')
+            const defaultName = 'booksafe_export'
+            var zipNameFinal = zipName
+
+            if (zipNameFinal == '') {
+                zipNameFinal = defaultName
+            }
+
+            var zipPath = path.join(folderPath, `${zipNameFinal}.zip`)
 
             let diff = 1
 
-            while (fs.existsSync(zipPath)) {
-                zipPath = path.join(folderPath, `booksafe_export_${diff}.zip`)
-                diff++
+            if (zipNameFinal == defaultName) {
+                while (fs.existsSync(zipPath)) {
+                    zipPath = path.join(folderPath, `${zipNameFinal}_${diff}.zip`)
+                    diff++
+                }
             }
 
             fs.writeFileSync(zipPath, content)

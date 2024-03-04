@@ -329,11 +329,15 @@ async function loadsettings() {
 }
 
 async function exportZip() {
-    const expZip = await api.packZip()
+    const expZip = await api.packZip(document.getElementById('zip_name_box').value)
 }
 
 async function importZip() {
+    //TODO
+}
 
+async function newBook() {
+    //TODO
 }
 
 window.onload = async () => {

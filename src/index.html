@@ -67,8 +67,11 @@
                             <option value='red'>Red</option>
                         </select>
                     </li>
+                    <li>Book Name: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
                     <li class=ulBut>
-                        <span class=button onclick=importZip()>IMPORT BOOK</span><span class=button onclick='exportZip()'>EXPORT BOOK</span>
+                        <span class=button onclick=importZip()>IMPORT BOOK</span>
+                        <span class=button onclick=importZip()>NEW BOOK</span>
+                        <span class=button onclick=exportZip()>EXPORT BOOK</span>
                     </li>
                     <li class=ulBut>
                         <span class=button onclick=resetWindow()>RESET</span><span class=button onclick='hide("s_container")'>CLOSE</span>

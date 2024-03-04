@@ -9,5 +9,5 @@ contextBridge.exposeInMainWorld('api', {
     openLink: (link) => ipcRenderer.invoke('open-link', link),
     saveSettings: (content, divikey) => ipcRenderer.invoke('save-settings', content, divikey),
     loadSettings: () => ipcRenderer.invoke('load-settings'),
-    packZip: () => ipcRenderer.invoke('pack-zip')
+    packZip: (zipName) => ipcRenderer.invoke('pack-zip', zipName)
 })
