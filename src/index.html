@@ -48,6 +48,13 @@
             <div class=typerpop id=settings>
                 <ul class=submitUL>
                     <li class=nTitle> Settings </li>
+                    <li>Book Name: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
+                    <li class=ulBut>
+                        <span class=button onclick='reveal("clear_container")'>NEW</span>
+                        <span class=button onclick='reveal("import_saved_container")'>OPEN</span>
+                        <span class=button onclick='reveal("import_container")'>IMPORT</span>
+                        <span class=button onclick=exportZip()>EXPORT</span>
+                    </li>
                     <li>Fonts:
                         <select onchange=changeFont(this.value) class=settingBox id=fonts>
                             <option style="font-family: Courier New, monospace;" value='Courier New, monospace'>Courier New</option>
@@ -67,18 +74,78 @@
                             <option value='red'>Red</option>
                         </select>
                     </li>
-                    <li>Book Name: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
-                    <li class=ulBut>
-                        <span class=button onclick=importZip()>IMPORT BOOK</span>
-                        <span class=button onclick=importZip()>NEW BOOK</span>
-                        <span class=button onclick=exportZip()>EXPORT BOOK</span>
-                    </li>
                     <li class=ulBut>
                         <span class=button onclick=resetWindow()>RESET</span><span class=button onclick='hide("s_container")'>CLOSE</span>
                     </li>
                 </ul>
             </div>
             <div id=naback onclick='hide("s_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=clear_container>
+            <div class=typerpop id=confirm_clear>
+                <ul class=submitUL>
+                    <li class=nTitle> Create New Book </li>
+                    <li>Upon creating a new book, any passwords in the current book that are not exported will be lost.</li>
+                    <li class=ulBut>
+                        <span class=button onclick=newBook()>CONFIRM</span>
+                        <span class=button onclick='hide("clear_container")'>CANCEL</span>
+                    </li>
+                </ul>
+            </div>
+            <div id=naback onclick='hide("clear_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=save_container>
+            <div class=typerpop id=save_status>
+                <ul class=submitUL>
+                    <li class=nTitle> Export Book </li>
+                    <li id=save_status_desc></li>
+                    <li class=ulBut>
+                        <span class=button onclick='openExportFolder()'>FOLDER</span>
+                        <span class=button onclick='hide("save_container")'>RETURN</span>
+                    </li>
+                </ul>
+            </div>
+            <div id=naback onclick='hide("save_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=import_background_container>
+            <div class=typerpop id=import_status>
+                <ul class=submitUL>
+                    <li class=nTitle> Import New Book </li>
+                    <li id=import_status_desc></li>
+                    <li class=ulBut>
+                        <span class=button onclick='openExportFolder()'>FOLDER</span>
+                        <span class=button onclick='hide("import_background_container")'>RETURN</span>
+                    </li>
+                </ul>
+            </div>
+            <div id=naback onclick='hide("import_background_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=import_container>
+            <div class=typerpop id=import_confirm>
+                <ul class=submitUL>
+                    <li class=nTitle> Import New Book </li>
+                    <li>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import wihtout opening will place the zip file into the export folder of this application for ease of access later.</li>
+                    <li class=ulBut>
+                        <span class=button onclick='importZip(false)'>IMPORT</span>
+                        <span class=button onclick='importZip(true)'>IMPORT AND OPEN</span>
+                        <span class=button onclick='hide("import_container")'>RETURN</span>
+                    </li>
+                </ul>
+            </div>
+            <div id=naback onclick='hide("import_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=import_saved_container>
+            <div class=typerpop id=saved_import_confirm>
+                <ul class=submitUL>
+                    <li class=nTitle> Import Saved Book </li>
+                    <li>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please eport before doing this!</li>
+                    <li class=ulBut>
+                        <span class=button onclick='importSavedZip()'>OPEN</span>
+                        <span class=button onclick='hide("import_saved_container")'>RETURN</span>
+                    </li>
+                </ul>
+            </div>
+            <div id=naback onclick='hide("import_saved_container")'></div>
         </div>
         <div class='typerpopouter hidden' id=na_container>
             <div class=typerpop id=newaccount>

@@ -230,12 +230,12 @@ function expand(parent, element) {
 }
 
 function changeFont(font) {
-    savesettings(font, document.getElementById('palettes').value)
+    savesettings(font, document.getElementById('palettes').value, document.getElementById('zip_name_box').value)
     $("body").css("font-family", font);
 }
 
 function changePalette(colour) {
-    savesettings(document.getElementById('fonts').value, colour)
+    savesettings(document.getElementById('fonts').value, colour, document.getElementById('zip_name_box').value)
     if (colour == 'red')
     {
         $('body').css('color', `white`);
@@ -312,8 +312,8 @@ async function loadfiles() {
     })
 }
 
-async function savesettings(font, colour) {
-    const content = `${font}${divikey}${colour}`
+async function savesettings(font, colour, filename) {
+    const content = `${font}${divikey}${colour}${divikey}${filename}`
 
     const save = await api.saveSettings(content, divikey)
 }
@@ -323,21 +323,98 @@ async function loadsettings() {
 
     const settingArray = file[1].split(divikey)
 
+    setZipName(settingArray[2])
     changeFont(settingArray[0])
     changePalette(settingArray[1])
+
     setOptions(settingArray[0], settingArray[1])
 }
 
 async function exportZip() {
-    const expZip = await api.packZip(document.getElementById('zip_name_box').value)
+    filename = document.getElementById('zip_name_box').value
+
+    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, filename)
+
+    const expZip = await api.packZip(filename)
+
+    var save_status = `Your book, ${filename}, has successfully saved to the exports folder!`
+
+    if (!expZip[1]) {
+        save_status = `There was an error exporting your book: ${expZip[0]}`
+    }
+
+    document.getElementById('save_status_desc').innerHTML = save_status
+    
+    reveal('save_container')
 }
 
-async function importZip() {
-    //TODO
+async function openExportFolder() {
+    const explorer = await api.openExplorer(`exports`)
+}
+
+async function importZip(open_bool) {
+    const result = await api.showDialog('');
+
+    if (result && result.length > 0) {
+        const filePath = result[0]
+
+        const copy = await api.copyZip(filePath)
+
+        if (open_bool) {
+            const clear = await api.clearFiles()
+            const zipToGet = (await api.unpackZip(filePath)).slice(2)
+            
+            zipToGet.forEach(async (file) => {
+                const split_file_contents = file.content.split(divikey)
+                const addToApp = await api.savePass(split_file_contents[0], file.content, divikey)
+            })
+
+            location.reload()
+        }
+        else {
+            hide('import_container')
+            
+            var import_status = `Your book has successfully saved to the exports folder!`
+
+            if (!copy[0]) {
+                import_status = `There was an error exporting your book: ${copy[1]}`
+            }
+
+            document.getElementById('import_status_desc').innerHTML = import_status
+    
+            reveal('import_background_container')
+        }
+    }
+}
+
+async function importSavedZip() {
+    const result = await api.showDialog('exports');
+
+    if (result && result.length > 0) {
+        const filePath = result[0]
+
+        const clear = await api.clearFiles()
+        const zipToGet = (await api.unpackZip(filePath)).slice(2)
+        
+        zipToGet.forEach(async (file) => {
+            const split_file_contents = file.content.split(divikey)
+            const addToApp = await api.savePass(split_file_contents[0], file.content, divikey)
+        })
+
+        location.reload()
+    }
 }
 
 async function newBook() {
-    //TODO
+    setZipName('')
+
+    const clear = await api.clearFiles()
+    
+    location.reload()
+}
+
+function setZipName(newName) {
+    document.getElementById('zip_name_box').value = newName
 }
 
 window.onload = async () => {

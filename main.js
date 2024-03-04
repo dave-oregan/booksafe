@@ -1,7 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, shell, dialog } = require('electron')
 const path = require('path')
 const fs = require('fs')
-const shell = require('electron').shell
 const zipper = require('jszip')
 
 function createWindow () {
@@ -184,15 +183,113 @@ function createWindow () {
 
             fs.writeFileSync(zipPath, content)
 
-            console.log('Zip file created successfully at:', zipPath)
+            return [zipPath, true]
 
-            return zipPath
+        }).catch((err) => { return [err, false] })
+    })
 
-        }).catch((err) => {
-            console.error('Error creating zip file:', err)
+    ipcMain.handle('unpack-zip', async (event, zipPath) => {
+        const destination_p = path.join(__dirname, 'passwords')
+        const destination_s = path.join(__dirname, 'settings.txt')
 
-            throw err
+        if (!fs.existsSync(destination_p)) {
+            fs.mkdirSync(destination_p)
+        }
+
+        try {
+            const zipData = fs.readFileSync(zipPath)
+            const zip = await zipper.loadAsync(zipData)
+
+            const setting_content = await zip.file('settings.txt').async('string')
+            fs.writeFileSync(destination_s, setting_content, 'utf-8')
+            console.log(setting_content)
+
+            const password_zip_folder = zip.folder('passwords')
+            if (password_zip_folder) {
+                const password_array = Object.keys(password_zip_folder.files).map((filename) => {
+                    const file = password_zip_folder.files[filename]
+
+                    return {
+                        name: filename,
+                        content: file && file._data && file._data.compressedContent ? file._data.compressedContent.toString('utf-8') : ''
+                    }
+                })
+                return password_array
+            }
+        }
+        catch (err) { return false }
+    })
+
+    ipcMain.handle('open-folder', (event, folderName) => {
+        const folderPath = path.join(__dirname, folderName)
+
+        shell.openPath(folderPath)
+
+        return true
+    })
+
+    ipcMain.handle('clear-files', (event) => {
+        const directory = path.join(__dirname, `passwords`)
+        const dirFiles = fs.readdirSync(directory)
+
+        dirFiles.forEach((file) => {
+            const filePath = path.join(directory, file)
+
+            try {
+                fs.unlinkSync(filePath)
+            }
+            catch (failed) { }
         })
+
+        return true
+    })
+
+    ipcMain.handle('dialog-box', (event, folder) => {
+        if (folder == '') {
+            return dialog.showOpenDialogSync({
+                filters: [{ name: 'ZIP Files', extensions: ['zip'] }],
+                properties: ['openFile']
+            })
+        }
+        const folder_path = path.join(__dirname, folder)
+
+        return dialog.showOpenDialogSync({
+            defaultPath: folder_path,
+            filters: [{ name: 'ZIP Files', extensions: ['zip'] }],
+            properties: ['openFile']
+        })
+    })
+
+    ipcMain.handle('copy-zip', async (event, filepath) => {
+        const destination = path.join(__dirname, 'exports')
+
+        if (!fs.existsSync(destination)) {
+            fs.mkdirSync(destination)
+        }
+
+        try {
+            const data = await fs.promises.readFile(filepath)
+            const importZip = await zipper.loadAsync(data)
+    
+            const newZip = new zipper()
+    
+            const promises = []
+    
+            importZip.forEach((relative_path, entry) => {
+                promises.push(entry.async('nodebuffer').then((content) => { newZip.file(relative_path, content) }))
+            })
+    
+            await Promise.all(promises)
+    
+            const new_content = await newZip.generateAsync({ type: 'nodebuffer' })
+    
+            const final_destination = path.join(destination, `${path.basename(filepath)}`)
+    
+            await fs.promises.writeFile(final_destination, new_content)
+    
+            return [true, null]
+        }
+        catch (err) { return [false, err] }
     })
 
     win.loadFile('src/index.html')
