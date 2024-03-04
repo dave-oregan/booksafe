@@ -1,190 +1,250 @@
 <!DOCTYPE html>
 <html>
-    <!-- to create windows app: run 'npx electron-packager . BookSafe' -->
-    <!-- to create apple app: run 'npx electron-packager . BookSafe --icon "src/lockicon.ico"' -->
-    <head>
-        <title> BookSafe </title>
-        <link rel=stylesheet href=style.css>
-        <script src=js/jquery-3.6.0.js></script>
-    </head>
-    <body>
-        <div id=content>
-            <div id=topbar>
-                <a id=title>BookSafe: Password Book</a>
-                <a class=button id=aboutbutton href=about.html>ABOUT</a>
-                <a class=button id=newbutton onclick='reveal("na_container")'>NEW</a>
+<!-- to create windows app: run 'npx electron-packager . BookSafe' -->
+<!-- to create apple app: run 'npx electron-packager . BookSafe --icon "src/lockicon.ico"' -->
+
+<head>
+    <title> BookSafe </title>
+    <link rel=stylesheet href=style.css>
+    <script src=js/jquery-3.6.0.js></script>
+</head>
+
+<body>
+    <div id=content>
+        <div id=topbar>
+            <a id=title>BookSafe: Password Book</a>
+            <a class=button id=aboutbutton onclick='reveal("ab_container")'>ABOUT</a>
+            <a class=button id=newbutton onclick='reveal("s_container")'>SETTINGS</a>
+            <a class=button id=newbutton onclick='reveal("na_container")'>NEW</a>
+        </div>
+        <div class='typerpopouter hidden' id=ab_container>
+            <div class=typerpop id=about>
+                <div id=aboutpage>
+                    <h1>About</h1>
+                    <p>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient way possible.</p>
+                    <hr>
+                    <p><b>Does BookSafe have any of my data?</b></p>
+                    <p>No, BookSafe stores none of your data. Your data is only saved on your device.</p>
+                    <p><b>Is BookSafe supported on mobile devices?</b></p>
+                    <p>Yes, as BookSafe is supported on all devices.</p>
+                    <p><b>More questions?</b></p>
+                    <p>Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
+                    <hr>
+                    <p>Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a></p>
+                    <p>Copyright © 2024 HorizonZz - All Rights Reserved.</p>
+                </div>
+                <ul class=submitUL>
+                    <li class=ulBut><span class=button onclick='hide("ab_container")'>CLOSE</span></li>
+                </ul>
+                <script>
+                    document.getElementById('linktoweb').addEventListener('click', () => {
+                        const openLink = api.openLink('https://horizonzz.com')
+                    })
+                </script>
             </div>
-            <div class='typerpopouter hidden' id=na_container>
-                <div class=typerpop id=newaccount>
-                    <ul class=submitUL>
-                        <li class=nTitle> New Account </li>
-                        <li>Website: <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
-                        <li>Username: <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
-                        <li>Password: <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
-                        <li>PIN: <input type=text class=ipBox id=new_pin placeholder='Type here...'></li>
-                        <li>Email: <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
-                        <li>Phone: <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
-                        <li>Details: <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
-                        <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button onclick='hide("na_container")'>CANCEL</span></li>
-                    </ul>
-                </div>
-                <div id=naback onclick='hide("na_container")'></div>
+            <div id=naback onclick='hide("ab_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=s_container>
+            <div class=typerpop id=settings>
+                <ul class=submitUL>
+                    <li class=nTitle> Settings </li>
+                    <li>Fonts:
+                        <select onchange=changeFont(this.value) class=settingBox id=fonts>
+                            <option style="font-family: Courier New, monospace;" value='Courier New, monospace'>Courier New</option>
+                            <option style="font-family: Garamond, serif;" value='Garamond, serif'>Garamond</option>
+                            <option style="font-family: Georgia, serif;" value='Georgia, serif'>Georgia</option>
+                            <option style="font-family: Helvetica, sans-serif;" value='Helvetica, sans-serif'>Helvetica</option>
+                            <option style="font-family: Tahoma, sans-serif;" value='Tahoma, sans-serif'>Tahoma</option>
+                            <option style="font-family: Times New Roman, serif;" value='Times New Roman, serif'>Times New Roman</option>
+                            <option style="font-family: Trebuchet MS, sans-serif;" value='Trebuchet MS, sans-serif' selected>Trebuchet MS</option>
+                        </select>
+                    </li>
+                    <li>Palette:
+                        <select onchange=changePalette(this.value) class=settingBox id=palettes>
+                            <option value='blue'>Blue</option>
+                            <option value='grey' selected>Grey</option>
+                            <option value='purple'>Purple</option>
+                            <option value='red'>Red</option>
+                        </select>
+                    </li>
+                    <li class=ulBut><span class=button onclick=resetWindow()>RESET</span><span class=button onclick='hide("s_container")'>CLOSE</span></li>
+                </ul>
             </div>
-            <div class='typerpopouter hidden' id=cng_container>
-                <div class=typerpop id=cngaccount>
-                    <ul class=submitUL>
-                        <li class=nTitle> Edit Account </li>
-                        <li>Username: <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
-                        <li>Password: <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
-                        <li>PIN: <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
-                        <li>Email: <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
-                        <li>Phone: <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
-                        <li>Details: <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
-                        <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button onclick='hide("cng_container")'>CANCEL</span></li>
-                    </ul>
-                </div>
-                <div id=naback onclick='hide("cng_container")'></div>
+            <div id=naback onclick='hide("s_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=na_container>
+            <div class=typerpop id=newaccount>
+                <ul class=submitUL>
+                    <li class=nTitle> New Account </li>
+                    <li>Website: <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
+                    <li>Username: <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
+                    <li>Password: <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
+                    <li>PIN: <input type=text class=ipBox id=new_pin placeholder='Type here...'></li>
+                    <li>Email: <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
+                    <li>Phone: <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
+                    <li>Details: <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
+                    <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button onclick='hide("na_container")'>CANCEL</span>
+                    </li>
+                </ul>
             </div>
-            <div class='typerpopouter hidden' id=del_container>
-                <div class=typerpop id=delaccount>
-                    <ul class=submitUL>
-                        <li class=nTitle> Delete Account </li>
-                        <li>Website: <input type=text class=ipBox id=del_sit readonly=readonly></li>
-                        <li>Username: <input type=text class=ipBox id=del_usn readonly=readonly></li>
-                        <li>Password: <input type=text class=ipBox id=del_pwd readonly=readonly></li>
-                        <li>PIN: <input type=text class=ipBox id=del_pin readonly=readonly></li>
-                        <li>Email: <input type=text class=ipBox id=del_eml readonly=readonly></li>
-                        <li>Phone: <input type=text class=ipBox id=del_num readonly=readonly></li>
-                        <li>Details: <input type=text class=ipBox id=del_oth readonly=readonly></li>
-                        <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button onclick='hide("del_container")'>CANCEL</span></li>
-                    </ul>
-                </div>
-                <div id=naback onclick='hide("del_container")'></div>
+            <div id=naback onclick='hide("na_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=cng_container>
+            <div class=typerpop id=cngaccount>
+                <ul class=submitUL>
+                    <li class=nTitle> Edit Account </li>
+                    <li>Username: <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
+                    <li>Password: <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
+                    <li>PIN: <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
+                    <li>Email: <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
+                    <li>Phone: <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
+                    <li>Details: <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
+                    <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button onclick='hide("cng_container")'>CANCEL</span></li>
+                </ul>
             </div>
-            <div class='typerpopouter hidden' id=cfmdel_container>
-                <div class=typerpop id=cmfdelaccount>
-                    <ul class=submitUL>
-                        <li class=nTitle> Delete Account </li>
-                        <li>Please confirm by typing 'DELETE' below:</li>
-                        <li><input type=text class=ipBox id=cfm_del placeholder='Type here...'></li>
-                        <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button onclick='hide("cfmdel_container")'>CANCEL</span></li>
-                    </ul>
-                </div>
-                <div id=naback onclick='hide("cfmdel_container")'></div>
+            <div id=naback onclick='hide("cng_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=del_container>
+            <div class=typerpop id=delaccount>
+                <ul class=submitUL>
+                    <li class=nTitle> Delete Account </li>
+                    <li>Website: <input type=text class=ipBox id=del_sit readonly=readonly></li>
+                    <li>Username: <input type=text class=ipBox id=del_usn readonly=readonly></li>
+                    <li>Password: <input type=text class=ipBox id=del_pwd readonly=readonly></li>
+                    <li>PIN: <input type=text class=ipBox id=del_pin readonly=readonly></li>
+                    <li>Email: <input type=text class=ipBox id=del_eml readonly=readonly></li>
+                    <li>Phone: <input type=text class=ipBox id=del_num readonly=readonly></li>
+                    <li>Details: <input type=text class=ipBox id=del_oth readonly=readonly></li>
+                    <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button onclick='hide("del_container")'>CANCEL</span></li>
+                </ul>
             </div>
-            <div id=scrollContainer>
-                <a id=scrA onclick='windowScroll("A")'>A</a>
-                <a id=scrB onclick='windowScroll("B")'>B</a>
-                <a id=scrC onclick='windowScroll("C")'>C</a>
-                <a id=scrD onclick='windowScroll("D")'>D</a>
-                <a id=scrE onclick='windowScroll("E")'>E</a>
-                <a id=scrF onclick='windowScroll("F")'>F</a>
-                <a id=scrG onclick='windowScroll("G")'>G</a>
-                <a id=scrH onclick='windowScroll("H")'>H</a>
-                <a id=scrI onclick='windowScroll("I")'>I</a>
-                <a id=scrJ onclick='windowScroll("J")'>J</a>
-                <a id=scrK onclick='windowScroll("K")'>K</a>
-                <a id=scrL onclick='windowScroll("L")'>L</a>
-                <a id=scrM onclick='windowScroll("M")'>M</a>
-                <a id=scrN onclick='windowScroll("N")'>N</a>
-                <a id=scrO onclick='windowScroll("O")'>O</a>
-                <a id=scrP onclick='windowScroll("P")'>P</a>
-                <a id=scrQ onclick='windowScroll("Q")'>Q</a>
-                <a id=scrR onclick='windowScroll("R")'>R</a>
-                <a id=scrS onclick='windowScroll("S")'>S</a>
-                <a id=scrT onclick='windowScroll("T")'>T</a>
-                <a id=scrU onclick='windowScroll("U")'>U</a>
-                <a id=scrV onclick='windowScroll("V")'>V</a>
-                <a id=scrW onclick='windowScroll("W")'>W</a>
-                <a id=scrX onclick='windowScroll("X")'>X</a>
-                <a id=scrY onclick='windowScroll("Y")'>Y</a>
-                <a id=scrZ onclick='windowScroll("Z")'>Z</a>
-                <a id=scr- onclick='windowScroll("-")'>#</a>
+            <div id=naback onclick='hide("del_container")'></div>
+        </div>
+        <div class='typerpopouter hidden' id=cfmdel_container>
+            <div class=typerpop id=cmfdelaccount>
+                <ul class=submitUL>
+                    <li class=nTitle> Delete Account </li>
+                    <li>Please confirm by typing 'DELETE' below:</li>
+                    <li><input type=text class=ipBox id=cfm_del placeholder='Type here...'></li>
+                    <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button onclick='hide("cfmdel_container")'>CANCEL</span></li>
+                </ul>
             </div>
-            <div id=accountContainer>
-                <div id=accA>
-                    <h1>A</h1>
-                </div>
-                <div id=accB>
-                    <h1>B</h1>
-                </div>
-                <div id=accC>
-                    <h1>C</h1>
-                </div>
-                <div id=accD>
-                    <h1>D</h1>
-                </div>
-                <div id=accE>
-                    <h1>E</h1>
-                </div>
-                <div id=accF>
-                    <h1>F</h1>
-                </div>
-                <div id=accG>
-                    <h1>G</h1>
-                </div>
-                <div id=accH>
-                    <h1>H</h1>
-                </div>
-                <div id=accI>
-                    <h1>I</h1>
-                </div>
-                <div id=accJ>
-                    <h1>J</h1>
-                </div>
-                <div id=accK>
-                    <h1>K</h1>
-                </div>
-                <div id=accL>
-                    <h1>L</h1>
-                </div>
-                <div id=accM>
-                    <h1>M</h1>
-                </div>
-                <div id=accN>
-                    <h1>N</h1>
-                </div>
-                <div id=accO>
-                    <h1>O</h1>
-                </div>
-                <div id=accP>
-                    <h1>P</h1>
-                </div>
-                <div id=accQ>
-                    <h1>Q</h1>
-                </div>
-                <div id=accR>
-                    <h1>R</h1>
-                </div>
-                <div id=accS>
-                    <h1>S</h1>
-                </div>
-                <div id=accT>
-                    <h1>T</h1>
-                </div>
-                <div id=accU>
-                    <h1>U</h1>
-                </div>
-                <div id=accV>
-                    <h1>V</h1>
-                </div>
-                <div id=accW>
-                    <h1>W</h1>
-                </div>
-                <div id=accX>
-                    <h1>X</h1>
-                </div>
-                <div id=accY>
-                    <h1>Y</h1>
-                </div>
-                <div id=accZ>
-                    <h1>Z</h1>
-                </div>
-                <div id=acc->
-                    <h1>#</h1>
-                </div>
+            <div id=naback onclick='hide("cfmdel_container")'></div>
+        </div>
+        <div class=containers id=scrollContainer>
+            <a id=scrA onclick='windowScroll("A")'>A</a>
+            <a id=scrB onclick='windowScroll("B")'>B</a>
+            <a id=scrC onclick='windowScroll("C")'>C</a>
+            <a id=scrD onclick='windowScroll("D")'>D</a>
+            <a id=scrE onclick='windowScroll("E")'>E</a>
+            <a id=scrF onclick='windowScroll("F")'>F</a>
+            <a id=scrG onclick='windowScroll("G")'>G</a>
+            <a id=scrH onclick='windowScroll("H")'>H</a>
+            <a id=scrI onclick='windowScroll("I")'>I</a>
+            <a id=scrJ onclick='windowScroll("J")'>J</a>
+            <a id=scrK onclick='windowScroll("K")'>K</a>
+            <a id=scrL onclick='windowScroll("L")'>L</a>
+            <a id=scrM onclick='windowScroll("M")'>M</a>
+            <a id=scrN onclick='windowScroll("N")'>N</a>
+            <a id=scrO onclick='windowScroll("O")'>O</a>
+            <a id=scrP onclick='windowScroll("P")'>P</a>
+            <a id=scrQ onclick='windowScroll("Q")'>Q</a>
+            <a id=scrR onclick='windowScroll("R")'>R</a>
+            <a id=scrS onclick='windowScroll("S")'>S</a>
+            <a id=scrT onclick='windowScroll("T")'>T</a>
+            <a id=scrU onclick='windowScroll("U")'>U</a>
+            <a id=scrV onclick='windowScroll("V")'>V</a>
+            <a id=scrW onclick='windowScroll("W")'>W</a>
+            <a id=scrX onclick='windowScroll("X")'>X</a>
+            <a id=scrY onclick='windowScroll("Y")'>Y</a>
+            <a id=scrZ onclick='windowScroll("Z")'>Z</a>
+            <a id=scr- onclick='windowScroll("-")'>#</a>
+        </div>
+        <div class=containers id=accountContainer>
+            <div id=accA>
+                <h1>A</h1>
+            </div>
+            <div id=accB>
+                <h1>B</h1>
+            </div>
+            <div id=accC>
+                <h1>C</h1>
+            </div>
+            <div id=accD>
+                <h1>D</h1>
+            </div>
+            <div id=accE>
+                <h1>E</h1>
+            </div>
+            <div id=accF>
+                <h1>F</h1>
+            </div>
+            <div id=accG>
+                <h1>G</h1>
+            </div>
+            <div id=accH>
+                <h1>H</h1>
+            </div>
+            <div id=accI>
+                <h1>I</h1>
+            </div>
+            <div id=accJ>
+                <h1>J</h1>
+            </div>
+            <div id=accK>
+                <h1>K</h1>
+            </div>
+            <div id=accL>
+                <h1>L</h1>
+            </div>
+            <div id=accM>
+                <h1>M</h1>
+            </div>
+            <div id=accN>
+                <h1>N</h1>
+            </div>
+            <div id=accO>
+                <h1>O</h1>
+            </div>
+            <div id=accP>
+                <h1>P</h1>
+            </div>
+            <div id=accQ>
+                <h1>Q</h1>
+            </div>
+            <div id=accR>
+                <h1>R</h1>
+            </div>
+            <div id=accS>
+                <h1>S</h1>
+            </div>
+            <div id=accT>
+                <h1>T</h1>
+            </div>
+            <div id=accU>
+                <h1>U</h1>
+            </div>
+            <div id=accV>
+                <h1>V</h1>
+            </div>
+            <div id=accW>
+                <h1>W</h1>
+            </div>
+            <div id=accX>
+                <h1>X</h1>
+            </div>
+            <div id=accY>
+                <h1>Y</h1>
+            </div>
+            <div id=accZ>
+                <h1>Z</h1>
+            </div>
+            <div id=acc->
+                <h1>#</h1>
             </div>
         </div>
-        <script src=js/function.js></script>
-    </body>
+    </div>
+    <script src=js/function.js></script>
+</body>
+
 </html>

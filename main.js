@@ -92,6 +92,38 @@ function createWindow () {
         return true
     })
 
+    ipcMain.handle('save-settings', (event, content, divikey) => {
+        if (!content || !divikey) { return false }
+
+        var filePath = path.join(__dirname, `settings.txt`)
+        
+        content += `${divikey}`
+
+        fs.writeFileSync(filePath, content)
+
+        return { success: true, filePath }
+    })
+
+    ipcMain.handle('load-settings', async (event) => {
+        var filePath = path.join(__dirname, `settings.txt`)
+
+        try {
+            const file = await fs.promises.readFile(filePath, 'utf-8')
+
+            return [ filePath, file ]
+        }
+        catch (missing) {
+            var content = 'Trebuchet MS, sans-serif+{ngqy--HZN--ngqy}+grey+{ngqy--HZN--ngqy}+' // Default hard-coded setting
+
+            fs.writeFileSync(filePath, content)
+
+            const file = await fs.promises.readFile(filePath, 'utf-8')
+            
+            return [ filePath, file ]
+        }
+
+    })
+
     win.loadFile('src/index.html')
 }
 

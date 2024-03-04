@@ -53,7 +53,7 @@ new_acc.addEventListener('click', async () => {
     var oth = nullkeyReplacement(new_oth.value, false)
 
     const content = `${sit}${divikey}${usn}${divikey}${pwd}${divikey}${pin}${divikey}${eml}${divikey}${num}${divikey}${oth}`
-    
+
     const save = await api.savePass(sit, content, divikey)
 
     location.reload()
@@ -114,47 +114,47 @@ function addAccount(site, username, password, pin, email, phone, other, file) {
     }
 
     const large = document.createElement('div')
-        large.className = 'account'
-        large.id = `${file}`
-        large.setAttribute('name',`${site}`)
+    large.className = 'account'
+    large.id = `${file}`
+    large.setAttribute('name', `${site}`)
     const site_title = document.createElement('a')
-        site_title.className = 'site'
-        site_title.id = 'webname'
-        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
-        large.appendChild(site_title)
+    site_title.className = 'site'
+    site_title.id = 'webname'
+    site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
+    large.appendChild(site_title)
     const container = document.createElement('div')
-        container.className = 'inneraccountcontainer'
-        large.appendChild(container)
+    container.className = 'inneraccountcontainer'
+    large.appendChild(container)
     const usnrow = document.createElement('div')
-        usnrow.className = 'accountrow'
-        usnrow.id = 'usnrow'
-        usnrow.innerHTML = `<span class=text id=username>${nullkeyReplacement(username, true)}</span><a class=textL>Username:</a>`
-        container.appendChild(usnrow)
+    usnrow.className = 'accountrow'
+    usnrow.id = 'usnrow'
+    usnrow.innerHTML = `<span class=text id=username>${nullkeyReplacement(username, true)}</span><a class=textL>Username:</a>`
+    container.appendChild(usnrow)
     const pwdrow = document.createElement('div')
-        pwdrow.className = 'accountrow'
-        pwdrow.id = 'pwdrow'
-        pwdrow.innerHTML = `<span class=text id=password>${nullkeyReplacement(password, true)}</span><a class=textL>Password:</a>`
-        container.appendChild(pwdrow)
+    pwdrow.className = 'accountrow'
+    pwdrow.id = 'pwdrow'
+    pwdrow.innerHTML = `<span class=text id=password>${nullkeyReplacement(password, true)}</span><a class=textL>Password:</a>`
+    container.appendChild(pwdrow)
     const pinrow = document.createElement('div')
-        pinrow.className = 'accountrow'
-        pinrow.id = 'pinrow'
-        pinrow.innerHTML = `<span class=text id=pin>${nullkeyReplacement(pin, true)}</span><a class=textL>PIN:</a>`
-        container.appendChild(pinrow)
+    pinrow.className = 'accountrow'
+    pinrow.id = 'pinrow'
+    pinrow.innerHTML = `<span class=text id=pin>${nullkeyReplacement(pin, true)}</span><a class=textL>PIN:</a>`
+    container.appendChild(pinrow)
     const emlrow = document.createElement('div')
-        emlrow.className = 'accountrow'
-        emlrow.id = 'emlrow'
-        emlrow.innerHTML = `<span class=text id=email>${nullkeyReplacement(email, true)}</span><a class=textL>Email:</a>`
-        container.appendChild(emlrow)
+    emlrow.className = 'accountrow'
+    emlrow.id = 'emlrow'
+    emlrow.innerHTML = `<span class=text id=email>${nullkeyReplacement(email, true)}</span><a class=textL>Email:</a>`
+    container.appendChild(emlrow)
     const numrow = document.createElement('div')
-        numrow.className = 'accountrow'
-        numrow.id = 'numrow'
-        numrow.innerHTML = `<span class=text id=phone>${nullkeyReplacement(phone, true)}</span><a class=textL>Phone:</a>`
-        container.appendChild(numrow)
+    numrow.className = 'accountrow'
+    numrow.id = 'numrow'
+    numrow.innerHTML = `<span class=text id=phone>${nullkeyReplacement(phone, true)}</span><a class=textL>Phone:</a>`
+    container.appendChild(numrow)
     const othrow = document.createElement('div')
-        othrow.className = 'accountrow'
-        othrow.id = 'othrow'
-        othrow.innerHTML = `<span class=text id=other>${nullkeyReplacement(other, true)}</span><a class=textL>Details:</a>`
-        container.appendChild(othrow)
+    othrow.className = 'accountrow'
+    othrow.id = 'othrow'
+    othrow.innerHTML = `<span class=text id=other>${nullkeyReplacement(other, true)}</span><a class=textL>Details:</a>`
+    container.appendChild(othrow)
     var labeldiscriminator
     try { labeldiscriminator = site.charAt(0).toUpperCase() }
     catch { labeldiscriminator = '-' }
@@ -229,12 +229,68 @@ function expand(parent, element) {
     else { element.innerHTML = `${dIcon}` }
 }
 
+function changeFont(font) {
+    savesettings(font, document.getElementById('palettes').value)
+    $("body").css("font-family", font);
+}
+
+function changePalette(colour) {
+    savesettings(document.getElementById('fonts').value, colour)
+    if (colour == 'red')
+    {
+        $('body').css('color', `white`);
+        $('body').css('background-color', `lightcoral`);
+        $('.containers').css('background-color', `indianred`);
+        $('.typerpop').css('background-color', `indianred`);
+        $('.account').css('background-color', `#A04040`);
+        $('.button').css('background-color', `#A04040`);
+    }
+    else if (colour == 'purple')
+    {
+        $('body').css('color', `white`);
+        $('body').css('background-color', `#D8A1E7`);
+        $('.containers').css('background-color', `#C46EDA`);
+        $('.typerpop').css('background-color', `#C46EDA`);
+        $('.account').css('background-color', `mediumorchid`);
+        $('.button').css('background-color', `mediumorchid`);
+    }
+    else if (colour == 'blue')
+    {
+        $('body').css('color', `white`);
+        $('body').css('background-color', `lightsky${colour}`);
+        $('.containers').css('background-color', `#708EE8`);
+        $('.typerpop').css('background-color', `#708EE8`);
+        $('.account').css('background-color', `royal${colour}`);
+        $('.button').css('background-color', `royal${colour}`);
+    }
+    else if (colour == 'grey')
+    {
+        $('body').css('color', `black`);
+        $('body').css('background-color', `white`);
+        $('.containers').css('background-color', `light${colour}`);
+        $('.typerpop').css('background-color', `light${colour}`);
+        $('.account').css('background-color', `dark${colour}`);
+        $('.button').css('background-color', `dark${colour}`);
+    }
+}
+
+function resetWindow() {
+    setOptions('Trebuchet MS, sans-serif', 'grey');
+    changeFont('Trebuchet MS, sans-serif');
+    changePalette('grey');
+}
+
+function setOptions(font, colour) {
+    document.getElementById('fonts').selectedIndex = [...document.getElementById('fonts').options].findIndex(option => option.value === font);
+    document.getElementById('palettes').selectedIndex = [...document.getElementById('palettes').options].findIndex(option => option.value === colour);
+}
+
 function windowScroll(discriminator) {
     document.getElementById(`acc${discriminator}`).scrollIntoView({ behavior: "smooth" })
 }
 
 function configure() {
-    const headers = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','-' ]
+    const headers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
     headers.forEach((x) => {
         const header = document.getElementById(`acc${x}`)
         if (header.childElementCount == 0 || header.childElementCount == 1) {
@@ -252,11 +308,28 @@ async function loadfiles() {
     const fileArray = await api.loadFile()
     fileArray.forEach((account) => {
         const accountArray = account.split(divikey)
-        addAccount(accountArray[0],accountArray[1],accountArray[2],accountArray[3],accountArray[4],accountArray[5],accountArray[6],accountArray[7])
+        addAccount(accountArray[0], accountArray[1], accountArray[2], accountArray[3], accountArray[4], accountArray[5], accountArray[6], accountArray[7])
     })
+}
+
+async function savesettings(font, colour) {
+    const content = `${font}${divikey}${colour}`
+
+    const save = await api.saveSettings(content, divikey)
+}
+
+async function loadsettings() {
+    const file = await api.loadSettings()
+
+    const settingArray = file[1].split(divikey)
+
+    changeFont(settingArray[0])
+    changePalette(settingArray[1])
+    setOptions(settingArray[0], settingArray[1])
 }
 
 window.onload = async () => {
     configure()
     await loadfiles()
+    await loadsettings()
 }

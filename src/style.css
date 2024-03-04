@@ -111,7 +111,20 @@ body {
     background-color: darkgrey;
 }
 
-.ulBut{
+.settingBox {
+    width: 100%;
+    background-color: white;
+    font-size: large;
+    border-radius: .5em;
+    border-style: none;
+    padding: .5em .9em;
+    margin-top: .4em;
+    margin-bottom: .4em;
+    box-sizing: border-box;
+    transition-duration: 0.25s;
+}
+
+.ulBut {
     text-align: center;
 }
 
@@ -164,23 +177,27 @@ body {
     flex: 1 1 auto;
 }
 
-#accountContainer::-webkit-scrollbar-thumb, .typerpop::-webkit-scrollbar-thumb {
-    background-color: grey;
+#accountContainer::-webkit-scrollbar-thumb,
+.typerpop::-webkit-scrollbar-thumb {
+    background-color: white;
     border: .4em solid transparent;
     border-radius: 1em;
     background-clip: padding-box;
 }
 
-#accountContainer::-webkit-scrollbar, .typerpop::-webkit-scrollbar {
+#accountContainer::-webkit-scrollbar,
+.typerpop::-webkit-scrollbar {
     width: 1.4em;
 }
 
-#accountContainer::-webkit-scrollbar-track-piece:end, .typerpop::-webkit-scrollbar-track-piece:end {
+#accountContainer::-webkit-scrollbar-track-piece:end,
+.typerpop::-webkit-scrollbar-track-piece:end {
     background: transparent;
-    margin-bottom: 1.7em; 
+    margin-bottom: 1.7em;
 }
 
-#accountContainer::-webkit-scrollbar-track-piece:start, .typerpop::-webkit-scrollbar-track-piece:start {
+#accountContainer::-webkit-scrollbar-track-piece:start,
+.typerpop::-webkit-scrollbar-track-piece:start {
     background: transparent;
     margin-top: 1.7em;
 }
@@ -238,7 +255,7 @@ body {
     display: none;
 }
 
-.text:empty ~ .textL {
+.text:empty~.textL {
     display: none;
 }
 
@@ -261,11 +278,12 @@ body {
 
 #aboutpage {
     text-align: center;
+    max-width: 80%;
 }
 
 .abtlink {
-    text-decoration:underline;
-    color:blue;
+    text-decoration: underline;
+    color: blue;
     cursor: pointer;
 }
 
@@ -289,5 +307,5 @@ body {
 }
 
 .button:hover {
-    background-color: darkgrey;
+    filter: brightness(120%);
 }
