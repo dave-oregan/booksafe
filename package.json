@@ -7,7 +7,7 @@
     "start": "electron ."
   },
   "keywords": [],
-  "author": "David O'Regan",
+  "author": "David Abhishek O'Regan (https://horizonzz.com)",
   "license": "ISC",
   "devDependencies": {
     "electron": "^25.0.0",
@@ -16,6 +16,7 @@
     "npm": "^9.6.7"
   },
   "dependencies": {
+    "electron-packager": "^17.1.2",
     "jszip": "^3.10.1"
   }
 }
