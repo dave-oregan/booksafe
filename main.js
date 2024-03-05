@@ -202,7 +202,6 @@ function createWindow () {
 
             const setting_content = await zip.file('settings.txt').async('string')
             fs.writeFileSync(destination_s, setting_content, 'utf-8')
-            console.log(setting_content)
 
             const password_zip_folder = zip.folder('passwords')
             if (password_zip_folder) {
