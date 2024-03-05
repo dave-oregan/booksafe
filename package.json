@@ -1,14 +1,14 @@
 {
   "name": "BookSafe",
   "version": "1.0.0",
-  "description": "",
+  "description": "BookSafe is an application that safely and unintrusively stores accounts and passwords.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "keywords": [],
   "author": "David Abhishek O'Regan (https://horizonzz.com)",
-  "license": "ISC",
+  "license": "Custom - LICENSE.txt",
   "devDependencies": {
     "electron-packager": "^17.1.2",
     "npm": "^9.6.7"
