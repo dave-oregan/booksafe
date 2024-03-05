@@ -26,7 +26,7 @@
                     <p><b>Does BookSafe have any of my data?</b></p>
                     <p>No, BookSafe stores none of your data. Your data is only saved on your device.</p>
                     <p><b>Is BookSafe supported on all devices?</b></p>
-                    <p>Unfortunately, due to issues with compatibility, BookSafe is not currently available for phones or tablets. I (the developer) am currently wokring on a port for mobile devices.</p>
+                    <p>Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.</p>
                     <p><b>More questions?</b></p>
                     <p>Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
                     <hr>
@@ -85,7 +85,7 @@
             <div class=typerpop id=confirm_clear>
                 <ul class=submitUL>
                     <li class=nTitle> Create New Book </li>
-                    <li>Upon creating a new book, any passwords in the current book that are not exported will be lost.</li>
+                    <li>Upon creating a new book, you will lose any passwords that are not exported.</li>
                     <li class=ulBut>
                         <span class=button onclick=newBook()>CONFIRM</span>
                         <span class=button onclick='hide("clear_container")'>CANCEL</span>
@@ -124,7 +124,7 @@
             <div class=typerpop id=import_confirm>
                 <ul class=submitUL>
                     <li class=nTitle> Import New Book </li>
-                    <li>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import wihtout opening will place the zip file into the export folder of this application for ease of access later.</li>
+                    <li>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.</li>
                     <li class=ulBut>
                         <span class=button onclick='importZip(false)'>IMPORT</span>
                         <span class=button onclick='importZip(true)'>IMPORT AND OPEN</span>
@@ -138,7 +138,7 @@
             <div class=typerpop id=saved_import_confirm>
                 <ul class=submitUL>
                     <li class=nTitle> Import Saved Book </li>
-                    <li>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please eport before doing this!</li>
+                    <li>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!</li>
                     <li class=ulBut>
                         <span class=button onclick='importSavedZip()'>OPEN</span>
                         <span class=button onclick='hide("import_saved_container")'>RETURN</span>
