@@ -4,6 +4,7 @@ const fs = require('fs')
 const zipper = require('jszip')
 
 function createWindow () {
+    // Basic setup for the window
     const win = new BrowserWindow({
         width: 1280,
         height: 800,
@@ -16,6 +17,7 @@ function createWindow () {
         }
     })
 
+    // Saves passwords to the passwords folder
     ipcMain.handle('create-file', (event, sit, content, divikey) => {
         if (!sit || !content || !divikey) { return false }
 
@@ -40,11 +42,17 @@ function createWindow () {
         return { success: true, filePath }
     })
 
+    // Reads passwords folder for passwords to display
     ipcMain.handle('read-dir', async (event) => {
         const folderPath = path.join(__dirname, 'passwords')
     
         if (!fs.existsSync(folderPath)) {
             fs.mkdirSync(folderPath)
+        }
+
+        // Unrelated to rest of function, but utilised to generate exports folder at startup (if not otherwise present)
+        if (!fs.existsSync(path.join(__dirname, 'exports'))) {
+            fs.mkdirSync(path.join(__dirname, 'exports'))
         }
     
         var fileData = []
@@ -60,6 +68,7 @@ function createWindow () {
         return fileData
     })
 
+    // Retrieves a singular password
     ipcMain.handle('read-file-single', async (event, fileName) => {
         var filePathS = path.join(__dirname, 'passwords', `${fileName}.txt`)
 
@@ -68,6 +77,7 @@ function createWindow () {
         return [ filePathS, fileS ]
     })
 
+    // Updates a password file's content
     ipcMain.handle('overwrite-file', (event, toFile, content) => {
         if (!toFile || !content) { return false }
 
@@ -76,6 +86,7 @@ function createWindow () {
         return true
     })
 
+    // Deletes a password
     ipcMain.handle('delete-file', (event, toFile) => {
         if (!toFile) { return false }
 
@@ -84,6 +95,7 @@ function createWindow () {
         return true
     })
 
+    // Opens web link from the about page (default browser)
     ipcMain.handle('open-link', (event, link) => {
         if (!link) { return false }
 
@@ -92,6 +104,7 @@ function createWindow () {
         return true
     })
 
+    // Updates the settings file 
     ipcMain.handle('save-settings', (event, content, divikey) => {
         if (!content || !divikey) { return false }
 
@@ -104,6 +117,7 @@ function createWindow () {
         return { success: true, filePath }
     })
 
+    // Loads settings from file on reload/startup
     ipcMain.handle('load-settings', async (event) => {
         var filePath = path.join(__dirname, `settings.txt`)
 
@@ -124,6 +138,7 @@ function createWindow () {
 
     })
 
+    // Packs password book into zip file
     ipcMain.handle('pack-zip', async (event, zipName) => {
         const zip = new zipper()
 
@@ -188,6 +203,7 @@ function createWindow () {
         }).catch((err) => { return [err, false] })
     })
 
+    // Unpacks password book from zip file
     ipcMain.handle('unpack-zip', async (event, zipPath) => {
         const destination_p = path.join(__dirname, 'passwords')
         const destination_s = path.join(__dirname, 'settings.txt')
@@ -219,6 +235,7 @@ function createWindow () {
         catch (err) { return false }
     })
 
+    // Opens a folder in native file explorer
     ipcMain.handle('open-folder', (event, folderName) => {
         const folderPath = path.join(__dirname, folderName)
 
@@ -227,6 +244,7 @@ function createWindow () {
         return true
     })
 
+    // Clears all passwords from passwords folder
     ipcMain.handle('clear-files', (event) => {
         const directory = path.join(__dirname, `passwords`)
         const dirFiles = fs.readdirSync(directory)
@@ -243,6 +261,7 @@ function createWindow () {
         return true
     })
 
+    // Opens file selection screen
     ipcMain.handle('dialog-box', (event, folder) => {
         if (folder == '') {
             return dialog.showOpenDialogSync({
@@ -259,6 +278,7 @@ function createWindow () {
         })
     })
 
+    // Copies selected zip file to the exports folder
     ipcMain.handle('copy-zip', async (event, filepath) => {
         const destination = path.join(__dirname, 'exports')
 

@@ -27,11 +27,16 @@
   "build": {
     "appId": "com.horizonzz.booksafe",
     "productName": "BookSafe",
+    "asar": true,
     "directories": {
       "output": "dist"
     },
     "files": [
-      "dist/**/*",
+      "main.js",
+      "package.json",
+      "preload.js",
+      "LICENSE.txt",
+      "src/**/*",
       "node_modules/**/*"
     ],
     "mac": {
