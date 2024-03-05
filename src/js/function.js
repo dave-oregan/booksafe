@@ -34,6 +34,8 @@ const cmfdelaccount = document.getElementById('cmfdelaccount')
 const cfmdel_container = document.getElementById('cfmdel_container')
 const cfmdel_acc = document.getElementById('cfmdel_acc')
 
+const s_bar = document.getElementById('s_bar')
+
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
 const xIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>'
@@ -102,6 +104,27 @@ cfmdel_acc.addEventListener('click', async () => {
     } else {
         hide('cfmdel_container')
         cfm_del.value = ''
+    }
+})
+
+s_bar.addEventListener('input', () => {
+    const search = s_bar.value.toLowerCase()
+    const accounts = Array.from(document.getElementsByClassName('account'))
+
+    if (search == '') {
+        accounts.forEach((account) => {
+            account.classList.remove('hidden')
+        })
+    }
+    else {
+        accounts.forEach((account) => {
+            if (!account.textContent.toLowerCase().includes(search) && !account.id.toLowerCase().includes(search)) {
+                account.classList.add('hidden')
+            }
+            else {
+                account.classList.remove('hidden')
+            }
+        })
     }
 })
 
@@ -219,6 +242,24 @@ function reveal(id) {
 function hide(id) {
     const shown = document.getElementById(id)
     shown.classList.add('hidden')
+}
+
+function toggleSearch(containerID) {
+    const toToggle = document.getElementById(containerID)
+    if (toToggle.classList.contains('hidden')) {
+        toToggle.classList.remove('hidden')
+    }
+    else {
+        toToggle.classList.add('hidden')
+
+        s_bar.value = ''
+
+        const accounts = Array.from(document.getElementsByClassName('account'))
+
+        accounts.forEach((account) => {
+            account.classList.remove('hidden')
+        })
+    }
 }
 
 function expand(parent, element) {
@@ -407,6 +448,8 @@ async function importSavedZip() {
 
 async function newBook() {
     setZipName('')
+
+    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, '')
 
     const clear = await api.clearFiles()
     

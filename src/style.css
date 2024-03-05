@@ -76,6 +76,26 @@ body {
     overflow-y: auto;
 }
 
+.searchbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar input {
+    width: 85%;
+    background-color: white;
+    font-size: large;
+    border-radius: .5em;
+    border-style: none;
+    padding: .5em .9em;
+    margin-top: .4em;
+    margin-bottom: .975em;
+    box-sizing: border-box;
+    transition-duration: 0.25s;
+}
+
 .nTitle {
     text-align: center;
     font-size: xx-large;
