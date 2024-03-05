@@ -10,13 +10,11 @@
   "author": "David Abhishek O'Regan (https://horizonzz.com)",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^25.0.0",
-    "electron-package": "^0.1.0",
-    "install": "^0.13.0",
+    "electron-packager": "^17.1.2",
     "npm": "^9.6.7"
   },
   "dependencies": {
-    "electron-packager": "^17.1.2",
+    "electron": "^25.0.0",
     "jszip": "^3.10.1"
   }
 }
