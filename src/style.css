@@ -37,7 +37,19 @@ body {
     display: inline-block;
 }
 
+.iconheightlimit {
+    height: 1.18em;
+    display: flex;
+    vertical-align: center;
+    align-content: center;
+}
+
 #newbutton {
+    float: right;
+    text-align: center;
+}
+
+#settingbutton {
     float: right;
     text-align: center;
 }
@@ -85,7 +97,7 @@ body {
 
 .searchbar input {
     width: 85%;
-    background-color: white;
+    background-color: #EEE;
     font-size: large;
     border-radius: .5em;
     border-style: none;
@@ -94,6 +106,10 @@ body {
     margin-bottom: .975em;
     box-sizing: border-box;
     transition-duration: 0.25s;
+}
+
+.searchbar input:hover {
+    filter: brightness(95%);
 }
 
 .nTitle {
