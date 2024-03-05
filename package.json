@@ -27,7 +27,7 @@
   "build": {
     "appId": "com.horizonzz.booksafe",
     "productName": "BookSafe",
-    "asar": true,
+    "asar": false,
     "directories": {
       "output": "dist"
     },
