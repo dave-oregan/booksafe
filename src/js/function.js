@@ -407,10 +407,10 @@ async function exportZip() {
 
     const expZip = await api.packZip(filename)
 
-    var save_status = `Your book, ${filename}, has successfully saved to the exports folder!`
+    var save_status = `Your book, ${filename}, has been saved to the exports folder!`
 
     if (!expZip[1]) {
-        save_status = `There was an error exporting your book: ${expZip[0]}`
+        save_status = `The following error occurred while exporting your book: ${expZip[0]}`
     }
 
     document.getElementById('save_status_desc').innerHTML = save_status
@@ -444,10 +444,10 @@ async function importZip(open_bool) {
         else {
             hide('import_container')
             
-            var import_status = `Your book has successfully saved to the exports folder!`
+            var import_status = `Your book has been successfully saved to the exports folder!`
 
             if (!copy[0]) {
-                import_status = `There was an error exporting your book: ${copy[1]}`
+                import_status = `The following error occurred while importing your book: ${copy[1]}`
             }
 
             document.getElementById('import_status_desc').innerHTML = import_status
