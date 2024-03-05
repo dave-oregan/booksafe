@@ -14,13 +14,46 @@
   "license": "Custom - LICENSE.txt",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^25.0.0"
+    "electron": "^25.0.0",
+    "electron-builder": "^24.13.3"
   },
   "dependencies": {
     "electron": "^25.0.0",
     "jszip": "^3.10.1"
+  },
+  "build": {
+    "appId": "com.horizonzz.booksafe",
+    "productName": "BookSafe",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "src/lockicon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "src/lockicon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "src/lockicon.ico",
+      "uninstallerIcon": "src/lockicon.ico"
+    }
   }
 }
