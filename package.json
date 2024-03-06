@@ -57,7 +57,12 @@
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "src/lockicon.ico",
-      "uninstallerIcon": "src/lockicon.ico"
+      "uninstallerIcon": "src/lockicon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BookSafe",
+      "license": "LICENSE.txt",
+      "artifactName": "BookSafe_v1_Setup.exe"
     }
   }
 }
