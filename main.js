@@ -17,20 +17,23 @@ function createWindow () {
         }
     })
 
+    // This is the path for a location on the device where the app has write access
+    var __user = app.getPath('userData')
+
     // Saves passwords to the passwords folder
     ipcMain.handle('create-file', (event, sit, content, divikey) => {
         if (!sit || !content || !divikey) { return false }
 
         const potentialFile = sit.replace(/[^a-zA-Z0-9]/g,'_')
 
-        var filePath = path.join(__dirname, 'passwords', `${potentialFile}.txt`)
+        var filePath = path.join(__user, 'passwords', `${potentialFile}.txt`)
 
         var diff = 0
 
         if (fs.existsSync(filePath)) {
             while (fs.existsSync(filePath)) {
                 diff++
-                filePath = path.join(__dirname, 'passwords', `${potentialFile}${diff}.txt`)
+                filePath = path.join(__user, 'passwords', `${potentialFile}${diff}.txt`)
             }
         }
 
@@ -43,16 +46,22 @@ function createWindow () {
     })
 
     // Reads passwords folder for passwords to display
-    ipcMain.handle('read-dir', async (event) => {
-        const folderPath = path.join(__dirname, 'passwords')
+    ipcMain.handle('read-dir', async (event) => {    
+        // Unrelated to rest of function, but utilised to generate data folder at startup (if not otherwise present)
+        if (!fs.existsSync(__user)) {
+            fs.mkdirSync(__user)
+        }
+
+        const folderPath = path.join(__user, 'passwords')
     
         if (!fs.existsSync(folderPath)) {
             fs.mkdirSync(folderPath)
         }
 
         // Unrelated to rest of function, but utilised to generate exports folder at startup (if not otherwise present)
-        if (!fs.existsSync(path.join(__dirname, 'exports'))) {
-            fs.mkdirSync(path.join(__dirname, 'exports'))
+        const exportPath = path.join(__user, 'exports')
+        if (!fs.existsSync(exportPath)) {
+            fs.mkdirSync(exportPath)
         }
     
         var fileData = []
@@ -70,7 +79,7 @@ function createWindow () {
 
     // Retrieves a singular password
     ipcMain.handle('read-file-single', async (event, fileName) => {
-        var filePathS = path.join(__dirname, 'passwords', `${fileName}.txt`)
+        var filePathS = path.join(__user, 'passwords', `${fileName}.txt`)
 
         const fileS = await fs.promises.readFile(filePathS, 'utf-8')
 
@@ -108,7 +117,7 @@ function createWindow () {
     ipcMain.handle('save-settings', (event, content, divikey) => {
         if (!content || !divikey) { return false }
 
-        var filePath = path.join(__dirname, `settings.txt`)
+        var filePath = path.join(__user, `settings.txt`)
         
         content += `${divikey}`
 
@@ -119,7 +128,7 @@ function createWindow () {
 
     // Loads settings from file on reload/startup
     ipcMain.handle('load-settings', async (event) => {
-        var filePath = path.join(__dirname, `settings.txt`)
+        var filePath = path.join(__user, `settings.txt`)
 
         try {
             const file = await fs.promises.readFile(filePath, 'utf-8')
@@ -142,8 +151,8 @@ function createWindow () {
     ipcMain.handle('pack-zip', async (event, zipName) => {
         const zip = new zipper()
 
-        const passwordFolder = path.join(__dirname, 'passwords')
-        const settingsPath = path.join(__dirname, 'settings.txt')
+        const passwordFolder = path.join(__user, 'passwords')
+        const settingsPath = path.join(__user, 'settings.txt')
 
         const settingsFileContent = fs.readFileSync(settingsPath, 'utf-8')
         zip.file(path.basename(settingsPath), settingsFileContent)
@@ -172,7 +181,7 @@ function createWindow () {
         addFolderToZip(passwordFolder, 'passwords')
 
         return zip.generateAsync({ type: 'nodebuffer' }).then((content) => {
-            const folderPath = path.join(__dirname, 'exports')
+            const folderPath = path.join(__user, 'exports')
 
             if (!fs.existsSync(folderPath)) {
                 fs.mkdirSync(folderPath)
@@ -205,8 +214,8 @@ function createWindow () {
 
     // Unpacks password book from zip file
     ipcMain.handle('unpack-zip', async (event, zipPath) => {
-        const destination_p = path.join(__dirname, 'passwords')
-        const destination_s = path.join(__dirname, 'settings.txt')
+        const destination_p = path.join(__user, 'passwords')
+        const destination_s = path.join(__user, 'settings.txt')
 
         if (!fs.existsSync(destination_p)) {
             fs.mkdirSync(destination_p)
@@ -237,7 +246,7 @@ function createWindow () {
 
     // Opens a folder in native file explorer
     ipcMain.handle('open-folder', (event, folderName) => {
-        const folderPath = path.join(__dirname, folderName)
+        const folderPath = path.join(__user, folderName)
 
         shell.openPath(folderPath)
 
@@ -246,7 +255,7 @@ function createWindow () {
 
     // Clears all passwords from passwords folder
     ipcMain.handle('clear-files', (event) => {
-        const directory = path.join(__dirname, `passwords`)
+        const directory = path.join(__user, `passwords`)
         const dirFiles = fs.readdirSync(directory)
 
         dirFiles.forEach((file) => {
@@ -269,7 +278,7 @@ function createWindow () {
                 properties: ['openFile']
             })
         }
-        const folder_path = path.join(__dirname, folder)
+        const folder_path = path.join(__user, folder)
 
         return dialog.showOpenDialogSync({
             defaultPath: folder_path,
@@ -280,7 +289,7 @@ function createWindow () {
 
     // Copies selected zip file to the exports folder
     ipcMain.handle('copy-zip', async (event, filepath) => {
-        const destination = path.join(__dirname, 'exports')
+        const destination = path.join(__user, 'exports')
 
         if (!fs.existsSync(destination)) {
             fs.mkdirSync(destination)
