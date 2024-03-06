@@ -136,7 +136,7 @@ function createWindow () {
             return [ filePath, file ]
         }
         catch (missing) {
-            var content = 'Trebuchet MS, sans-serif+{ngqy--HZN--ngqy}+grey+{ngqy--HZN--ngqy}+' // Default hard-coded setting
+            var content = 'Trebuchet MS, sans-serif+{ngqy--HZN--ngqy}+grey+{ngqy--HZN--ngqy}++{ngqy--HZN--ngqy}+English' // Default hard-coded setting
 
             fs.writeFileSync(filePath, content)
 

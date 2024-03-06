@@ -20,21 +20,23 @@
         <div class='typerpopouter hidden' id=ab_container>
             <div class=typerpop id=about>
                 <div id=aboutpage>
-                    <h1>About</h1>
-                    <p>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.</p>
+                    <h1 id=title_abt>About</h1>
+                    <p id=ap1>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.</p>
                     <hr>
-                    <p><b>Does BookSafe have any of my data?</b></p>
-                    <p>No, BookSafe stores none of your data. Your data is only saved on your device.</p>
-                    <p><b>Is BookSafe supported on all devices?</b></p>
-                    <p>Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.</p>
-                    <p><b>More questions?</b></p>
-                    <p>Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
+                    <p><b id=ap2>Does BookSafe have any of my data?</b></p>
+                    <p id=ap3>No, BookSafe stores none of your data on servers. Your data is only saved on your device.</p>
+                    <p><b id=ap4>How can I find my exported passwords?</b></p>
+                    <p id=ap5>Go to settings, then click on the 'FOLDER' button. This will reveal the export folder in your explorer.</p>
+                    <p><b id=ap6>Is BookSafe supported on all devices?</b></p>
+                    <p id=ap7>Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.</p>
+                    <p><b id=ap8>More questions?</b></p>
+                    <p id=ap9>Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
                     <hr>
-                    <p>Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a></p>
-                    <p>Copyright © 2024 HorizonZz - All Rights Reserved.</p>
+                    <p id=ap10>Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a></p>
+                    <p id=ap11>Copyright © 2024 HorizonZz - All Rights Reserved.</p>
                 </div>
                 <ul class=submitUL>
-                    <li class=ulBut><span class=button onclick='hide("ab_container")'>CLOSE</span></li>
+                    <li class=ulBut><span class=button id=btn_cl2 onclick='hide("ab_container")'>CLOSE</span></li>
                 </ul>
                 <script>
                     document.getElementById('linktoweb').addEventListener('click', () => {
@@ -47,14 +49,27 @@
         <div class='typerpopouter hidden' id=s_container>
             <div class=typerpop id=settings>
                 <ul class=submitUL>
-                    <li class=nTitle> Settings </li>
+                    <li class=nTitle id=title_set> Settings </li>
                     <li>Book Name: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
                     <li class=ulBut>
-                        <span class=button onclick='reveal("clear_container")'>NEW</span>
-                        <span class=button onclick='reveal("import_saved_container")'>OPEN</span>
-                        <span class=button onclick='openExportFolder()'>FOLDER</span>
-                        <span class=button onclick='reveal("import_container")'>IMPORT</span>
-                        <span class=button onclick=exportZip()>EXPORT</span>
+                        <span class=button id=set_new onclick='reveal("clear_container")'>NEW</span>
+                        <span class=button id=set_ope onclick='reveal("import_saved_container")'>OPEN</span>
+                        <span class=button id=set_fol onclick='openExportFolder()'>FOLDER</span>
+                        <span class=button id=set_imp onclick='reveal("import_container")'>IMPORT</span>
+                        <span class=button id=set_exp onclick=exportZip()>EXPORT</span>
+                    </li>
+                    <li>Languages:
+                        <select onchange=changeLanguage(this.value) class=settingBox id=languages>
+                            <option value='Arabic'>Arabic</option>
+                            <option value='Bangla'>Bangla</option>
+                            <option value='English' selected>English</option>
+                            <option value='French'>French</option>
+                            <option value='German'>German</option>
+                            <option value='Hindi'>Hindi</option>
+                            <option value='Japanese'>Japanese</option>
+                            <option value='Russian'>Russian</option>
+                            <option value='Spanish'>Español</option>
+                        </select>
                     </li>
                     <li>Fonts:
                         <select onchange=changeFont(this.value) class=settingBox id=fonts>
@@ -69,14 +84,14 @@
                     </li>
                     <li>Palette:
                         <select onchange=changePalette(this.value) class=settingBox id=palettes>
-                            <option value='blue'>Blue</option>
-                            <option value='grey' selected>Grey</option>
-                            <option value='purple'>Purple</option>
-                            <option value='red'>Red</option>
+                            <option id=blu value='blue'>Blue</option>
+                            <option id=gre value='grey' selected>Grey</option>
+                            <option id=pur value='purple'>Purple</option>
+                            <option id=red value='red'>Red</option>
                         </select>
                     </li>
                     <li class=ulBut>
-                        <span class=button onclick=resetWindow()>RESET</span><span class=button onclick='hide("s_container")'>CLOSE</span>
+                        <span class=button id=btn_rst onclick=resetWindow()>RESET</span><span class=button id=btn_cl1 onclick='hide("s_container")'>CLOSE</span>
                     </li>
                 </ul>
             </div>
@@ -85,11 +100,11 @@
         <div class='typerpopouter hidden' id=clear_container>
             <div class=typerpop id=confirm_clear>
                 <ul class=submitUL>
-                    <li class=nTitle> Create New Book </li>
+                    <li class=nTitle id=title_cnb> Create New Book </li>
                     <li>Upon creating a new book, you will lose any passwords that are not exported.</li>
                     <li class=ulBut>
-                        <span class=button onclick=newBook()>CONFIRM</span>
-                        <span class=button onclick='hide("clear_container")'>CANCEL</span>
+                        <span class=button id=btn_cfm onclick=newBook()>CONFIRM</span>
+                        <span class=button id=btn_cc1 onclick='hide("clear_container")'>CANCEL</span>
                     </li>
                 </ul>
             </div>
@@ -98,11 +113,11 @@
         <div class='typerpopouter hidden' id=save_container>
             <div class=typerpop id=save_status>
                 <ul class=submitUL>
-                    <li class=nTitle> Export Book </li>
+                    <li class=nTitle id=title_exb> Export Book </li>
                     <li id=save_status_desc></li>
                     <li class=ulBut>
-                        <span class=button onclick='openExportFolder()'>FOLDER</span>
-                        <span class=button onclick='hide("save_container")'>RETURN</span>
+                        <span class=button id=btn_fl1 onclick='openExportFolder()'>FOLDER</span>
+                        <span class=button id=btn_rt1 onclick='hide("save_container")'>RETURN</span>
                     </li>
                 </ul>
             </div>
@@ -111,11 +126,11 @@
         <div class='typerpopouter hidden' id=import_background_container>
             <div class=typerpop id=import_status>
                 <ul class=submitUL>
-                    <li class=nTitle> Import New Book </li>
+                    <li class=nTitle id=title_inb> Import New Book </li>
                     <li id=import_status_desc></li>
                     <li class=ulBut>
-                        <span class=button onclick='openExportFolder()'>FOLDER</span>
-                        <span class=button onclick='hide("import_background_container")'>RETURN</span>
+                        <span class=button id=btn_fl2 onclick='openExportFolder()'>FOLDER</span>
+                        <span class=button id=btn_rt2 onclick='hide("import_background_container")'>RETURN</span>
                     </li>
                 </ul>
             </div>
@@ -124,12 +139,12 @@
         <div class='typerpopouter hidden' id=import_container>
             <div class=typerpop id=import_confirm>
                 <ul class=submitUL>
-                    <li class=nTitle> Import New Book </li>
+                    <li class=nTitle id=title_ib2> Import New Book </li>
                     <li>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.</li>
                     <li class=ulBut>
-                        <span class=button onclick='importZip(false)'>IMPORT</span>
-                        <span class=button onclick='importZip(true)'>IMPORT AND OPEN</span>
-                        <span class=button onclick='hide("import_container")'>RETURN</span>
+                        <span class=button id=btn_imp onclick='importZip(false)'>IMPORT</span>
+                        <span class=button id=btn_iao onclick='importZip(true)'>IMPORT AND OPEN</span>
+                        <span class=button id=btn_rt3 onclick='hide("import_container")'>RETURN</span>
                     </li>
                 </ul>
             </div>
@@ -138,11 +153,11 @@
         <div class='typerpopouter hidden' id=import_saved_container>
             <div class=typerpop id=saved_import_confirm>
                 <ul class=submitUL>
-                    <li class=nTitle> Import Saved Book </li>
+                    <li class=nTitle id=title_isb> Import Saved Book </li>
                     <li>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!</li>
                     <li class=ulBut>
-                        <span class=button onclick='importSavedZip()'>OPEN</span>
-                        <span class=button onclick='hide("import_saved_container")'>RETURN</span>
+                        <span class=button id=btn_ope onclick='importSavedZip()'>OPEN</span>
+                        <span class=button id=btn_rt4 onclick='hide("import_saved_container")'>RETURN</span>
                     </li>
                 </ul>
             </div>
@@ -151,7 +166,7 @@
         <div class='typerpopouter hidden' id=na_container>
             <div class=typerpop id=newaccount>
                 <ul class=submitUL>
-                    <li class=nTitle> New Account </li>
+                    <li class=nTitle id=title_nac> New Account </li>
                     <li>Website: <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
                     <li>Username: <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
                     <li>Password: <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
@@ -159,7 +174,7 @@
                     <li>Email: <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
                     <li>Phone: <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
                     <li>Details: <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
-                    <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button onclick='hide("na_container")'>CANCEL</span>
+                    <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button id=btn_cc2 onclick='hide("na_container")'>CANCEL</span>
                     </li>
                 </ul>
             </div>
@@ -168,14 +183,14 @@
         <div class='typerpopouter hidden' id=cng_container>
             <div class=typerpop id=cngaccount>
                 <ul class=submitUL>
-                    <li class=nTitle> Edit Account </li>
+                    <li class=nTitle id=title_edt> Edit Account </li>
                     <li>Username: <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
                     <li>Password: <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
                     <li>PIN: <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
                     <li>Email: <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
                     <li>Phone: <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
                     <li>Details: <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
-                    <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button onclick='hide("cng_container")'>CANCEL</span></li>
+                    <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button id=btn_cc3 onclick='hide("cng_container")'>CANCEL</span></li>
                 </ul>
             </div>
             <div id=naback onclick='hide("cng_container")'></div>
@@ -183,7 +198,7 @@
         <div class='typerpopouter hidden' id=del_container>
             <div class=typerpop id=delaccount>
                 <ul class=submitUL>
-                    <li class=nTitle> Delete Account </li>
+                    <li class=nTitle id=title_dlt> Delete Account </li>
                     <li>Website: <input type=text class=ipBox id=del_sit readonly=readonly></li>
                     <li>Username: <input type=text class=ipBox id=del_usn readonly=readonly></li>
                     <li>Password: <input type=text class=ipBox id=del_pwd readonly=readonly></li>
@@ -191,7 +206,7 @@
                     <li>Email: <input type=text class=ipBox id=del_eml readonly=readonly></li>
                     <li>Phone: <input type=text class=ipBox id=del_num readonly=readonly></li>
                     <li>Details: <input type=text class=ipBox id=del_oth readonly=readonly></li>
-                    <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button onclick='hide("del_container")'>CANCEL</span></li>
+                    <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button id=btn_cc4 onclick='hide("del_container")'>CANCEL</span></li>
                 </ul>
             </div>
             <div id=naback onclick='hide("del_container")'></div>
@@ -199,10 +214,10 @@
         <div class='typerpopouter hidden' id=cfmdel_container>
             <div class=typerpop id=cmfdelaccount>
                 <ul class=submitUL>
-                    <li class=nTitle> Delete Account </li>
+                    <li class=nTitle id=title_dl2> Delete Account </li>
                     <li>Please confirm by typing 'DELETE' below:</li>
                     <li><input type=text class=ipBox id=cfm_del placeholder='Type here...'></li>
-                    <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button onclick='hide("cfmdel_container")'>CANCEL</span></li>
+                    <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button id=btn_cc5 onclick='hide("cfmdel_container")'>CANCEL</span></li>
                 </ul>
             </div>
             <div id=naback onclick='hide("cfmdel_container")'></div>

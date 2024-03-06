@@ -40,6 +40,8 @@ const new_btn = document.getElementById('newbutton')
 const set_btn = document.getElementById('settingbutton')
 const abt_btn = document.getElementById('aboutbutton')
 
+var toggleBool = false;
+
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
 const xIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>'
@@ -50,7 +52,224 @@ const plusIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="
 const settingIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.18em" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16"><path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/><path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/></svg>'
 const infoIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.18em" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16"><path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0"/></svg>'
 
-var toggleBool = false;
+const languageSelector = document.getElementById('languages')
+const languages = [
+    {
+        name: "Arabic",
+        title: "",
+        number: 0,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "Bangla",
+        title: "",
+        number: 1,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "English",
+        title: "BookSafe: Password Book",
+        number: 2,
+        section: {
+            nac: "New Account", set: "Settings", abt: "About", edt: "Edit Account", dlt: "Delete Account",
+            cnb: "Create New Book", isb: "Import Saved Book", inb: "Import New Book", exb: "Export Book"
+        },
+        scrolls: [
+            // This will be used to replace headers and scroll buttons
+            // Headers may also just have to be added manually since without the characters it wont show
+            // May have to drop Japanese because I don't want to code for Kanji
+            // The Kanji issue could be solved by placing Kanjis into the symbol category
+        ],
+        buttons: {
+            new: "NEW", set: "SETTINGS", abt: "ABOUT", smt: "SUBMIT", rst: "RESET", ccl: "CANCEL",
+            opn: "OPEN", fdr: "FOLDER", imp: "IMPORT", exp: "EXPORT", cls: "CLOSE", cfm: "CONFIRM",
+            rtn: "RETURN", iao: "IMPORT AND OPEN", dlt: "DELETE", sav: "SAVE"
+        },
+        headers: [
+            "Username", "Password", "PIN", "Email", "Phone", "Details"
+        ],
+        colours: {
+            blue: "Blue", grey: "Grey", purple: "Purple", red: "Red"
+        },
+        about: [
+            "BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.",
+            "Does BookSafe have any of my data?",
+            "No, BookSafe stores none of your data on servers. Your data is only saved on your device.",
+            "How can I find my exported passwords?",
+            "Go to settings, then click on the 'FOLDER' button. This will reveal the export folder in your explorer.",
+            "Is BookSafe supported on all devices?",
+            "Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.",
+            "More questions?",
+            "Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Copyright © 2024 HorizonZz - All Rights Reserved."
+        ]
+    },
+    {
+        name: "French",
+        title: "",
+        number: 3,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "German",
+        title: "",
+        number: 4,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "Hindi",
+        title: "",
+        number: 5,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "Japanese",
+        title: "",
+        number: 6,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "Russian",
+        title: "",
+        number: 7,
+        section: {},
+        scrolls: [],
+        buttons: [],
+        headers: [],
+        colours: { },
+        about: []
+    },
+    {
+        name: "Spanish",
+        title: "BookSafe: Libro Contraseña",
+        number: 8,
+        section: {
+            nac: "Nueva Cuenta", set: "Ajustes", abt: "Sobre", edt: "Editar Cuenta", dlt: "Borrar Cuenta",
+            cnb: "Crear Nuevo Libro", isb: "Importar Libro Guardado", inb: "Importar Nuevo Libro", exb: "Exportar Libro"
+        },
+        scrolls: [],
+        buttons: {
+            new: "NUEVO", set: "AJUSTES", abt: "SOBRE", smt: "ENTREGAR", rst: "REAJUSTAR", ccl: "CANCELAR",
+            opn: "ABRIR", fdr: "CARPETA", imp: "IMPORTAR", exp: "EXPORTAR", cls: "CERRAR", cfm: "CONFIRMAR",
+            rtn: "DEVOLVER", iao: "IMPORTAR Y ABRIR", dlt: "BORRAR", sav: "AHORRAR"
+        },
+        headers: [],
+        colours: {
+            blue: "Azul", grey: "Gris", purple: "Morado", red: "Rojo"
+        },
+        about: [
+            "BookSafe es una app que tiene como objetivo ayudarte a realizar un seguimiento de todas tus cuentas de la forma más cómoda y no invasiva posible.",
+            "¿BookSafe tiene alguno de mis datos?",
+            "No, BookSafe no almacena ninguno de tus datos en servidores. Tus datos solo se guardan en tu dispositivo.",
+            "¿Cómo puedo encontrar mis contraseñas exportadas?",
+            "Ve a configuración y luego haz clic en el botón 'CARPETA'. Esto revelará la carpeta de exportación en tu explorador.",
+            "¿BookSafe es compatible con todos los dispositivos?",
+            "Desafortunadamente, debido a problemas de compatibilidad, BookSafe no está disponible actualmente para teléfonos o tabletas. Yo (el desarrollador) estoy trabajando actualmente en una versión para dispositivos móviles.",
+            "¿Más preguntas?",
+            "Envía un correo electrónico al desarrollador a <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Sitio Web del Desarrollador: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Derecho de Autor © 2024 HorizonZz - Todos los Derechos Reservados."
+        ]
+    }
+]
+
+var __language = document.getElementById('languages').value
+
+function changeLanguage(language) {
+    __language = language
+    
+    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, document.getElementById('zip_name_box').value, __language)
+
+    const l_num = getLangNumber(__language)
+
+    // Titles
+    document.getElementById('title').innerText = languages[l_num].title
+    document.getElementById('title_nac').innerHTML = languages[l_num].section.nac
+    document.getElementById('title_set').innerHTML = languages[l_num].section.set
+    document.getElementById('title_abt').innerHTML = languages[l_num].section.abt
+    document.getElementById('title_edt').innerHTML = languages[l_num].section.edt
+    document.getElementById('title_dlt').innerHTML = languages[l_num].section.dlt
+    document.getElementById('title_dl2').innerHTML = languages[l_num].section.dlt
+    document.getElementById('title_cnb').innerHTML = languages[l_num].section.cnb
+    document.getElementById('title_isb').innerHTML = languages[l_num].section.isb
+    document.getElementById('title_inb').innerHTML = languages[l_num].section.inb
+    document.getElementById('title_ib2').innerHTML = languages[l_num].section.inb
+    document.getElementById('title_exb').innerHTML = languages[l_num].section.exb
+
+    // Buttons
+    checkForSizeChange()
+    document.getElementById('set_new').innerText = languages[l_num].buttons.new
+    document.getElementById('set_ope').innerText = languages[l_num].buttons.opn
+    document.getElementById('set_fol').innerText = languages[l_num].buttons.fdr
+    document.getElementById('set_imp').innerText = languages[l_num].buttons.imp
+    document.getElementById('set_exp').innerText = languages[l_num].buttons.exp
+    document.getElementById('btn_cl1').innerText = languages[l_num].buttons.cls
+    document.getElementById('btn_cl2').innerText = languages[l_num].buttons.cls
+    document.getElementById('btn_fl1').innerText = languages[l_num].buttons.fdr
+    document.getElementById('btn_fl2').innerText = languages[l_num].buttons.fdr
+    document.getElementById('btn_ope').innerText = languages[l_num].buttons.opn
+    document.getElementById('btn_imp').innerText = languages[l_num].buttons.imp
+    document.getElementById('btn_iao').innerText = languages[l_num].buttons.iao
+    document.getElementById('new_acc').innerText = languages[l_num].buttons.smt
+    document.getElementById('res_new_acc').innerText = languages[l_num].buttons.rst
+    document.getElementById('btn_rst').innerText = languages[l_num].buttons.rst
+    document.getElementById('btn_cfm').innerText = languages[l_num].buttons.cfm
+    document.getElementById('cfmdel_acc').innerText = languages[l_num].buttons.cfm
+    for (let i=1; i<6; i++) {
+        document.getElementById(`btn_cc${i}`).innerText = languages[l_num].buttons.ccl
+    }
+    for (let i=1; i<5; i++) {
+        document.getElementById(`btn_rt${i}`).innerText = languages[l_num].buttons.rtn
+    }
+
+    // Colors
+    document.getElementById('blu').innerText = languages[l_num].colours.blue
+    document.getElementById('gre').innerText = languages[l_num].colours.grey
+    document.getElementById('pur').innerText = languages[l_num].colours.purple
+    document.getElementById('red').innerText = languages[l_num].colours.red
+    
+    // About Page (except title)
+    for (let i=0; i<11; i++) {
+        document.getElementById(`ap${i+1}`).innerHTML = languages[l_num].about[i]
+    }
+}
+
+function getLangNumber(lang_value) {
+    const language = languages.find(language => lang_value === language.name)
+
+    return language.number
+}
 
 window.addEventListener('resize', () => {
     checkForSizeChange()
@@ -59,15 +278,15 @@ window.addEventListener('resize', () => {
 function checkForSizeChange() {
     const screenWidth = window.innerWidth
 
-    if (screenWidth < 730) {
+    if (screenWidth < 760) {
         new_btn.innerHTML = `<span class=iconheightlimit>${plusIcon}</span>`
         set_btn.innerHTML = `<span class=iconheightlimit>${settingIcon}</span>`
         abt_btn.innerHTML = `<span class=iconheightlimit>${infoIcon}</span>`
     }
     else {
-        new_btn.innerHTML = 'NEW'
-        set_btn.innerHTML = 'SETTINGS'
-        abt_btn.innerHTML = 'ABOUT'
+        new_btn.innerHTML = `${languages[getLangNumber(__language)].buttons.new}`
+        set_btn.innerHTML = `${languages[getLangNumber(__language)].buttons.set}`
+        abt_btn.innerHTML = `${languages[getLangNumber(__language)].buttons.abt}`
     }
 }
 
@@ -298,12 +517,12 @@ function expand(parent, element) {
 }
 
 function changeFont(font) {
-    savesettings(font, document.getElementById('palettes').value, document.getElementById('zip_name_box').value)
+    savesettings(font, document.getElementById('palettes').value, document.getElementById('zip_name_box').value, document.getElementById('languages').value)
     $("body").css("font-family", font);
 }
 
 function changePalette(colour) {
-    savesettings(document.getElementById('fonts').value, colour, document.getElementById('zip_name_box').value)
+    savesettings(document.getElementById('fonts').value, colour, document.getElementById('zip_name_box').value, document.getElementById('languages').value)
     if (colour == 'red')
     {
         $('body').css('color', `white`);
@@ -380,8 +599,8 @@ async function loadfiles() {
     })
 }
 
-async function savesettings(font, colour, filename) {
-    const content = `${font}${divikey}${colour}${divikey}${filename}`
+async function savesettings(font, colour, filename, language) {
+    const content = `${font}${divikey}${colour}${divikey}${filename}${divikey}${language}`
 
     const save = await api.saveSettings(content, divikey)
 }
@@ -391,11 +610,14 @@ async function loadsettings() {
 
     const settingArray = file[1].split(divikey)
 
+    document.getElementById('languages').value = settingArray[3]
+    document.getElementById('palettes').value = settingArray[1]
     document.getElementById('fonts').value = settingArray[0]
 
     setZipName(settingArray[2])
     changeFont(settingArray[0])
     changePalette(settingArray[1])
+    changeLanguage(settingArray[3])
 
     setOptions(settingArray[0], settingArray[1])
 }
@@ -403,7 +625,7 @@ async function loadsettings() {
 async function exportZip() {
     filename = document.getElementById('zip_name_box').value
 
-    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, filename)
+    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, filename, document.getElementById('languages').value)
 
     const expZip = await api.packZip(filename)
 
@@ -484,7 +706,7 @@ async function importSavedZip() {
 async function newBook() {
     setZipName('')
 
-    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, '')
+    savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, '', document.getElementById('languages').value)
 
     const clear = await api.clearFiles()
     
