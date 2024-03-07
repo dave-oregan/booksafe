@@ -60,21 +60,54 @@ const languages = [
         number: 0,
         section: {},
         scrolls: [],
-        buttons: [],
-        headers: [],
+        buttons: {},
+        headers: {},
         colours: { },
+        description: [],
         about: []
     },
     {
         name: "Bangla",
-        title: "",
+        title: "বুকসেইফ: পাসওয়ার্ড বই",
         number: 1,
-        section: {},
+        section: {
+            nac: "নতুন হিসাব", set: "সেটিংস", abt: "সম্পর্কে", edt: "হিসাব সম্পাদনা করুন", dlt: "হিসাব মুছে ফেলুন",
+            cnb: "নতুন বই তৈরি করুন", isb: "সংরক্ষিত বই আমদানি করুন", inb: "নতুন বই আমদানি করুন", exb: "বই রপ্তানি করুন"
+        },
         scrolls: [],
-        buttons: [],
-        headers: [],
-        colours: { },
-        about: []
+        buttons: {
+            new: "নতুন", set: "সেটিংস", abt: "সম্পর্কে", smt: "জমা দিন", rst: "রিসেট", ccl: "বাতিল",
+            opn: "খোলা", fdr: "ফোল্ডার", imp: "আমদানি", exp: "রপ্তানি", cls: "বন্ধ", cfm: "নিশ্চিত করুন",
+            rtn: "রিটার্ন", iao: "আমদানি এবং খোলা", dlt: "মুছুন", sav: "সংরক্ষণ করুন"
+        },
+        headers: {
+            web: "ওয়েবসাইট", usn: "ব্যবহারকারীর নাম", pwd: "পাসওয়ার্ড", pin: "পিআইএন", eml: "ইমেইল", phn: "ফোন", det: "বিস্তারিত"
+        },
+        colours: {
+            blue: "নীল", grey: "ধূসর", purple: "বেগুনি", red: "লাল"
+        },
+        description: [
+            "নতুন একটি বই তৈরির সময়, আপনি যে কোনও পাসওয়ার্ড হারিয়ে যাবেন যেগুলি এখনো রপ্তানি করা হয়নি।",
+            "আপনি কি তাড়াতাড়ি নতুন বইটি খোলতে চান? তাদের মধ্যে কোনও পাসওয়ার্ড যা এখনো রপ্তানি করা হয়নি তা হারিয়ে যাবে। খোলা না করে আমদানি করলে, তা পরে সহজে পাওয়ার জন্য এই অ্যাপ্লিকেশনের রপ্তানি ফোল্ডারে zip ফাইলটি রাখা হবে।",
+            "মনে রাখবেন: এই বইটি রপ্তানি করার আগে অন্য কোনও সংরক্ষিত বই খোললে আপনি সংরক্ষিত না হওয়া পাসওয়ার্ড হারাবেন। আপনার নিজের নিরাপত্তা জন্য, এটা করার আগে দয়া করে রপ্তানি করুন!",
+            "নীচে 'মুছুন' টাইপ করে নিশ্চিত করুন:",
+            "আপনার বই","এক্সপোর্ট ফোল্ডারে সংরক্ষণ করা হয়েছে!",
+            "আপনার বই রপ্তানি করার সময় নিম্নলিখিত ত্রুটি ঘটেছে:",
+            "আপনার বই আমদানি করার সময় নিম্নলিখিত ত্রুটি ঘটেছে:"
+        ],
+        about: [
+            "বুকসেইফ একটি অ্যাপ্লিকেশন যা সম্ভাব্যতঃ সবচেয়ে সুবিধাজনক, অভ্রান্তকর উপায়ে আপনার সব অ্যাকাউন্ট টি ট্র্যাক রাখতে সাহায্য করতে উদ্দেশ্য করে।",
+            "বুকসেইফ কি আমার কোনও ডেটা রাখে?",
+            "না, বুকসেইফ সার্ভারে আপনার কোনও ডেটা সংরক্ষণ করে না। আপনার তথ্য কেবল আপনার ডিভাইসে সংরক্ষণ করা হয়।",
+            "আপনি কীভাবে আপনার রপ্তানি করা পাসওয়ার্ডগুলি খুঁজতে পারবেন?",
+            "সেটিংসে যান, তারপর 'ফোল্ডার' বোতামে ক্লিক করুন। এটি আপনার এক্সপোর্ট ফোল্ডারটি আপনার এক্সপ্লোরারে উজ্জ্বল করবে।",
+            "কি বুকসেইফ সমস্ত ডিভাইসে সমর্থিত?",
+            "দুঃখিত, সাথে সাথে সাজগোজগের সমস্যার জন্য, বুকসেইফ বর্তমানে ফোন বা ট্যাবলেটের জন্য পাওয়া যাচ্ছে না। আমি (ডেভেলপার) বর্তমানে মোবাইল ডিভাইসের জন্য একটি পোর্টে কাজ করছি।",
+            "আরো কোনো প্রশ্ন আছে?",
+            "ডেভেলপারের কাছে ইমেইল করুন: <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "বিকাশকারী ওয়েবসাইট: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "কপিরাইট © 2024 ডেভিড অভিষেক ও'রেগন - সমস্ত অধিকার সংরক্ষিত."
+        ]
     },
     {
         name: "English",
@@ -95,12 +128,21 @@ const languages = [
             opn: "OPEN", fdr: "FOLDER", imp: "IMPORT", exp: "EXPORT", cls: "CLOSE", cfm: "CONFIRM",
             rtn: "RETURN", iao: "IMPORT AND OPEN", dlt: "DELETE", sav: "SAVE"
         },
-        headers: [
-            "Username", "Password", "PIN", "Email", "Phone", "Details"
-        ],
+        headers: {
+            web: "Website", usn: "Username", pwd: "Password", pin: "PIN", eml: "Email", phn: "Phone", det: "Details"
+        },
         colours: {
             blue: "Blue", grey: "Grey", purple: "Purple", red: "Red"
         },
+        description: [
+            "Upon creating a new book, you will lose any passwords that are not exported.",
+            "Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.",
+            "Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!",
+            "Please confirm by typing 'DELETE' below:",
+            "Your book","has been saved to the exports folder!",
+            "The following error occurred while exporting your book:",
+            "The following error occurred while importing your book:"
+        ],
         about: [
             "BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.",
             "Does BookSafe have any of my data?",
@@ -112,30 +154,94 @@ const languages = [
             "More questions?",
             "Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
             "Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a>",
-            "Copyright © 2024 HorizonZz - All Rights Reserved."
+            "Copyright © 2024 David Abhishek O'Regan - All Rights Reserved."
         ]
     },
     {
         name: "French",
-        title: "",
+        title: "BookSafe: Vos Mots de Passe",
         number: 3,
-        section: {},
+        section: {
+            nac: "Nouveau Compte", set: "Paramètres", abt: "À Propos", edt: "Modifier le Compte", dlt: "Supprimer le Compte",
+            cnb: "Créer un Nouveau Livre", isb: "Importer le Livre Sauvegardé", inb: "Importer un Nouveau Livre", exb: "Exporter le Livre"
+        },
         scrolls: [],
-        buttons: [],
-        headers: [],
-        colours: { },
-        about: []
+        buttons: {
+            new: "NOUVEAU", set: "PARAMÈTRES", abt: "À PROPOS", smt: "SOUMETTRE", rst: "RÉINITIALISER", ccl: "ANNULER",
+            opn: "OUVRIR", fdr: "DOSSIER", imp: "IMPORTER", exp: "EXPORTER", cls: "FERMER", cfm: "CONFIRMER",
+            rtn: "RETOUR", iao: "IMPORTER ET OUVRIR", dlt: "SUPPRIMER", sav: "ENREGISTRER"
+        },
+        headers: {
+            web: "Site Web", usn: "Nom d'utilisateur", pwd: "Mot de Passe", pin: "PIN", eml: "Email", phn: "Portable", det: "Détails"
+        },
+        colours: {
+            blue: "Bleu", grey: "Gris", purple: "Violet", red: "Rouge"
+        },
+        description: [
+            "Lors de la création d'un nouveau livre, vous perdrez tous les mots de passe qui n'ont pas été exportés.",
+            "Souhaitez-vous ouvrir immédiatement le nouveau livre ? Si oui, tous les mots de passe dans le livre actuel qui n'ont pas encore été exportés seront perdus. Choisir d'importer sans ouvrir placera le fichier zip dans le dossier d'exportation de cette application pour un accès facile ultérieur.",
+            "Rappelez-vous : ouvrir un autre livre enregistré sans exporter celui-ci entraînera la perte des mots de passe non enregistrés. Pour votre sécurité, veuillez exporter avant de procéder!",
+            "Veuillez confirmer en tapant 'SUPPRIMER' ci-dessous:",
+            "Votre livre","a été enregistré dans le dossier des exports!",
+            "L'erreur suivante s'est produite lors de l'exportation de votre livre:",
+            "L'erreur suivante s'est produite lors de l'importation de votre livre:"
+        ],
+        about: [
+            "BookSafe est une application qui vise à vous aider à suivre tous vos comptes de la manière la plus pratique et non invasive possible.",
+            "Est-ce que BookSafe possède certaines de mes données?",
+            "Non, BookSafe ne stocke aucune de vos données sur des serveurs. Vos données sont uniquement enregistrées sur votre appareil.",
+            "Comment puis-je trouver mes mots de passe exportés?",
+            "Allez dans les paramètres, puis cliquez sur le bouton 'DOSSIER'. Cela révélera le dossier d'exportation dans votre explorateur.",
+            "BookSafe est-il pris en charge sur tous les appareils?",
+            "Malheureusement, en raison de problèmes de compatibilité, BookSafe n'est actuellement pas disponible pour les téléphones ou les tablettes. Je (le développeur) travaille actuellement sur un portage pour les appareils mobiles.",
+            "D'autres questions",
+            "Envoyez un email au développeur à <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Site Web du Développeur: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Droits D'auteur © 2024 David Abhishek O'Regan - Tous Droits Réservés."
+        ]
     },
     {
         name: "German",
-        title: "",
+        title: "BookSafe: Passwortbuch",
         number: 4,
-        section: {},
+        section: {
+            nac: "Neues Konto", set: "Einstellungen", abt: "Über", edt: "Konto Bearbeiten", dlt: "Konto löschen",
+            cnb: "Neues Buch Erstellen", isb: "Gespeichertes Buch Importieren", inb: "Neues Buch Importieren", exb: "Buch Exportieren"
+        },
         scrolls: [],
-        buttons: [],
-        headers: [],
-        colours: { },
-        about: []
+        buttons: {
+            new: "NEU", set: "EINSTELLUNGEN", abt: "ÜBER", smt: "EINREICHEN", rst: "ZURÜCKSETZEN", ccl: "ABBRECHEN",
+            opn: "ÖFFNEN", fdr: "ORDNER", imp: "IMPORTIEREN", exp: "EXPORTIEREN", cls: "SCHLIEßEN", cfm: "BESTÄTIGEN",
+            rtn: "ZURÜCK", iao: "IMPORTIEREN UND ÖFFNEN", dlt: "LÖSCHEN", sav: "SPEICHERN"
+        },
+        headers: {
+            web: "Website", usn: "Benutzername", pwd: "Passwort", pin: "PIN", eml: "Email", phn: "Handy", det: "Details"
+        },
+        colours: {
+            blue: "Blau", grey: "Grau", purple: "Violett", red: "Rot"
+        },
+        description: [
+            "Bei der Erstellung eines neuen Buchs gehen nicht exportierte Passwörter verloren.",
+            "Möchten Sie das neue Buch sofort öffnen? Wenn ja, gehen alle Passwörter im aktuellen Buch, die noch nicht exportiert wurden, verloren. Die Option, ohne Öffnen zu importieren, platziert die Zip-Datei im Exportordner dieser Anwendung für späteren Zugriff.",
+            "Merken Sie sich: Das Öffnen eines anderen gespeicherten Buches ohne Exportieren dieses wird dazu führen, dass Sie nicht gespeicherte Passwörter verlieren. Zu Ihrer eigenen Sicherheit exportieren Sie bitte, bevor Sie dies tun!",
+            "Bestätigen Sie durch Eingabe von 'LÖSCHEN' unten:",
+            "Ihr Buch","wurde in den Exportordner gespeichert!",
+            "Der folgende Fehler ist beim Exportieren Ihres Buches aufgetreten:",
+            "Der folgende Fehler ist beim Importieren Ihres Buches aufgetreten:"
+        ],
+        about: [
+            "BookSafe ist eine App, die darauf abzielt, Ihnen auf die bequemste und nicht-invasive Weise dabei zu helfen, den Überblick über all Ihre Konten zu behalten.",
+            "Hat BookSafe einige meiner Daten",
+            "Nein, BookSafe speichert keine Ihrer Daten auf Servern. Ihre Daten werden nur auf Ihrem Gerät gespeichert.",
+            "Wie kann ich meine exportierten Passwörter finden?",
+            "Gehen Sie zu den Einstellungen und klicken Sie dann auf die Schaltfläche 'ORDNER'. Dadurch wird der Exportordner in Ihrem Datei-Explorer angezeigt.",
+            "Ist BookSafe auf allen Geräten unterstützt?",
+            "Leider ist BookSafe aufgrund von Kompatibilitätsproblemen derzeit nicht für Telefone oder Tablets verfügbar. Ich (der Entwickler) arbeite derzeit an einer Portierung für mobile Geräte.",
+            "Mehr Fragen?",
+            "Der Entwickler per Email erreichen unter <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Entwickler-Website: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Urheberrecht © 2024 David Abhishek O'Regan - Alle Rechte Vorbehalten."
+        ]
     },
     {
         name: "Hindi",
@@ -143,37 +249,83 @@ const languages = [
         number: 5,
         section: {},
         scrolls: [],
-        buttons: [],
-        headers: [],
+        buttons: {},
+        headers: {},
         colours: { },
+        description: [],
+        about: []
+    },
+    {
+        name: "Italian",
+        title: "",
+        number: 6,
+        section: {},
+        scrolls: [],
+        buttons: {},
+        headers: {},
+        colours: { },
+        description: [],
         about: []
     },
     {
         name: "Japanese",
         title: "",
-        number: 6,
+        number: 7,
         section: {},
         scrolls: [],
-        buttons: [],
-        headers: [],
+        buttons: {},
+        headers: {},
         colours: { },
+        description: [],
         about: []
     },
     {
         name: "Russian",
-        title: "",
-        number: 7,
-        section: {},
+        title: "БукСейф: Парольная Книга",
+        number: 8,
+        section: {
+            nac: "Новый Аккаунт", set: "Настройки", abt: "O Cтpaницe", edt: "Редактировать Aккаунт", dlt: "Удалить Aккаунт",
+            cnb: "Создать Новую Книгу", isb: "Импортировать Сохраненную Книгу", inb: "Импортировать Новую Книгу", exb: "Экспортировать Книгу"
+        },
         scrolls: [],
-        buttons: [],
-        headers: [],
-        colours: { },
-        about: []
+        buttons: {
+            new: "НОВЫЙ", set: "НАСТРОЙКИ", abt: "O СТРАНИЦЕ", smt: "ОТПРАВИТЬ", rst: "СБРОСИТЬ", ccl: "OTMEHA",
+            opn: "ОТКРЫТЬ", fdr: "ПАПКА", imp: "ИМПОРТ", exp: "ЭКСПОРТ", cls: "ЗАКРЫТЬ", cfm: "ПОДТВЕРДИТЬ",
+            rtn: "BEPHУTЬ", iao: "ИМПОРТИРОВАТЬ И ОТКРЫТЬ", dlt: "УДАЛИТЬ", sav: "СОХРАНИТЬ"
+        },
+        headers: {
+            web: "Веб-сайт", usn: "Имя Пользователя", pwd: "Пароль", pin: "ПИН-код", eml: "Эмейл", phn: "Мобильник", det: "Детали"
+        },
+        colours: {
+            blue: "Голубой", grey: "Серый", purple: "Фиолетовый", red: "Красный"
+        },
+        description: [
+            "При создании новой книги вы потеряете все пароли, которые не были экспортированы.",
+            "Хотели бы вы сразу открыть новую книгу? Если да, все пароли в текущей книге, которые еще не были экспортированы, будут потеряны. Выбор импорта без открытия поместит файл zip в папку экспорта этого приложения для удобства доступа позже.",
+            "Помните: открытие другой сохраненной книги без экспорта текущей приведет к потере несохраненных паролей. В целях вашей безопасности, пожалуйста, сначала выполните экспорт!",
+            "Пожалуйста, подтвердите, введя 'УДАЛИТЬ' ниже:",
+            "Ваша книга","была сохранена в папке экспорта!",
+            "Произошла следующая ошибка при экспорте вашей книги:",
+            "Произошла следующая ошибка при импорте вашей книги:"
+        ],
+        about: [
+            "БукСейф это приложение, которое призвано помочь вам отслеживать все ваши аккаунты наиболее удобным и ненавязчивым способом.",
+            "Есть ли y БукСейф какие-либо мои данные?",
+            "Нет, БукСейф не хранит никаких ваших данных на серверах. Ваши данные сохраняются только на вашем устройстве.",
+            "Как я могу найти экспортированные пароли?",
+            "Перейдите в настройки, затем нажмите кнопку 'ПАПКА'. Это откроет папку экспорта в вашем проводнике.",
+            "БукСейф поддерживается на всех устройствах?",
+            "К сожалению, из-за проблем совместимости, BookSafe в настоящее время не доступен для телефонов или планшетов. Я (разработчик) в настоящее время работаю над портом для мобильных устройств.",
+            "Больше вопросов?",
+            "Отправьте электронное письмо разработчику по адресу <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Веб-сайт разработчика: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Авторское Право © 2024 Дэвид Абхишек О'Риган - Все Права Защищены."
+        ]
     },
     {
         name: "Spanish",
         title: "BookSafe: Libro Contraseña",
-        number: 8,
+        number: 9,
         section: {
             nac: "Nueva Cuenta", set: "Ajustes", abt: "Sobre", edt: "Editar Cuenta", dlt: "Borrar Cuenta",
             cnb: "Crear Nuevo Libro", isb: "Importar Libro Guardado", inb: "Importar Nuevo Libro", exb: "Exportar Libro"
@@ -184,10 +336,21 @@ const languages = [
             opn: "ABRIR", fdr: "CARPETA", imp: "IMPORTAR", exp: "EXPORTAR", cls: "CERRAR", cfm: "CONFIRMAR",
             rtn: "DEVOLVER", iao: "IMPORTAR Y ABRIR", dlt: "BORRAR", sav: "AHORRAR"
         },
-        headers: [],
+        headers: {
+            web: "Sitio Web", usn: "Nombre de Usario", pwd: "Contraseña", pin: "PIN", eml: "Correo", phn: "Celular", det: "Detalles"
+        },
         colours: {
             blue: "Azul", grey: "Gris", purple: "Morado", red: "Rojo"
         },
+        description: [
+            "Al crear un nuevo libro, perderás todas las contraseñas que no hayas exportado.",
+            "¿Te gustaría abrir el nuevo libro de inmediato? Si lo haces, todas las contraseñas en el libro actual que aún no hayas exportado se perderán. Elegir importar sin abrir colocará el archivo zip en la carpeta de exportación de esta aplicación para facilitar el acceso más tarde.",
+            "Recuerda: Abrir otro libro guardado sin exportar este causará la pérdida de contraseñas no guardadas. ¡Por tu propia seguridad, por favor exporta antes de hacerlo!",
+            "Por favor, confirma escribiendo 'BORRAR' a continuación:",
+            "¡Tu libro","se ha guardado en la carpeta de exportaciones!",
+            "Ocurrió el siguiente error al exportar tu libro:",
+            "Ocurrió el siguiente error al importar tu libro:"
+        ],
         about: [
             "BookSafe es una app que tiene como objetivo ayudarte a realizar un seguimiento de todas tus cuentas de la forma más cómoda y no invasiva posible.",
             "¿BookSafe tiene alguno de mis datos?",
@@ -199,14 +362,14 @@ const languages = [
             "¿Más preguntas?",
             "Envía un correo electrónico al desarrollador a <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
             "Sitio Web del Desarrollador: <a class=abtlink id=linktoweb>horizonzz.com</a>",
-            "Derecho de Autor © 2024 HorizonZz - Todos los Derechos Reservados."
+            "Derecho de Autor © 2024 David Abhishek O'Regan - Todos los Derechos Reservados."
         ]
     }
 ]
 
 var __language = document.getElementById('languages').value
 
-function changeLanguage(language) {
+async function changeLanguage(language) {
     __language = language
     
     savesettings(document.getElementById('fonts').value, document.getElementById('palettes').value, document.getElementById('zip_name_box').value, __language)
@@ -227,6 +390,12 @@ function changeLanguage(language) {
     document.getElementById('title_ib2').innerHTML = languages[l_num].section.inb
     document.getElementById('title_exb').innerHTML = languages[l_num].section.exb
 
+    // Discriptions
+    document.getElementById('dsc_cnb').innerText = languages[l_num].description[0]
+    document.getElementById('dsc_ib2').innerText = languages[l_num].description[1]
+    document.getElementById('dsc_isb').innerText = languages[l_num].description[2]
+    document.getElementById('dsc_dl2').innerText = languages[l_num].description[3]
+
     // Buttons
     checkForSizeChange()
     document.getElementById('set_new').innerText = languages[l_num].buttons.new
@@ -246,11 +415,22 @@ function changeLanguage(language) {
     document.getElementById('btn_rst').innerText = languages[l_num].buttons.rst
     document.getElementById('btn_cfm').innerText = languages[l_num].buttons.cfm
     document.getElementById('cfmdel_acc').innerText = languages[l_num].buttons.cfm
+    document.getElementById('del_acc').innerText = languages[l_num].buttons.dlt
+    document.getElementById('cng_acc').innerText = languages[l_num].buttons.sav
     for (let i=1; i<6; i++) {
         document.getElementById(`btn_cc${i}`).innerText = languages[l_num].buttons.ccl
     }
     for (let i=1; i<5; i++) {
         document.getElementById(`btn_rt${i}`).innerText = languages[l_num].buttons.rtn
+    }
+    for (let i=1; i<4; i++) {
+        if (i != 2) { document.getElementById(`web_${i}`).innerText = languages[l_num].headers.web }
+        document.getElementById(`usn_${i}`).innerText = languages[l_num].headers.usn
+        document.getElementById(`pwd_${i}`).innerText = languages[l_num].headers.pwd
+        document.getElementById(`pin_${i}`).innerText = languages[l_num].headers.pin
+        document.getElementById(`eml_${i}`).innerText = languages[l_num].headers.eml
+        document.getElementById(`phn_${i}`).innerText = languages[l_num].headers.phn
+        document.getElementById(`det_${i}`).innerText = languages[l_num].headers.det
     }
 
     // Colors
@@ -263,6 +443,14 @@ function changeLanguage(language) {
     for (let i=0; i<11; i++) {
         document.getElementById(`ap${i+1}`).innerHTML = languages[l_num].about[i]
     }
+
+    // Regenerates Account List in New Language
+    var clearAccounts = Array.from(document.getElementsByClassName('account'))
+    clearAccounts.forEach((account) => {
+        account.parentNode.removeChild(account)
+    })
+    await loadfiles()
+    changePalette(document.getElementById('palettes').value)
 }
 
 function getLangNumber(lang_value) {
@@ -278,7 +466,7 @@ window.addEventListener('resize', () => {
 function checkForSizeChange() {
     const screenWidth = window.innerWidth
 
-    if (screenWidth < 760) {
+    if (screenWidth < 787) {
         new_btn.innerHTML = `<span class=iconheightlimit>${plusIcon}</span>`
         set_btn.innerHTML = `<span class=iconheightlimit>${settingIcon}</span>`
         abt_btn.innerHTML = `<span class=iconheightlimit>${infoIcon}</span>`
@@ -343,7 +531,7 @@ del_acc.addEventListener('click', () => {
 })
 
 cfmdel_acc.addEventListener('click', async () => {
-    if (cfm_del.value == 'DELETE') {
+    if (cfm_del.value == languages[getLangNumber(__language)].buttons.dlt) {
         var path = del_container.getAttribute('name')
         const deleteFile = await api.deleteFile(path)
         location.reload()
@@ -383,49 +571,49 @@ function addAccount(site, username, password, pin, email, phone, other, file) {
     }
 
     const large = document.createElement('div')
-    large.className = 'account'
-    large.id = `${file}`
-    large.setAttribute('name', `${site}`)
+        large.className = 'account'
+        large.id = `${file}`
+        large.setAttribute('name', `${site}`)
     const site_title = document.createElement('a')
-    site_title.className = 'site'
-    site_title.id = 'webname'
-    site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
+        site_title.className = 'site'
+        site_title.id = 'webname'
+        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
     large.appendChild(site_title)
     const container = document.createElement('div')
-    container.className = 'inneraccountcontainer'
+        container.className = 'inneraccountcontainer'
     large.appendChild(container)
     const usnrow = document.createElement('div')
-    usnrow.className = 'accountrow'
-    usnrow.id = 'usnrow'
-    usnrow.innerHTML = `<span class=text id=username>${nullkeyReplacement(username, true)}</span><a class=textL>Username:</a>`
+        usnrow.className = 'accountrow'
+        usnrow.id = 'usnrow'
+        usnrow.innerHTML = `<span class=text id=username>${nullkeyReplacement(username, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.usn}:</a>`
     container.appendChild(usnrow)
     const pwdrow = document.createElement('div')
-    pwdrow.className = 'accountrow'
-    pwdrow.id = 'pwdrow'
-    pwdrow.innerHTML = `<span class=text id=password>${nullkeyReplacement(password, true)}</span><a class=textL>Password:</a>`
+        pwdrow.className = 'accountrow'
+        pwdrow.id = 'pwdrow'
+        pwdrow.innerHTML = `<span class=text id=password>${nullkeyReplacement(password, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.pwd}:</a>`
     container.appendChild(pwdrow)
     const pinrow = document.createElement('div')
-    pinrow.className = 'accountrow'
-    pinrow.id = 'pinrow'
-    pinrow.innerHTML = `<span class=text id=pin>${nullkeyReplacement(pin, true)}</span><a class=textL>PIN:</a>`
+        pinrow.className = 'accountrow'
+        pinrow.id = 'pinrow'
+        pinrow.innerHTML = `<span class=text id=pin>${nullkeyReplacement(pin, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.pin}:</a>`
     container.appendChild(pinrow)
     const emlrow = document.createElement('div')
-    emlrow.className = 'accountrow'
-    emlrow.id = 'emlrow'
-    emlrow.innerHTML = `<span class=text id=email>${nullkeyReplacement(email, true)}</span><a class=textL>Email:</a>`
+        emlrow.className = 'accountrow'
+        emlrow.id = 'emlrow'
+        emlrow.innerHTML = `<span class=text id=email>${nullkeyReplacement(email, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.eml}:</a>`
     container.appendChild(emlrow)
     const numrow = document.createElement('div')
-    numrow.className = 'accountrow'
-    numrow.id = 'numrow'
-    numrow.innerHTML = `<span class=text id=phone>${nullkeyReplacement(phone, true)}</span><a class=textL>Phone:</a>`
+        numrow.className = 'accountrow'
+        numrow.id = 'numrow'
+        numrow.innerHTML = `<span class=text id=phone>${nullkeyReplacement(phone, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.phn}:</a>`
     container.appendChild(numrow)
     const othrow = document.createElement('div')
-    othrow.className = 'accountrow'
-    othrow.id = 'othrow'
-    othrow.innerHTML = `<span class=text id=other>${nullkeyReplacement(other, true)}</span><a class=textL>Details:</a>`
+        othrow.className = 'accountrow'
+        othrow.id = 'othrow'
+        othrow.innerHTML = `<span class=text id=other>${nullkeyReplacement(other, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.det}:</a>`
     container.appendChild(othrow)
     var labeldiscriminator
-    try { labeldiscriminator = site.charAt(0).toUpperCase() }
+    try { labeldiscriminator = site.charAt(0).toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") }
     catch { labeldiscriminator = '-' }
     if (/[^a-zA-Z]/.test(labeldiscriminator)) { labeldiscriminator = '-' }
     document.getElementById(`acc${labeldiscriminator}`).appendChild(large)
@@ -577,7 +765,7 @@ function windowScroll(discriminator) {
 }
 
 function configure() {
-    const headers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
+    const headers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'SS', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
     headers.forEach((x) => {
         const header = document.getElementById(`acc${x}`)
         if (header.childElementCount == 0 || header.childElementCount == 1) {
@@ -630,15 +818,15 @@ async function exportZip() {
     const expZip = await api.packZip(filename)
 
 
-    var save_status = `Your book, ${filename}, has been saved to the exports folder!`
+    var save_status = `${languages[getLangNumber(__language)].description[4]}, ${filename}, ${languages[getLangNumber(__language)].description[5]}`
 
     
     if (filename == '') {
-        save_status = 'Your book has been saved to the exports folder!'
+        save_status = `${languages[getLangNumber(__language)].description[4]} ${languages[getLangNumber(__language)].description[5]}`
     }
 
     if (!expZip[1]) {
-        save_status = `The following error occurred while exporting your book: ${expZip[0]}`
+        save_status = `${languages[getLangNumber(__language)].description[6]} ${expZip[0]}`
     }
 
     document.getElementById('save_status_desc').innerHTML = save_status
@@ -672,10 +860,10 @@ async function importZip(open_bool) {
         else {
             hide('import_container')
             
-            var import_status = `Your book has been successfully saved to the exports folder!`
+            var import_status = `${languages[getLangNumber(__language)].description[4]} ${languages[getLangNumber(__language)].description[5]}`
 
             if (!copy[0]) {
-                import_status = `The following error occurred while importing your book: ${copy[1]}`
+                import_status = `${languages[getLangNumber(__language)].description[7]} ${copy[1]}`
             }
 
             document.getElementById('import_status_desc').innerHTML = import_status
@@ -719,6 +907,7 @@ function setZipName(newName) {
 
 window.onload = async () => {
     configure()
+    await loadsettings()
     await loadfiles()
     await loadsettings()
     checkForSizeChange()

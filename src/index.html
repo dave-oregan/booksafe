@@ -61,13 +61,14 @@
                     <li>Languages:
                         <select onchange=changeLanguage(this.value) class=settingBox id=languages>
                             <option value='Arabic'>Arabic</option>
-                            <option value='Bangla'>Bangla</option>
+                            <option value='Bangla'>বাংলা</option>
                             <option value='English' selected>English</option>
-                            <option value='French'>French</option>
-                            <option value='German'>German</option>
+                            <option value='French'>Français</option>
+                            <option value='German'>Deutsch</option>
                             <option value='Hindi'>Hindi</option>
+                            <option value='Italian'>Italian</option>
                             <option value='Japanese'>Japanese</option>
-                            <option value='Russian'>Russian</option>
+                            <option value='Russian'>Русский</option>
                             <option value='Spanish'>Español</option>
                         </select>
                     </li>
@@ -101,7 +102,7 @@
             <div class=typerpop id=confirm_clear>
                 <ul class=submitUL>
                     <li class=nTitle id=title_cnb> Create New Book </li>
-                    <li>Upon creating a new book, you will lose any passwords that are not exported.</li>
+                    <li id=dsc_cnb>Upon creating a new book, you will lose any passwords that are not exported.</li>
                     <li class=ulBut>
                         <span class=button id=btn_cfm onclick=newBook()>CONFIRM</span>
                         <span class=button id=btn_cc1 onclick='hide("clear_container")'>CANCEL</span>
@@ -140,7 +141,7 @@
             <div class=typerpop id=import_confirm>
                 <ul class=submitUL>
                     <li class=nTitle id=title_ib2> Import New Book </li>
-                    <li>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.</li>
+                    <li id=dsc_ib2>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.</li>
                     <li class=ulBut>
                         <span class=button id=btn_imp onclick='importZip(false)'>IMPORT</span>
                         <span class=button id=btn_iao onclick='importZip(true)'>IMPORT AND OPEN</span>
@@ -154,7 +155,7 @@
             <div class=typerpop id=saved_import_confirm>
                 <ul class=submitUL>
                     <li class=nTitle id=title_isb> Import Saved Book </li>
-                    <li>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!</li>
+                    <li id=dsc_isb>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!</li>
                     <li class=ulBut>
                         <span class=button id=btn_ope onclick='importSavedZip()'>OPEN</span>
                         <span class=button id=btn_rt4 onclick='hide("import_saved_container")'>RETURN</span>
@@ -167,13 +168,13 @@
             <div class=typerpop id=newaccount>
                 <ul class=submitUL>
                     <li class=nTitle id=title_nac> New Account </li>
-                    <li>Website: <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
-                    <li>Username: <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
-                    <li>Password: <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
-                    <li>PIN: <input type=text class=ipBox id=new_pin placeholder='Type here...'></li>
-                    <li>Email: <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
-                    <li>Phone: <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
-                    <li>Details: <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
+                    <li><a id=web_1>Website:</a> <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
+                    <li><a id=usn_1>Username:</a> <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
+                    <li><a id=pwd_1>Password:</a> <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
+                    <li><a id=pin_1>PIN:</a> <input type=text class=ipBox id=new_pin placeholder='Type here...'></li>
+                    <li><a id=eml_1>Email:</a> <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
+                    <li><a id=phn_1>Phone:</a> <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
+                    <li><a id=det_1>Details:</a> <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
                     <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button id=btn_cc2 onclick='hide("na_container")'>CANCEL</span>
                     </li>
                 </ul>
@@ -184,12 +185,12 @@
             <div class=typerpop id=cngaccount>
                 <ul class=submitUL>
                     <li class=nTitle id=title_edt> Edit Account </li>
-                    <li>Username: <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
-                    <li>Password: <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
-                    <li>PIN: <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
-                    <li>Email: <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
-                    <li>Phone: <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
-                    <li>Details: <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
+                    <li><a id=usn_2>Username:</a> <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
+                    <li><a id=pwd_2>Password:</a> <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
+                    <li><a id=pin_2>PIN:</a> <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
+                    <li><a id=eml_2>Email:</a> <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
+                    <li><a id=phn_2>Phone:</a> <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
+                    <li><a id=det_2>Details:</a> <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
                     <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button id=btn_cc3 onclick='hide("cng_container")'>CANCEL</span></li>
                 </ul>
             </div>
@@ -199,13 +200,13 @@
             <div class=typerpop id=delaccount>
                 <ul class=submitUL>
                     <li class=nTitle id=title_dlt> Delete Account </li>
-                    <li>Website: <input type=text class=ipBox id=del_sit readonly=readonly></li>
-                    <li>Username: <input type=text class=ipBox id=del_usn readonly=readonly></li>
-                    <li>Password: <input type=text class=ipBox id=del_pwd readonly=readonly></li>
-                    <li>PIN: <input type=text class=ipBox id=del_pin readonly=readonly></li>
-                    <li>Email: <input type=text class=ipBox id=del_eml readonly=readonly></li>
-                    <li>Phone: <input type=text class=ipBox id=del_num readonly=readonly></li>
-                    <li>Details: <input type=text class=ipBox id=del_oth readonly=readonly></li>
+                    <li><a id=web_3>Website:</a> <input type=text class=ipBox id=del_sit readonly=readonly></li>
+                    <li><a id=usn_3>Username:</a> <input type=text class=ipBox id=del_usn readonly=readonly></li>
+                    <li><a id=pwd_3>Password:</a> <input type=text class=ipBox id=del_pwd readonly=readonly></li>
+                    <li><a id=pin_3>PIN:</a> <input type=text class=ipBox id=del_pin readonly=readonly></li>
+                    <li><a id=eml_3>Email:</a> <input type=text class=ipBox id=del_eml readonly=readonly></li>
+                    <li><a id=phn_3>Phone:</a> <input type=text class=ipBox id=del_num readonly=readonly></li>
+                    <li><a id=det_3>Details:</a> <input type=text class=ipBox id=del_oth readonly=readonly></li>
                     <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button id=btn_cc4 onclick='hide("del_container")'>CANCEL</span></li>
                 </ul>
             </div>
@@ -215,7 +216,7 @@
             <div class=typerpop id=cmfdelaccount>
                 <ul class=submitUL>
                     <li class=nTitle id=title_dl2> Delete Account </li>
-                    <li>Please confirm by typing 'DELETE' below:</li>
+                    <li id=dsc_dl2>Please confirm by typing 'DELETE' below:</li>
                     <li><input type=text class=ipBox id=cfm_del placeholder='Type here...'></li>
                     <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button id=btn_cc5 onclick='hide("cfmdel_container")'>CANCEL</span></li>
                 </ul>
@@ -242,6 +243,7 @@
             <a id=scrQ onclick='windowScroll("Q")'>Q</a>
             <a id=scrR onclick='windowScroll("R")'>R</a>
             <a id=scrS onclick='windowScroll("S")'>S</a>
+            <a id=scrSS onclick='windowScroll("SS")'>ß</a>
             <a id=scrT onclick='windowScroll("T")'>T</a>
             <a id=scrU onclick='windowScroll("U")'>U</a>
             <a id=scrV onclick='windowScroll("V")'>V</a>
@@ -316,6 +318,9 @@
             </div>
             <div id=accS>
                 <h1>S</h1>
+            </div>
+            <div id=accSS>
+                <h1>ß</h1>
             </div>
             <div id=accT>
                 <h1>T</h1>

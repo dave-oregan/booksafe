@@ -277,6 +277,7 @@ body {
 
 .textL {
     flex: 0 0 6em;
+    white-space: nowrap;
 }
 
 .text {
