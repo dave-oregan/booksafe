@@ -6,8 +6,8 @@ const zipper = require('jszip')
 function createWindow () {
     // Basic setup for the window
     const win = new BrowserWindow({
-        width: 1280,
-        height: 800,
+        width: 1350,
+        height: 850,
         minWidth: 650,
         minHeight: 350,
         autoHideMenuBar: true,

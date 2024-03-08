@@ -52,7 +52,6 @@ const plusIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="
 const settingIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.18em" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16"><path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/><path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/></svg>'
 const infoIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.18em" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16"><path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0"/></svg>'
 
-const languageSelector = document.getElementById('languages')
 const languages = [
     {
         name: "Arabic",
@@ -67,11 +66,13 @@ const languages = [
             roman: 791,
             trebuchet: 787
         },
+        setting: [
+            "اسم الكتاب", "اللغات", "الخطوط", "لوحات الألوان"
+        ],
         section: {
             nac: "حساب جديد", set: "الإعدادات", abt: "حول", edt: "تحرير الحساب", dlt: "حذف الحساب",
             cnb: "إنشاء كتاب جديد", isb: "استيراد كتاب محفوظ", inb: "استيراد كتاب جديد", exb: "تصدير الكتاب"
         },
-        scrolls: [],
         buttons: {
             new: "جديد", set: "الإعدادات", abt: "حول", smt: "تقديم", rst: "إعادة تعيين", ccl: "إلغاء",
             opn: "افتح", fdr: "مجلد", imp: "استيراد", exp: "تصدير", cls: "إغلاق", cfm: "تأكيد",
@@ -119,11 +120,13 @@ const languages = [
             roman: 642,
             trebuchet: 646
         },
+        setting: [
+            "বইয়ের নাম", "ভাষা", "ফন্ট", "প্যালেট"
+        ],
         section: {
             nac: "নতুন হিসাব", set: "সেটিংস", abt: "সম্পর্কে", edt: "হিসাব সম্পাদনা করুন", dlt: "হিসাব মুছে ফেলুন",
             cnb: "নতুন বই তৈরি করুন", isb: "সংরক্ষিত বই আমদানি করুন", inb: "নতুন বই আমদানি করুন", exb: "বই রপ্তানি করুন"
         },
-        scrolls: [],
         buttons: {
             new: "নতুন", set: "সেটিংস", abt: "সম্পর্কে", smt: "জমা দিন", rst: "রিসেট", ccl: "বাতিল",
             opn: "খোলা", fdr: "ফোল্ডার", imp: "আমদানি", exp: "রপ্তানি", cls: "বন্ধ", cfm: "নিশ্চিত করুন",
@@ -171,16 +174,13 @@ const languages = [
             roman: 661,
             trebuchet: 662
         },
+        setting: [
+            "Book Name", "Languages", "Fonts", "Palettes"
+        ],
         section: {
             nac: "New Account", set: "Settings", abt: "About", edt: "Edit Account", dlt: "Delete Account",
             cnb: "Create New Book", isb: "Import Saved Book", inb: "Import New Book", exb: "Export Book"
         },
-        scrolls: [
-            // This will be used to replace headers and scroll buttons
-            // Headers may also just have to be added manually since without the characters it wont show
-            // May have to drop Japanese because I don't want to code for Kanji
-            // The Kanji issue could be solved by placing Kanjis into the symbol category
-        ],
         buttons: {
             new: "NEW", set: "SETTINGS", abt: "ABOUT", smt: "SUBMIT", rst: "RESET", ccl: "CANCEL",
             opn: "OPEN", fdr: "FOLDER", imp: "IMPORT", exp: "EXPORT", cls: "CLOSE", cfm: "CONFIRM",
@@ -228,11 +228,13 @@ const languages = [
             roman: 791,
             trebuchet: 787
         },
+        setting: [
+            "Nom du Livre", "Langues", "Polices", "Palettes de Couleurs"
+        ],
         section: {
             nac: "Nouveau Compte", set: "Paramètres", abt: "À Propos", edt: "Modifier le Compte", dlt: "Supprimer le Compte",
             cnb: "Créer un Nouveau Livre", isb: "Importer le Livre Sauvegardé", inb: "Importer un Nouveau Livre", exb: "Exporter le Livre"
         },
-        scrolls: [],
         buttons: {
             new: "NOUVEAU", set: "PARAMÈTRES", abt: "À PROPOS", smt: "SOUMETTRE", rst: "RÉINITIALISER", ccl: "ANNULER",
             opn: "OUVRIR", fdr: "DOSSIER", imp: "IMPORTER", exp: "EXPORTER", cls: "FERMER", cfm: "CONFIRMER",
@@ -280,11 +282,13 @@ const languages = [
             roman: 681,
             trebuchet: 679
         },
+        setting: [
+            "Buchname", "Sprachen", "Schriftarten", "Farbpaletten"
+        ],
         section: {
             nac: "Neues Konto", set: "Einstellungen", abt: "Über", edt: "Konto Bearbeiten", dlt: "Konto löschen",
             cnb: "Neues Buch Erstellen", isb: "Gespeichertes Buch Importieren", inb: "Neues Buch Importieren", exb: "Buch Exportieren"
         },
-        scrolls: [],
         buttons: {
             new: "NEU", set: "EINSTELLUNGEN", abt: "ÜBER", smt: "EINREICHEN", rst: "ZURÜCKSETZEN", ccl: "ABBRECHEN",
             opn: "ÖFFNEN", fdr: "ORDNER", imp: "IMPORTIEREN", exp: "EXPORTIEREN", cls: "SCHLIEßEN", cfm: "BESTÄTIGEN",
@@ -332,11 +336,13 @@ const languages = [
             roman: 791,
             trebuchet: 787
         },
+        setting: [
+            "שם הספר", "שפות", "גופנים", "פלטות צבעים"
+        ],
         section: {
             nac: "חשבון חדש", set: "הגדרות", abt: "אודות", edt: "עריכת חשבון", dlt: "מחיקת חשבון",
             cnb: "יצירת ספר חדש", isb: "ייבוא ספר שמור", inb: "ייבוא ספר חדש", exb: "ייצוא ספר"
         },
-        scrolls: [],
         buttons: {
             new: "חדש", set: "הגדרות", abt: "אודות", smt: "הגש", rst: "איפוס", ccl: "ביטול",
             opn: "פתח", fdr: "תיקייה", imp: "ייבא", exp: "ייצא", cls: "סגור", cfm: "אשר",
@@ -384,11 +390,13 @@ const languages = [
             roman: 642,
             trebuchet: 646
         },
+        setting: [
+            "किताब का नाम", "भाषाएँ", "लिपि", "रंग पट्टियाँ"
+        ],
         section: {
             nac: "नया खाता", set: "सेटिंग्स", abt: "बारे में", edt: "खाता संपादित करें", dlt: "खाता हटाएं",
             cnb: "नई किताब बनाएं", isb: "सहेजी गई किताब आयात करें", inb: "नई किताब आयात करें", exb: "किताब निर्यात करें"
         },
-        scrolls: [],
         buttons: {
             new: "नया", set: "सेटिंग्स", abt: "बारे में", smt: "सबमिट", rst: "रीसेट", ccl: "रद्द",
             opn: "खोलें", fdr: "फोल्डर", imp: "आयात", exp: "निर्यात", cls: "बंद", cfm: "पुष्टि करें",
@@ -436,11 +444,13 @@ const languages = [
             roman: 860,
             trebuchet: 854
         },
+        setting: [
+            "Nome del Libro", "Le Lingue", "Caratteri", "Tavolozza"
+        ],
         section: {
             nac: "Nuovo Account", set: "Impostazioni", abt: "Informazioni", edt: "Modifica Account", dlt: "Elimina Account",
             cnb: "Crea Nuovo Libro", isb: "Importa Libro Salvato", inb: "Importa Nuovo Libro", exb: "Esporta Libro"
         },
-        scrolls: [],
         buttons: {
             new: "NUOVO", set: "IMPOSTAZIONI", abt: "INFORMAZIONI", smt: "INVIA", rst: "RESETTA", ccl: "ANNULLA",
             opn: "APRI", fdr: "CARTELLA", imp: "IMPORTA", exp: "ESPORTA", cls: "CHIUDI", cfm: "CONFERMA",
@@ -476,9 +486,63 @@ const languages = [
         ]
     },
     {
+        name: "Portuguese",
+        title: "BookSafe: Senha Livro",
+        number: 8,
+        transform_limit: {
+            courier: 749,
+            garamond: 673,
+            georgia: 746,
+            helvetica: 730,
+            tahoma: 713,
+            roman: 683,
+            trebuchet: 674
+        },
+        setting: [
+            "Nome do Livro", "Línguas", "Fontes", "Paletas"
+        ],
+        section: {
+            nac: "Nova Conta", set: "Configurações", abt: "Sobre", edt: "Editar Conta", dlt: "Excluir Conta",
+            cnb: "Criar Novo Livro", isb: "Importar Livro Salvo", inb: "Importar Novo Livro", exb: "Exportar Livro"
+        },
+        buttons: {
+            new: "NOVO", set: "CONFIGURAÇÕES", abt: "SOBRE", smt: "ENVIAR", rst: "REDEFINIR", ccl: "CANCELAR",
+            opn: "ABRIR", fdr: "PASTA", imp: "IMPORTAR", exp: "EXPORTAR", cls: "FECHAR", cfm: "CONFIRMAR",
+            rtn: "RETORNAR", iao: "IMPORTAR E ABRIR", dlt: "EXCLUIR", sav: "SALVAR"
+        },
+        headers: {
+            web: "Site da Internet", usn: "Nome de Usuário", pwd: "Senha", pin: "PIN", eml: "Email", phn: "Telé", det: "Detalhes"
+        },
+        colours: {
+            blue: "Azul", grey: "Cinza", purple: "Roxo", red: "Vermelho"
+        },
+        description: [
+            "Ao criar um novo livro, você perderá quaisquer senhas que não forem exportadas.",
+            "Você gostaria de abrir imediatamente o novo livro? Se sim, quaisquer senhas no livro atual que ainda não foram exportadas serão perdidas. Escolher importar sem abrir colocará o arquivo zip na pasta de exportação deste aplicativo para facilitar o acesso posteriormente.",
+            "Lembre-se: Abrir outro livro salvo sem exportar este fará com que você perca as senhas não salvas. Por sua própria segurança, por favor, exporte antes de fazer isso!",
+            "Por favor, confirme digitando 'EXCLUIR' abaixo:",
+            "Seu livro","foi salvo na pasta de exportação!",
+            "O seguinte erro ocorreu ao exportar seu livro:",
+            "O seguinte erro ocorreu ao importar seu livro:"
+        ],
+        about: [
+            "O BookSafe é um aplicativo que visa ajudar você a acompanhar todas as suas contas da maneira mais conveniente e não invasiva possível.",
+            "O BookSafe possui algum dos meus dados?",
+            "Não, o BookSafe não armazena nenhum de seus dados em servidores. Seus dados são salvos apenas no seu dispositivo.",
+            "Como posso encontrar as senhas que exportei?",
+            "Vá para configurações e clique no botão 'PASTA'. Isso revelará a pasta de exportação no seu explorador.",
+            "O BookSafe é compatível com todos os dispositivos?",
+            "Infelizmente, devido a problemas de compatibilidade, o BookSafe não está atualmente disponível para telefones ou tablets. Eu (o desenvolvedor) estou trabalhando atualmente em uma versão para dispositivos móveis.",
+            "Mais alguma pergunta?",
+            "Envie um email para o desenvolvedor em <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Website do Desenvolvedor: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Direitos Autorais © 2024 David Abhishek O'Regan - Todos os Direitos Reservados."
+        ]
+    },
+    {
         name: "Russian",
         title: "БукСейф: Парольная Книга",
-        number: 8,
+        number: 9,
         transform_limit:  {
             courier: 826,
             garamond: 803,
@@ -488,11 +552,13 @@ const languages = [
             roman: 801,
             trebuchet: 796
         },
+        setting: [
+            "Название Книги", "Языки", "Шрифты", "Палитры"
+        ],
         section: {
             nac: "Новый Аккаунт", set: "Настройки", abt: "O Cтpaницe", edt: "Редактировать Aккаунт", dlt: "Удалить Aккаунт",
             cnb: "Создать Новую Книгу", isb: "Импортировать Сохраненную Книгу", inb: "Импортировать Новую Книгу", exb: "Экспортировать Книгу"
         },
-        scrolls: [],
         buttons: {
             new: "НОВЫЙ", set: "НАСТРОЙКИ", abt: "O СТРАНИЦЕ", smt: "ОТПРАВИТЬ", rst: "СБРОСИТЬ", ccl: "OTMEHA",
             opn: "ОТКРЫТЬ", fdr: "ПАПКА", imp: "ИМПОРТ", exp: "ЭКСПОРТ", cls: "ЗАКРЫТЬ", cfm: "ПОДТВЕРДИТЬ",
@@ -530,7 +596,7 @@ const languages = [
     {
         name: "Spanish",
         title: "BookSafe: Libro Contraseña",
-        number: 9,
+        number: 10,
         transform_limit:  {
             courier: 797,
             garamond: 687,
@@ -540,11 +606,13 @@ const languages = [
             roman: 701,
             trebuchet: 702
         },
+        setting: [
+            "Nombre del Libro", "Idiomas", "Fuentes", "Paletas"
+        ],
         section: {
             nac: "Nueva Cuenta", set: "Ajustes", abt: "Sobre", edt: "Editar Cuenta", dlt: "Borrar Cuenta",
             cnb: "Crear Nuevo Libro", isb: "Importar Libro Guardado", inb: "Importar Nuevo Libro", exb: "Exportar Libro"
         },
-        scrolls: [],
         buttons: {
             new: "NUEVO", set: "AJUSTES", abt: "SOBRE", smt: "ENTREGAR", rst: "REAJUSTAR", ccl: "CANCELAR",
             opn: "ABRIR", fdr: "CARPETA", imp: "IMPORTAR", exp: "EXPORTAR", cls: "CERRAR", cfm: "CONFIRMAR",
@@ -652,6 +720,12 @@ async function changeLanguage(language) {
     document.getElementById('gre').innerText = languages[l_num].colours.grey
     document.getElementById('pur').innerText = languages[l_num].colours.purple
     document.getElementById('red').innerText = languages[l_num].colours.red
+
+    // Setting Headers
+    document.getElementById('set_bkn').innerText = languages[l_num].setting[0]
+    document.getElementById('set_lng').innerText = languages[l_num].setting[1]
+    document.getElementById('set_fnt').innerText = languages[l_num].setting[2]
+    document.getElementById('set_plt').innerText = languages[l_num].setting[3]
     
     // About Page (except title)
     for (let i=0; i<11; i++) {

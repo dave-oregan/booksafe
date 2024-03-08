@@ -50,7 +50,7 @@
             <div class=typerpop id=settings>
                 <ul class=submitUL>
                     <li class=nTitle id=title_set> Settings </li>
-                    <li>Book Name: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
+                    <li><a id=set_bkn>Book Name</a>: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
                     <li class=ulBut>
                         <span class=button id=set_new onclick='reveal("clear_container")'>NEW</span>
                         <span class=button id=set_ope onclick='reveal("import_saved_container")'>OPEN</span>
@@ -58,7 +58,7 @@
                         <span class=button id=set_imp onclick='reveal("import_container")'>IMPORT</span>
                         <span class=button id=set_exp onclick=exportZip()>EXPORT</span>
                     </li>
-                    <li>Languages:
+                    <li><a id=set_lng>Languages</a>:
                         <select onchange=changeLanguage(this.value) class=settingBox id=languages>
                             <option value='Arabic'>العربية</option>
                             <option value='Bangla'>বাংলা</option>
@@ -68,11 +68,12 @@
                             <option value='Hebrew'>עברית</option>
                             <option value='Hindi'>हिन्दी</option>
                             <option value='Italian'>Italiano</option>
+                            <option value='Portuguese'>Português</option>
                             <option value='Russian'>Русский</option>
                             <option value='Spanish'>Español</option>
                         </select>
                     </li>
-                    <li>Fonts:
+                    <li><a id=set_fnt>Fonts</a>:
                         <select onchange=changeFont(this.value) class=settingBox id=fonts>
                             <option style="font-family: Courier New, monospace;" id=courier value='Courier New, monospace'>Courier New</option>
                             <option style="font-family: Garamond, serif;" id=garamond value='Garamond, serif'>Garamond</option>
@@ -83,7 +84,7 @@
                             <option style="font-family: Trebuchet MS, sans-serif;" id=trebuchet value='Trebuchet MS, sans-serif' selected>Trebuchet MS</option>
                         </select>
                     </li>
-                    <li>Palette:
+                    <li><a id=set_plt>Palette</a>:
                         <select onchange=changePalette(this.value) class=settingBox id=palettes>
                             <option id=blu value='blue'>Blue</option>
                             <option id=gre value='grey' selected>Grey</option>
