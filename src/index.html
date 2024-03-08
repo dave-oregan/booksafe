@@ -65,8 +65,8 @@
                             <option value='English' selected>English</option>
                             <option value='French'>Français</option>
                             <option value='German'>Deutsch</option>
-                            <option value='Hindi'>Hindi</option>
-                            <option value='Italian'>Italian</option>
+                            <option value='Hindi'>हिन्दी</option>
+                            <option value='Italian'>Italiano</option>
                             <option value='Japanese'>Japanese</option>
                             <option value='Russian'>Русский</option>
                             <option value='Spanish'>Español</option>
@@ -74,13 +74,13 @@
                     </li>
                     <li>Fonts:
                         <select onchange=changeFont(this.value) class=settingBox id=fonts>
-                            <option style="font-family: Courier New, monospace;" value='Courier New, monospace'>Courier New</option>
-                            <option style="font-family: Garamond, serif;" value='Garamond, serif'>Garamond</option>
-                            <option style="font-family: Georgia, serif;" value='Georgia, serif'>Georgia</option>
-                            <option style="font-family: Helvetica, sans-serif;" value='Helvetica, sans-serif'>Helvetica</option>
-                            <option style="font-family: Tahoma, sans-serif;" value='Tahoma, sans-serif'>Tahoma</option>
-                            <option style="font-family: Times New Roman, serif;" value='Times New Roman, serif'>Times New Roman</option>
-                            <option style="font-family: Trebuchet MS, sans-serif;" value='Trebuchet MS, sans-serif' selected>Trebuchet MS</option>
+                            <option style="font-family: Courier New, monospace;" id=courier value='Courier New, monospace'>Courier New</option>
+                            <option style="font-family: Garamond, serif;" id=garamond value='Garamond, serif'>Garamond</option>
+                            <option style="font-family: Georgia, serif;" id=georgia value='Georgia, serif'>Georgia</option>
+                            <option style="font-family: Helvetica, sans-serif;" id=helvetica value='Helvetica, sans-serif'>Helvetica</option>
+                            <option style="font-family: Tahoma, sans-serif;" id=tahoma value='Tahoma, sans-serif'>Tahoma</option>
+                            <option style="font-family: Times New Roman, serif;" id=roman value='Times New Roman, serif'>Times New Roman</option>
+                            <option style="font-family: Trebuchet MS, sans-serif;" id=trebuchet value='Trebuchet MS, sans-serif' selected>Trebuchet MS</option>
                         </select>
                     </li>
                     <li>Palette:
@@ -238,6 +238,7 @@
             <a id=scrL onclick='windowScroll("L")'>L</a>
             <a id=scrM onclick='windowScroll("M")'>M</a>
             <a id=scrN onclick='windowScroll("N")'>N</a>
+            <a id=scrÑ onclick='windowScroll("Ñ")'>Ñ</a>
             <a id=scrO onclick='windowScroll("O")'>O</a>
             <a id=scrP onclick='windowScroll("P")'>P</a>
             <a id=scrQ onclick='windowScroll("Q")'>Q</a>
@@ -251,6 +252,39 @@
             <a id=scrX onclick='windowScroll("X")'>X</a>
             <a id=scrY onclick='windowScroll("Y")'>Y</a>
             <a id=scrZ onclick='windowScroll("Z")'>Z</a>
+            <a id=scrЁ onclick='windowScroll("Ё")'>Ё</a>
+            <a id=scrА onclick='windowScroll("А")'>А</a>
+            <a id=scrБ onclick='windowScroll("Б")'>Б</a>
+            <a id=scrВ onclick='windowScroll("В")'>В</a>
+            <a id=scrГ onclick='windowScroll("Г")'>Г</a>
+            <a id=scrД onclick='windowScroll("Д")'>Д</a>
+            <a id=scrЕ onclick='windowScroll("Е")'>Е</a>
+            <a id=scrЖ onclick='windowScroll("Ж")'>Ж</a>
+            <a id=scrЗ onclick='windowScroll("З")'>З</a>
+            <a id=scrИ onclick='windowScroll("И")'>И</a>
+            <a id=scrЙ onclick='windowScroll("Й")'>Й</a>
+            <a id=scrК onclick='windowScroll("К")'>К</a>
+            <a id=scrЛ onclick='windowScroll("Л")'>Л</a>
+            <a id=scrМ onclick='windowScroll("М")'>М</a>
+            <a id=scrН onclick='windowScroll("Н")'>Н</a>
+            <a id=scrО onclick='windowScroll("О")'>О</a>
+            <a id=scrП onclick='windowScroll("П")'>П</a>
+            <a id=scrР onclick='windowScroll("Р")'>Р</a>
+            <a id=scrС onclick='windowScroll("С")'>С</a>
+            <a id=scrТ onclick='windowScroll("Т")'>Т</a>
+            <a id=scrУ onclick='windowScroll("У")'>У</a>
+            <a id=scrФ onclick='windowScroll("Ф")'>Ф</a>
+            <a id=scrХ onclick='windowScroll("Х")'>Х</a>
+            <a id=scrЦ onclick='windowScroll("Ц")'>Ц</a>
+            <a id=scrЧ onclick='windowScroll("Ч")'>Ч</a>
+            <a id=scrШ onclick='windowScroll("Ш")'>Ш</a>
+            <a id=scrЩ onclick='windowScroll("Щ")'>Щ</a>
+            <a id=scrЪ onclick='windowScroll("Ъ")'>Ъ</a>
+            <a id=scrЫ onclick='windowScroll("Ы")'>Ы</a>
+            <a id=scrЬ onclick='windowScroll("Ь")'>Ь</a>
+            <a id=scrЭ onclick='windowScroll("Э")'>Э</a>
+            <a id=scrЮ onclick='windowScroll("Ю")'>Ю</a>
+            <a id=scrЯ onclick='windowScroll("Я")'>Я</a>
             <a id=scr- onclick='windowScroll("-")'>#</a>
             <a id=s_btn onclick='toggleSearch("s_bar_container")'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -304,6 +338,9 @@
             <div id=accN>
                 <h1>N</h1>
             </div>
+            <div id=accÑ>
+                <h1>Ñ</h1>
+            </div>
             <div id=accO>
                 <h1>O</h1>
             </div>
@@ -342,6 +379,105 @@
             </div>
             <div id=accZ>
                 <h1>Z</h1>
+            </div>
+            <div id=accЁ>
+                <h1>Ё</h1>
+            </div>
+            <div id=accА>
+                <h1>А</h1>
+            </div>
+            <div id=accБ>
+                <h1>Б</h1>
+            </div>
+            <div id=accВ>
+                <h1>В</h1>
+            </div>
+            <div id=accГ>
+                <h1>Г</h1>
+            </div>
+            <div id=accД>
+                <h1>Д</h1>
+            </div>
+            <div id=accЕ>
+                <h1>Е</h1>
+            </div>
+            <div id=accЖ>
+                <h1>Ж</h1>
+            </div>
+            <div id=accЗ>
+                <h1>З</h1>
+            </div>
+            <div id=accИ>
+                <h1>И</h1>
+            </div>
+            <div id=accЙ>
+                <h1>Й</h1>
+            </div>
+            <div id=accК>
+                <h1>К</h1>
+            </div>
+            <div id=accЛ>
+                <h1>Л</h1>
+            </div>
+            <div id=accМ>
+                <h1>М</h1>
+            </div>
+            <div id=accН>
+                <h1>Н</h1>
+            </div>
+            <div id=accО>
+                <h1>О</h1>
+            </div>
+            <div id=accП>
+                <h1>П</h1>
+            </div>
+            <div id=accР>
+                <h1>Р</h1>
+            </div>
+            <div id=accС>
+                <h1>С</h1>
+            </div>
+            <div id=accТ>
+                <h1>Т</h1>
+            </div>
+            <div id=accУ>
+                <h1>У</h1>
+            </div>
+            <div id=accФ>
+                <h1>Ф</h1>
+            </div>
+            <div id=accХ>
+                <h1>Х</h1>
+            </div>
+            <div id=accЦ>
+                <h1>Ц</h1>
+            </div>
+            <div id=accЧ>
+                <h1>Ч</h1>
+            </div>
+            <div id=accШ>
+                <h1>Ш</h1>
+            </div>
+            <div id=accЩ>
+                <h1>Щ</h1>
+            </div>
+            <div id=accЪ>
+                <h1>Ъ</h1>
+            </div>
+            <div id=accЫ>
+                <h1>Ы</h1>
+            </div>
+            <div id=accЬ>
+                <h1>Ь</h1>
+            </div>
+            <div id=accЭ>
+                <h1>Э</h1>
+            </div>
+            <div id=accЮ>
+                <h1>Ю</h1>
+            </div>
+            <div id=accЯ>
+                <h1>Я</h1>
             </div>
             <div id=acc->
                 <h1>#</h1>

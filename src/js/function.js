@@ -40,7 +40,7 @@ const new_btn = document.getElementById('newbutton')
 const set_btn = document.getElementById('settingbutton')
 const abt_btn = document.getElementById('aboutbutton')
 
-var toggleBool = false;
+var toggleBool = false
 
 const divikey = '+{ngqy--HZN--ngqy}+'
 const nullkey = '+{akjg--HZN--akjg}+'
@@ -58,6 +58,15 @@ const languages = [
         name: "Arabic",
         title: "",
         number: 0,
+        transform_limit: {
+            courier: 893,
+            garamond: 785,
+            georgia: 877,
+            helvetica: 861,
+            tahoma: 843,
+            roman: 791,
+            trebuchet: 787
+        },
         section: {},
         scrolls: [],
         buttons: {},
@@ -70,6 +79,15 @@ const languages = [
         name: "Bangla",
         title: "বুকসেইফ: পাসওয়ার্ড বই",
         number: 1,
+        transform_limit: {
+            courier: 672,
+            garamond: 640,
+            georgia: 643,
+            helvetica: 643,
+            tahoma: 645,
+            roman: 642,
+            trebuchet: 646
+        },
         section: {
             nac: "নতুন হিসাব", set: "সেটিংস", abt: "সম্পর্কে", edt: "হিসাব সম্পাদনা করুন", dlt: "হিসাব মুছে ফেলুন",
             cnb: "নতুন বই তৈরি করুন", isb: "সংরক্ষিত বই আমদানি করুন", inb: "নতুন বই আমদানি করুন", exb: "বই রপ্তানি করুন"
@@ -113,6 +131,15 @@ const languages = [
         name: "English",
         title: "BookSafe: Password Book",
         number: 2,
+        transform_limit: {
+            courier: 730,
+            garamond: 654,
+            georgia: 736,
+            helvetica: 714,
+            tahoma: 709,
+            roman: 661,
+            trebuchet: 662
+        },
         section: {
             nac: "New Account", set: "Settings", abt: "About", edt: "Edit Account", dlt: "Delete Account",
             cnb: "Create New Book", isb: "Import Saved Book", inb: "Import New Book", exb: "Export Book"
@@ -161,6 +188,15 @@ const languages = [
         name: "French",
         title: "BookSafe: Vos Mots de Passe",
         number: 3,
+        transform_limit: {
+            courier: 893,
+            garamond: 785,
+            georgia: 877,
+            helvetica: 861,
+            tahoma: 843,
+            roman: 791,
+            trebuchet: 787
+        },
         section: {
             nac: "Nouveau Compte", set: "Paramètres", abt: "À Propos", edt: "Modifier le Compte", dlt: "Supprimer le Compte",
             cnb: "Créer un Nouveau Livre", isb: "Importer le Livre Sauvegardé", inb: "Importer un Nouveau Livre", exb: "Exporter le Livre"
@@ -204,6 +240,15 @@ const languages = [
         name: "German",
         title: "BookSafe: Passwortbuch",
         number: 4,
+        transform_limit:  {
+            courier: 749,
+            garamond: 678,
+            georgia: 759,
+            helvetica: 732,
+            tahoma: 723,
+            roman: 681,
+            trebuchet: 679
+        },
         section: {
             nac: "Neues Konto", set: "Einstellungen", abt: "Über", edt: "Konto Bearbeiten", dlt: "Konto löschen",
             cnb: "Neues Buch Erstellen", isb: "Gespeichertes Buch Importieren", inb: "Neues Buch Importieren", exb: "Buch Exportieren"
@@ -245,32 +290,121 @@ const languages = [
     },
     {
         name: "Hindi",
-        title: "",
+        title: "बुकसेफ: पासवर्ड किताब",
         number: 5,
-        section: {},
+        transform_limit:  {
+            courier: 672,
+            garamond: 640,
+            georgia: 643,
+            helvetica: 643,
+            tahoma: 645,
+            roman: 642,
+            trebuchet: 646
+        },
+        section: {
+            nac: "नया खाता", set: "सेटिंग्स", abt: "बारे में", edt: "खाता संपादित करें", dlt: "खाता हटाएं",
+            cnb: "नई किताब बनाएं", isb: "सहेजी गई किताब आयात करें", inb: "नई किताब आयात करें", exb: "किताब निर्यात करें"
+        },
         scrolls: [],
-        buttons: {},
-        headers: {},
-        colours: { },
-        description: [],
-        about: []
+        buttons: {
+            new: "नया", set: "सेटिंग्स", abt: "बारे में", smt: "सबमिट", rst: "रीसेट", ccl: "रद्द",
+            opn: "खोलें", fdr: "फोल्डर", imp: "आयात", exp: "निर्यात", cls: "बंद", cfm: "पुष्टि करें",
+            rtn: "वापस", iao: "आयात और खोलें", dlt: "हटाएं", sav: "सहेजें"
+        },
+        headers: {
+            web: "वेबसाइट", usn: "उपयोगकर्ता नाम", pwd: "पासवर्ड", pin: "पिन", eml: "ईमेल", phn: "फ़ोन", det: "विवरण"
+        },
+        colours: {
+            blue: "नीला", grey: "स्लेटी", purple: "बैंगनी", red: "लाल"
+        },
+        description: [
+            "नई किताब बनाने पर, आपको जो कोई पासवर्ड नहीं निर्यात किया गया है, वह सभी हो जाएंगे।",
+            "क्या आप तुरंत नई किताब खोलना चाहेंगे? ऐसा करने पर, जो कोई पासवर्ड वर्तमान किताब में निर्यात नहीं किया गया है, वह सभी हो जाएंगे। बिना खोले आयात करने का चयन करने पर यह एप्लिकेशन के निर्यात फ़ोल्डर में जल्दी पहुँचने के लिए ZIP फ़ाइल रखा जाएगा।",
+            "ध्यान रखें: इसे निर्यात किए बिना इसे एक और सहेजी गई किताब खोलने से आप असहेजे पासवर्ड को खो सकते हैं। अपनी सुरक्षा के लिए, कृपया इससे पहले निर्यात करें!",
+            "कृपया 'हटाएं' नीचे टाइप करके पुष्टि करें:",
+            "आपकी किताब","को निर्यात फोल्डर में सहेज लिया गया है!",
+            "किताब निर्यात करते समय निम्नलिखित त्रुटि हुई:",
+            "किताब आयात करते समय निम्नलिखित त्रुटि हुई:"
+        ],
+        about: [
+            "बुकसेफ एक एप्लिकेशन है जो आपको सभी आपके खातों का सर्वाधिक सुविधाजनक, अन्तर्घातरहित तरीके से ट्रैक करने में मदद करने का उद्देश्य रखता है।.",
+            "बुकसेफ आपके डेटा को किसी भी प्रकार से संग्रहित नहीं करता है।",
+            "नहीं, बुकसेफ आपके डेटा को सर्वर पर संग्रहित नहीं करता है। आपका डेटा केवल आपकी डिवाइस पर ही सहेजा जाता है।.",
+            "आपके निर्यात किए गए पासवर्ड कैसे खोजें?",
+            "सेटिंग्स में जाएं, फिर 'फोल्डर' बटन पर क्लिक करें। यह आपके एक्सप्लोरर में निर्यात फोल्डर को खोलेगा।.",
+            "क्या बुकसेफ सभी डिवाइसों पर समर्थित है?",
+            "दुर्भाग्यवश, संगतता समस्याओं के कारण, वर्तमान में बुकसेफ फ़ोन या टैबलेट्स के लिए उपलब्ध नहीं है। मैं (डेवलपर) वर्तमान में मोबाइल डिवाइस के लिए एक पोर्ट पर काम कर रहा हूँ।",
+            "कोई और सवाल?",
+            "डेवलपर से संपर्क करने के लिए <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a> पर ईमेल करें।",
+            "डेवलपर की वेबसाइट: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "कॉपीराइट © 2024 डेविड अभिषेक ओ'रेगन - सभी अधिकार सुरक्षित हैं।"
+        ]
     },
     {
         name: "Italian",
-        title: "",
+        title: "BookSafe: Libro delle Password",
         number: 6,
-        section: {},
+        transform_limit:  {
+            courier: 989,
+            garamond: 856,
+            georgia: 958,
+            helvetica: 912,
+            tahoma: 913,
+            roman: 860,
+            trebuchet: 854
+        },
+        section: {
+            nac: "Nuovo Account", set: "Impostazioni", abt: "Informazioni", edt: "Modifica Account", dlt: "Elimina Account",
+            cnb: "Crea Nuovo Libro", isb: "Importa Libro Salvato", inb: "Importa Nuovo Libro", exb: "Esporta Libro"
+        },
         scrolls: [],
-        buttons: {},
-        headers: {},
-        colours: { },
-        description: [],
-        about: []
+        buttons: {
+            new: "NUOVO", set: "IMPOSTAZIONI", abt: "INFORMAZIONI", smt: "INVIA", rst: "RESETTA", ccl: "ANNULLA",
+            opn: "APRI", fdr: "CARTELLA", imp: "IMPORTA", exp: "ESPORTA", cls: "CHIUDI", cfm: "CONFERMA",
+            rtn: "RITORNA", iao: "IMPORTA E APRI", dlt: "ELIMINA", sav: "SALVA"
+        },
+        headers: {
+            web: "Sito Web", usn: "Nome Utente", pwd: "Password", pin: "PIN", eml: "Email", phn: "Cellulare", det: "Dettagli"
+        },
+        colours: {
+            blue: "Blu", grey: "Grigio", purple: "Viola", red: "Rosso"
+        },
+        description: [
+            "Alla creazione di un nuovo libro, perderai tutte le password non esportate.",
+            "Vuoi aprire immediatamente il nuovo libro? In tal caso, tutte le password nel libro attuale non ancora esportate saranno perse. Scegliendo di importare senza aprire, il file zip sarà collocato nella cartella di esportazione di questa applicazione per un accesso più facile in seguito.",
+            "Ricorda: Aprire un altro libro salvato senza esportare questo comporterà la perdita delle password non salvate. Per la tua sicurezza, ti preghiamo di esportare prima di procedere!",
+            "Si prega di confermare digitando 'ELIMINA' qui sotto:",
+            "Il tuo libro","è stato salvato nella cartella di esportazione!",
+            "Si è verificato il seguente errore durante l'esportazione del tuo libro:",
+            "Si è verificato il seguente errore durante l'importazione del tuo libro:"
+        ],
+        about: [
+            "BookSafe è un'app che mira ad aiutarti a tenere traccia di tutti i tuoi account nel modo più conveniente e non invasivo possibile.",
+            "BookSafe ha qualche dato mio?",
+            "No, BookSafe non memorizza alcun dato sui server. I tuoi dati sono salvati solo sul tuo dispositivo.",
+            "Come posso trovare le mie password esportate?",
+            "Vai nelle impostazioni, poi clicca sul pulsante 'CARTELLA'. Questo mostrerà la cartella di esportazione nel tuo esplora risorse.",
+            "BookSafe è supportato su tutti i dispositivi?",
+            "Purtroppo, a causa di problemi di compatibilità, al momento BookSafe non è disponibile per telefoni o tablet. (Lo sviluppatore) sta attualmente lavorando a una versione per dispositivi mobili.",
+            "Altre domande?",
+            "Invia un'email allo sviluppatore all'indirizzo <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "Sito web dello sviluppatore: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Diritti d'autore © 2024 David Abhishek O'Regan - Tutti i diritti riservati."
+        ]
     },
     {
         name: "Japanese",
         title: "",
         number: 7,
+        transform_limit:  {
+            courier: 672,
+            garamond: 640,
+            georgia: 643,
+            helvetica: 643,
+            tahoma: 645,
+            roman: 642,
+            trebuchet: 646
+        },
         section: {},
         scrolls: [],
         buttons: {},
@@ -283,6 +417,15 @@ const languages = [
         name: "Russian",
         title: "БукСейф: Парольная Книга",
         number: 8,
+        transform_limit:  {
+            courier: 826,
+            garamond: 803,
+            georgia: 888,
+            helvetica: 834,
+            tahoma: 836,
+            roman: 801,
+            trebuchet: 796
+        },
         section: {
             nac: "Новый Аккаунт", set: "Настройки", abt: "O Cтpaницe", edt: "Редактировать Aккаунт", dlt: "Удалить Aккаунт",
             cnb: "Создать Новую Книгу", isb: "Импортировать Сохраненную Книгу", inb: "Импортировать Новую Книгу", exb: "Экспортировать Книгу"
@@ -326,6 +469,15 @@ const languages = [
         name: "Spanish",
         title: "BookSafe: Libro Contraseña",
         number: 9,
+        transform_limit:  {
+            courier: 797,
+            garamond: 687,
+            georgia: 779,
+            helvetica: 752,
+            tahoma: 744,
+            roman: 701,
+            trebuchet: 702
+        },
         section: {
             nac: "Nueva Cuenta", set: "Ajustes", abt: "Sobre", edt: "Editar Cuenta", dlt: "Borrar Cuenta",
             cnb: "Crear Nuevo Libro", isb: "Importar Libro Guardado", inb: "Importar Nuevo Libro", exb: "Exportar Libro"
@@ -466,7 +618,11 @@ window.addEventListener('resize', () => {
 function checkForSizeChange() {
     const screenWidth = window.innerWidth
 
-    if (screenWidth < 787) {
+    const selector = document.getElementById('fonts')
+
+    const font_value = selector.options[selector.selectedIndex].id
+
+    if (screenWidth < languages[getLangNumber(__language)].transform_limit[font_value]) {
         new_btn.innerHTML = `<span class=iconheightlimit>${plusIcon}</span>`
         set_btn.innerHTML = `<span class=iconheightlimit>${settingIcon}</span>`
         abt_btn.innerHTML = `<span class=iconheightlimit>${infoIcon}</span>`
@@ -612,10 +768,17 @@ function addAccount(site, username, password, pin, email, phone, other, file) {
         othrow.id = 'othrow'
         othrow.innerHTML = `<span class=text id=other>${nullkeyReplacement(other, true)}</span><a class=textL>${languages[getLangNumber(__language)].headers.det}:</a>`
     container.appendChild(othrow)
+
     var labeldiscriminator
-    try { labeldiscriminator = site.charAt(0).toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") }
+    try { 
+        labeldiscriminator = site.charAt(0).toUpperCase()
+        if (labeldiscriminator != "Ё" && labeldiscriminator != "Ñ") {
+            labeldiscriminator = labeldiscriminator.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        }
+    }
     catch { labeldiscriminator = '-' }
-    if (/[^a-zA-Z]/.test(labeldiscriminator)) { labeldiscriminator = '-' }
+    console.log(labeldiscriminator)
+    if (/[^a-zA-ZЁА-Яёа-я-]/.test(labeldiscriminator) && (labeldiscriminator != "Ё" && labeldiscriminator != "Ñ")) { labeldiscriminator = '-' }
     document.getElementById(`acc${labeldiscriminator}`).appendChild(large)
     configure()
 }
@@ -706,58 +869,59 @@ function expand(parent, element) {
 
 function changeFont(font) {
     savesettings(font, document.getElementById('palettes').value, document.getElementById('zip_name_box').value, document.getElementById('languages').value)
-    $("body").css("font-family", font);
+    $("body").css("font-family", font)
+    checkForSizeChange()
 }
 
 function changePalette(colour) {
     savesettings(document.getElementById('fonts').value, colour, document.getElementById('zip_name_box').value, document.getElementById('languages').value)
     if (colour == 'red')
     {
-        $('body').css('color', `white`);
-        $('body').css('background-color', `lightcoral`);
-        $('.containers').css('background-color', `indianred`);
-        $('.typerpop').css('background-color', `indianred`);
-        $('.account').css('background-color', `#A04040`);
-        $('.button').css('background-color', `#A04040`);
+        $('body').css('color', `white`)
+        $('body').css('background-color', `lightcoral`)
+        $('.containers').css('background-color', `indianred`)
+        $('.typerpop').css('background-color', `indianred`)
+        $('.account').css('background-color', `#A04040`)
+        $('.button').css('background-color', `#A04040`)
     }
     else if (colour == 'purple')
     {
-        $('body').css('color', `white`);
-        $('body').css('background-color', `#D8A1E7`);
-        $('.containers').css('background-color', `#C46EDA`);
-        $('.typerpop').css('background-color', `#C46EDA`);
-        $('.account').css('background-color', `mediumorchid`);
-        $('.button').css('background-color', `mediumorchid`);
+        $('body').css('color', `white`)
+        $('body').css('background-color', `#D8A1E7`)
+        $('.containers').css('background-color', `#C46EDA`)
+        $('.typerpop').css('background-color', `#C46EDA`)
+        $('.account').css('background-color', `mediumorchid`)
+        $('.button').css('background-color', `mediumorchid`)
     }
     else if (colour == 'blue')
     {
-        $('body').css('color', `white`);
-        $('body').css('background-color', `lightsky${colour}`);
-        $('.containers').css('background-color', `#708EE8`);
-        $('.typerpop').css('background-color', `#708EE8`);
-        $('.account').css('background-color', `royal${colour}`);
-        $('.button').css('background-color', `royal${colour}`);
+        $('body').css('color', `white`)
+        $('body').css('background-color', `lightsky${colour}`)
+        $('.containers').css('background-color', `#708EE8`)
+        $('.typerpop').css('background-color', `#708EE8`)
+        $('.account').css('background-color', `royal${colour}`)
+        $('.button').css('background-color', `royal${colour}`)
     }
     else if (colour == 'grey')
     {
-        $('body').css('color', `black`);
-        $('body').css('background-color', `white`);
-        $('.containers').css('background-color', `light${colour}`);
-        $('.typerpop').css('background-color', `light${colour}`);
-        $('.account').css('background-color', `dark${colour}`);
-        $('.button').css('background-color', `dark${colour}`);
+        $('body').css('color', `black`)
+        $('body').css('background-color', `white`)
+        $('.containers').css('background-color', `light${colour}`)
+        $('.typerpop').css('background-color', `light${colour}`)
+        $('.account').css('background-color', `dark${colour}`)
+        $('.button').css('background-color', `dark${colour}`)
     }
 }
 
 function resetWindow() {
-    setOptions('Trebuchet MS, sans-serif', 'grey');
-    changeFont('Trebuchet MS, sans-serif');
-    changePalette('grey');
+    setOptions('Trebuchet MS, sans-serif', 'grey')
+    changeFont('Trebuchet MS, sans-serif')
+    changePalette('grey')
 }
 
 function setOptions(font, colour) {
-    document.getElementById('fonts').selectedIndex = [...document.getElementById('fonts').options].findIndex(option => option.value === font);
-    document.getElementById('palettes').selectedIndex = [...document.getElementById('palettes').options].findIndex(option => option.value === colour);
+    document.getElementById('fonts').selectedIndex = [...document.getElementById('fonts').options].findIndex(option => option.value === font)
+    document.getElementById('palettes').selectedIndex = [...document.getElementById('palettes').options].findIndex(option => option.value === colour)
 }
 
 function windowScroll(discriminator) {
@@ -765,7 +929,7 @@ function windowScroll(discriminator) {
 }
 
 function configure() {
-    const headers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'SS', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
+    const headers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'SS', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ё', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', '-']
     headers.forEach((x) => {
         const header = document.getElementById(`acc${x}`)
         if (header.childElementCount == 0 || header.childElementCount == 1) {
@@ -839,7 +1003,7 @@ async function openExportFolder() {
 }
 
 async function importZip(open_bool) {
-    const result = await api.showDialog('');
+    const result = await api.showDialog('')
 
     if (result && result.length > 0) {
         const filePath = result[0]
@@ -874,7 +1038,7 @@ async function importZip(open_bool) {
 }
 
 async function importSavedZip() {
-    const result = await api.showDialog('exports');
+    const result = await api.showDialog('exports')
 
     if (result && result.length > 0) {
         const filePath = result[0]
