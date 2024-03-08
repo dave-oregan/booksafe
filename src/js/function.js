@@ -56,7 +56,7 @@ const languageSelector = document.getElementById('languages')
 const languages = [
     {
         name: "Arabic",
-        title: "",
+        title: "بوك سيف: كتاب كلمة السر",
         number: 0,
         transform_limit: {
             courier: 893,
@@ -67,13 +67,44 @@ const languages = [
             roman: 791,
             trebuchet: 787
         },
-        section: {},
+        section: {
+            nac: "حساب جديد", set: "الإعدادات", abt: "حول", edt: "تحرير الحساب", dlt: "حذف الحساب",
+            cnb: "إنشاء كتاب جديد", isb: "استيراد كتاب محفوظ", inb: "استيراد كتاب جديد", exb: "تصدير الكتاب"
+        },
         scrolls: [],
-        buttons: {},
-        headers: {},
-        colours: { },
-        description: [],
-        about: []
+        buttons: {
+            new: "جديد", set: "الإعدادات", abt: "حول", smt: "تقديم", rst: "إعادة تعيين", ccl: "إلغاء",
+            opn: "افتح", fdr: "مجلد", imp: "استيراد", exp: "تصدير", cls: "إغلاق", cfm: "تأكيد",
+            rtn: "عودة", iao: "استيراد وفتح", dlt: "حذف", sav: "حفظ"
+        },
+        headers: {
+            web: "موقع ويب", usn: "اسم المستخدم", pwd: "كلمة المرور", pin: "رقم الهوية", eml: "الإيميل", phn: "هاتف", det: "تفاصيل"
+        },
+        colours: {
+            blue: "أزرق", grey: "رمادي", purple: "أرجواني", red: "أحمر"
+        },
+        description: [
+            "عند إنشاء كتاب جديد، ستفقد أي كلمات مرور لم يتم تصديرها.",
+            "هل ترغب في فتح الكتاب الجديد فورًا؟ إذا كان الأمر كذلك، ستفقد أي كلمات مرور في الكتاب الحالي غير المصدرة حتى الآن. اختيار الاستيراد دون الفتح سيضع ملف الضغط في مجلد التصدير لهذا التطبيق لسهولة الوصول في وقت لاحق.",
+            "تذكير: فتح كتاب محفوظ آخر دون تصدير هذا الكتاب سيؤدي إلى فقدان كلمات المرور التي لم يتم حفظها. لضمان أمانك، يرجى تصدير البيانات قبل القيام بذلك!",
+            "تذكير: يفترض منك تأكيد ذلك عن طريق كتابة 'حذف' أدناه:",
+            "הספר שלך","נשמר לתיקיית הייצוא!",
+            "حدث خطأ أثناء تصدير الكتاب الخاص بك:",
+            "حدث خطأ أثناء استيراد كتابك:"
+        ],
+        about: [
+            "كـ بوك سيف هو تطبيق يهدف إلى مساعدتك في تتبع جميع حساباتك بأكثر الطرق راحةً وعدم تداخلًا.",
+            "هل بوك سيف يحتوي على أي من بياناتي؟",
+            "لا، بوك سيف لا يخزن أي من بياناتك على الخوادم. بياناتك تُحفظ فقط على جهازك.",
+            "كيف يمكنني العثور على كلمات المرور التي تم تصديرها؟",
+            "انتقل إلى الإعدادات، ثم انقر على زر 'مجلد'. سيكشف هذا عن مجلد التصدير في مستكشف الملفات الخاص بك.",
+            "هل يتم دعم بوك سيف على جميع الأجهزة؟",
+            "للأسف، بسبب مشكلات التوافق، بوك سيف غير متاح حاليًا على الهواتف الذكية أو الأجهزة اللوحية. أنا (المطور) حاليًا أعمل على نسخة للأجهزة المحمولة.",
+            "أسئلة إضافية؟",
+            "البريد الإلكتروني للمطور على <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
+            "موقع المطور: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "حقوق الطبع والنشر © 2024 ديفيد أبهيشيك أوريجان - جميع الحقوق محفوظة."
+        ]
     },
     {
         name: "Bangla",
@@ -289,9 +320,61 @@ const languages = [
         ]
     },
     {
+        name: "Hebrew",
+        title: "בוקסייף: ספר סיסמאות",
+        number: 5,
+        transform_limit: {
+            courier: 893,
+            garamond: 785,
+            georgia: 877,
+            helvetica: 861,
+            tahoma: 843,
+            roman: 791,
+            trebuchet: 787
+        },
+        section: {
+            nac: "חשבון חדש", set: "הגדרות", abt: "אודות", edt: "עריכת חשבון", dlt: "מחיקת חשבון",
+            cnb: "יצירת ספר חדש", isb: "ייבוא ספר שמור", inb: "ייבוא ספר חדש", exb: "ייצוא ספר"
+        },
+        scrolls: [],
+        buttons: {
+            new: "חדש", set: "הגדרות", abt: "אודות", smt: "הגש", rst: "איפוס", ccl: "ביטול",
+            opn: "פתח", fdr: "תיקייה", imp: "ייבא", exp: "ייצא", cls: "סגור", cfm: "אשר",
+            rtn: "חזרה", iao: "ייבא ופתח", dlt: "מחק", sav: "שמור"
+        },
+        headers: {
+            web: "אתר אינטרנט", usn: "שם משתמש", pwd: "סיסמה", pin: "קוד", eml: "דואל", phn: "טלפון", det: "פרטים"
+        },
+        colours: {
+            blue: "כחול", grey: "אפור", purple: "סגול", red: "אדום"
+        },
+        description: [
+            "בעת יצירת ספר חדש, ייאבדו כל הסיסמאות שלא יוצאו לייצוא.",
+            "האם תרצה לפתוח את הספר החדש מייד? אם כן, כל הסיסמאות שלא נוצאו לייצוא מהספר הנוכחי ייאבדו. בחירה לייבא בלעדייך לפתיחה תכניס את קובץ ה-ZIP לתיקיית הייצוא של יישום זה לצורך גישה נוחה מאוחר יותר.",
+            "זכור: פתיחת ספר שמור נוסף בלעדייך לייצוא של ספר זה תגרום לאובדן סיסמאות שלא נשמרו. למענה על בטחונך, אנא יצא לפני ביצוע פעולה זו!",
+            "אנא אשר על ידי כתיבת 'מחק' למטה:",
+            "הספר שלך","נשמר בתיקיית הייצוא!",
+            "התרחשה שגיאה במהלך הייצור של הספר שלך:",
+            "התרחשה שגיאה במהלך היבוא של הספר שלך:"
+        ],
+        about: [
+            "בוקסייף הוא אפליקציה שמטרתה לעזור לך לעקוב אחרי כל החשבונות שלך בדרך הכי נוחה ולא פוגעת שתהיה.",
+            "האם בוקסייף מכילה מידע עליי؟",
+            "לא, בוקסייף אינה שומרת נתונים על השרתים. המידע שלך נשמר רק על המכשיר שלך.",
+            "איך אני יכול למצוא את הסיסמאות שיצאו מהמערכת؟",
+            "עבור להגדרות, לאחר מכן לחץ על כפתור 'תיקייה'. זה יחשוף את תיקיית היצוא בדפדפן הקבצים שלך.",
+            "האם בוקסייף נתמך בכל המכשירים؟",
+            "לצערי, בשל בעיות תאימות, בוקסייף אינה זמינה כרגע עבור טלפונים ניידים או טאבלטים. אני (המפתח) עובד כרגע על העברת האפליקציה למכשירים ניידים.",
+            "שאלות נוספות؟",
+            'שלח דוא"ל למפתח בכתובת <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>',
+            "אתר מפתחים: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "זכויות יוצרים © 2024 דיוויד אבישק או'רגן - כל הזכויות שמורות."
+        ]
+    },
+    {
         name: "Hindi",
         title: "बुकसेफ: पासवर्ड किताब",
-        number: 5,
+        number: 6,
         transform_limit:  {
             courier: 672,
             garamond: 640,
@@ -327,23 +410,23 @@ const languages = [
             "किताब आयात करते समय निम्नलिखित त्रुटि हुई:"
         ],
         about: [
-            "बुकसेफ एक एप्लिकेशन है जो आपको सभी आपके खातों का सर्वाधिक सुविधाजनक, अन्तर्घातरहित तरीके से ट्रैक करने में मदद करने का उद्देश्य रखता है।.",
-            "बुकसेफ आपके डेटा को किसी भी प्रकार से संग्रहित नहीं करता है।",
-            "नहीं, बुकसेफ आपके डेटा को सर्वर पर संग्रहित नहीं करता है। आपका डेटा केवल आपकी डिवाइस पर ही सहेजा जाता है।.",
+            "बुकसेफ एक एप्लिकेशन है जो आपको आपके सभी खातों का सर्वाधिक सुविधाजनक, अन्तर्घातरहित तरीके से ट्रैक करने में मदद करने का उद्देश्य रखता है।",
+            "बुकसेफ आपके डेटा को किसी भी प्रकार से संग्रहित नहीं करता है?",
+            "नहीं, बुकसेफ आपके डेटा को सर्वर पर संग्रहित नहीं करता है। आपका डेटा केवल आपकी डिवाइस पर ही सहेजा जाता है।",
             "आपके निर्यात किए गए पासवर्ड कैसे खोजें?",
-            "सेटिंग्स में जाएं, फिर 'फोल्डर' बटन पर क्लिक करें। यह आपके एक्सप्लोरर में निर्यात फोल्डर को खोलेगा।.",
+            "सेटिंग्स में जाएं, फिर 'फोल्डर' बटन पर क्लिक करें। यह आपके एक्सप्लोरर में निर्यात फोल्डर को खोलेगा।",
             "क्या बुकसेफ सभी डिवाइसों पर समर्थित है?",
             "दुर्भाग्यवश, संगतता समस्याओं के कारण, वर्तमान में बुकसेफ फ़ोन या टैबलेट्स के लिए उपलब्ध नहीं है। मैं (डेवलपर) वर्तमान में मोबाइल डिवाइस के लिए एक पोर्ट पर काम कर रहा हूँ।",
             "कोई और सवाल?",
             "डेवलपर से संपर्क करने के लिए <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a> पर ईमेल करें।",
-            "डेवलपर की वेबसाइट: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "डेवलपर का वेबसाइट: <a class=abtlink id=linktoweb>horizonzz.com</a>",
             "कॉपीराइट © 2024 डेविड अभिषेक ओ'रेगन - सभी अधिकार सुरक्षित हैं।"
         ]
     },
     {
         name: "Italian",
         title: "BookSafe: Libro delle Password",
-        number: 6,
+        number: 7,
         transform_limit:  {
             courier: 989,
             garamond: 856,
@@ -391,27 +474,6 @@ const languages = [
             "Sito web dello sviluppatore: <a class=abtlink id=linktoweb>horizonzz.com</a>",
             "Diritti d'autore © 2024 David Abhishek O'Regan - Tutti i diritti riservati."
         ]
-    },
-    {
-        name: "Japanese",
-        title: "",
-        number: 7,
-        transform_limit:  {
-            courier: 672,
-            garamond: 640,
-            georgia: 643,
-            helvetica: 643,
-            tahoma: 645,
-            roman: 642,
-            trebuchet: 646
-        },
-        section: {},
-        scrolls: [],
-        buttons: {},
-        headers: {},
-        colours: { },
-        description: [],
-        about: []
     },
     {
         name: "Russian",
@@ -603,6 +665,25 @@ async function changeLanguage(language) {
     })
     await loadfiles()
     changePalette(document.getElementById('palettes').value)
+
+    if (__language == languages[0].name || __language == languages[5].name) {
+        document.body.classList.add('rtl')
+        document.getElementById('aboutbutton').classList.add('rtl_button')
+        document.getElementById('settingbutton').classList.add('rtl_button')
+        document.getElementById('newbutton').classList.add('rtl_button')
+        Array.from(document.getElementsByClassName('buttondiv')).forEach((item) => {
+            item.classList.add('rtl_account')
+        })
+    }
+    else {
+        document.body.classList.remove('rtl')
+        document.getElementById('aboutbutton').classList.remove('rtl_button')
+        document.getElementById('settingbutton').classList.remove('rtl_button')
+        document.getElementById('newbutton').classList.remove('rtl_button')
+        Array.from(document.getElementsByClassName('buttondiv')).forEach((item) => {
+            item.classList.remove('rtl_account')
+        })
+    }
 }
 
 function getLangNumber(lang_value) {
@@ -733,7 +814,7 @@ function addAccount(site, username, password, pin, email, phone, other, file) {
     const site_title = document.createElement('a')
         site_title.className = 'site'
         site_title.id = 'webname'
-        site_title.innerHTML = `${site}<div id=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
+        site_title.innerHTML = `${site}<div class=buttondiv><span class=accButtons onclick='expand(this.parentNode.parentNode.parentNode, this)'>${dIcon}</span><span class=accButtons onclick='deleteFile("${file}")'>${xIcon}</span><span class=accButtons onclick='editFile("${file}")'>${eIcon}</span><div>`
     large.appendChild(site_title)
     const container = document.createElement('div')
         container.className = 'inneraccountcontainer'

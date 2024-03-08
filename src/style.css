@@ -12,6 +12,10 @@ body {
     font-family: Trebuchet MS, sans-serif;
 }
 
+.rtl {
+    direction: rtl;
+}
+
 #content {
     display: flex;
     flex-flow: column;
@@ -306,7 +310,7 @@ body {
     font-size: 1em;
 }
 
-#buttondiv {
+.buttondiv {
     width: fit-content;
     float: right;
     vertical-align: middle;
@@ -346,4 +350,13 @@ body {
 
 .button:hover {
     filter: brightness(120%);
+}
+
+.rtl_button {
+    float: left !important;
+}
+
+.rtl_account {
+    float: left !important;
+    transform: scaleX(-1);
 }
