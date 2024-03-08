@@ -932,8 +932,7 @@ function addAccount(site, username, password, pin, email, phone, other, file) {
         }
     }
     catch { labeldiscriminator = '-' }
-    console.log(labeldiscriminator)
-    if (/[^a-zA-ZЁА-Яёа-я-]/.test(labeldiscriminator) && (labeldiscriminator != "Ё" && labeldiscriminator != "Ñ")) { labeldiscriminator = '-' }
+    if (/[^a-zA-ZЁА-Яёа-яँ-ःअ-ऋए-ऐओ-औक-যড-হ়-্।-९א-תا-يء-يئ-ي‎-‎׳-״-]/.test(labeldiscriminator) && (labeldiscriminator != "Ё" && labeldiscriminator != "Ñ")) { labeldiscriminator = '-' }
     document.getElementById(`acc${labeldiscriminator}`).appendChild(large)
     configure()
 }
@@ -1084,7 +1083,15 @@ function windowScroll(discriminator) {
 }
 
 function configure() {
-    const headers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'SS', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ё', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', '-']
+    const headers = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'SS', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        'Ё', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я',
+        'א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'ך', 'כ', 'ל', 'ם', 'מ', 'ן', 'נ', 'ס', 'ע', 'ף', 'פ', 'ץ', 'צ', 'ק', 'ר', 'ש', 'ת',
+        'ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي',
+        'अ', 'आ', 'इ', 'ई', 'उ', 'ऊ', 'ऋ', 'ए', 'ऐ', 'ओ', 'औ', 'क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह', 'ळ', 'क्ष', 'ज्ञ',
+        'অ', 'আ', 'ই', 'ঈ', 'উ', 'ঊ', 'ঋ', 'এ', 'ঐ', 'ও', 'ঔ', 'ক', 'খ', 'গ', 'ঘ', 'ঙ', 'চ', 'ছ', 'জ', 'ঝ', 'ঞ', 'ট', 'ঠ', 'ড', 'ঢ', 'ণ', 'ত', 'থ', 'দ', 'ধ', 'ন', 'প', 'ফ', 'ব', 'ভ', 'ম', 'য', 'র', 'ল', 'শ', 'ষ', 'স', 'হ',
+        '-'
+    ]
     headers.forEach((x) => {
         const header = document.getElementById(`acc${x}`)
         if (header.childElementCount == 0 || header.childElementCount == 1) {
