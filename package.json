@@ -32,11 +32,15 @@
       "output": "dist"
     },
     "files": [
-      "main.js",
       "package.json",
+      "main.js",
       "preload.js",
+      "src/js/*",
+      "src/index.html",
+      "src/lockicon.icns",
+      "src/lockicon.ico",
+      "src/style.css",
       "LICENSE.txt",
-      "src/**/*",
       "node_modules/**/*"
     ],
     "mac": {
