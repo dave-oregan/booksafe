@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-<!-- to create windows app: run 'npx electron-packager . BookSafe' -->
-<!-- to create apple app: run 'npx electron-packager . BookSafe --icon "src/lockicon.ico"' -->
 
 <head>
-    <title> BookSafe </title>
+    <title id=top_title> BookSafe: Password Book </title>
     <link rel=stylesheet href=style.css>
+    <script src=js/languages.js></script>
     <script src=js/jquery-3.6.0.js></script>
 </head>
 
@@ -71,6 +70,7 @@
                             <option value='Portuguese'>Português</option>
                             <option value='Russian'>Русский</option>
                             <option value='Spanish'>Español</option>
+                            <option value='Ukrainian'>Українська</option>
                         </select>
                     </li>
                     <li><a id=set_fnt>Fonts</a>:
@@ -253,17 +253,21 @@
             <a id=scrX onclick='windowScroll("X")'>X</a>
             <a id=scrY onclick='windowScroll("Y")'>Y</a>
             <a id=scrZ onclick='windowScroll("Z")'>Z</a>
-            <a id=scrЁ onclick='windowScroll("Ё")'>Ё</a>
             <a id=scrА onclick='windowScroll("А")'>А</a>
             <a id=scrБ onclick='windowScroll("Б")'>Б</a>
             <a id=scrВ onclick='windowScroll("В")'>В</a>
             <a id=scrГ onclick='windowScroll("Г")'>Г</a>
+            <a id=scrҐ onclick='windowScroll("Ґ")'>Ґ</a>
             <a id=scrД onclick='windowScroll("Д")'>Д</a>
             <a id=scrЕ onclick='windowScroll("Е")'>Е</a>
+            <a id=scrЁ onclick='windowScroll("Ё")'>Ё</a>
+            <a id=scrЄ onclick='windowScroll("Є")'>Є</a>
             <a id=scrЖ onclick='windowScroll("Ж")'>Ж</a>
             <a id=scrЗ onclick='windowScroll("З")'>З</a>
             <a id=scrИ onclick='windowScroll("И")'>И</a>
             <a id=scrЙ onclick='windowScroll("Й")'>Й</a>
+            <a id=scrІ onclick='windowScroll("І")'>І</a>
+            <a id=scrЇ onclick='windowScroll("Ї")'>Ї</a>
             <a id=scrК onclick='windowScroll("К")'>К</a>
             <a id=scrЛ onclick='windowScroll("Л")'>Л</a>
             <a id=scrМ onclick='windowScroll("М")'>М</a>
@@ -526,9 +530,6 @@
             <div id=accZ>
                 <h1>Z</h1>
             </div>
-            <div id=accЁ>
-                <h1>Ё</h1>
-            </div>
             <div id=accА>
                 <h1>А</h1>
             </div>
@@ -541,11 +542,20 @@
             <div id=accГ>
                 <h1>Г</h1>
             </div>
+            <div id=accҐ>
+                <h1>Ґ</h1>
+            </div>
             <div id=accД>
                 <h1>Д</h1>
             </div>
             <div id=accЕ>
                 <h1>Е</h1>
+            </div>
+            <div id=accЁ>
+                <h1>Ё</h1>
+            </div>
+            <div id=accЄ>
+                <h1>Є</h1>
             </div>
             <div id=accЖ>
                 <h1>Ж</h1>
@@ -558,6 +568,12 @@
             </div>
             <div id=accЙ>
                 <h1>Й</h1>
+            </div>
+            <div id=accІ>
+                <h1>І</h1>
+            </div>
+            <div id=accЇ>
+                <h1>Ї</h1>
             </div>
             <div id=accК>
                 <h1>К</h1>
