@@ -8,6 +8,7 @@ const new_oth = document.getElementById('new_oth')
 const new_acc = document.getElementById('new_acc')
 const res_new_acc = document.getElementById('res_new_acc')
 
+const cng_web = document.getElementById('cng_sit')
 const cng_usn = document.getElementById('cng_usn')
 const cng_pwd = document.getElementById('cng_pwd')
 const cng_pin = document.getElementById('cng_pin')
@@ -114,7 +115,7 @@ async function changeLanguage(language) {
         document.getElementById(`btn_rt${i}`).innerText = languages[l_num].buttons.rtn
     }
     for (let i=1; i<4; i++) {
-        if (i != 2) { document.getElementById(`web_${i}`).innerText = languages[l_num].headers.web }
+        document.getElementById(`web_${i}`).innerText = languages[l_num].headers.web
         document.getElementById(`usn_${i}`).innerText = languages[l_num].headers.usn
         document.getElementById(`pwd_${i}`).innerText = languages[l_num].headers.pwd
         document.getElementById(`pin_${i}`).innerText = languages[l_num].headers.pin
@@ -227,7 +228,7 @@ res_new_acc.addEventListener('click', () => {
 cng_acc.addEventListener('click', async () => {
     var path = cng_container.getAttribute('name')
     var contentArray = []
-    contentArray.push(cngaccount.getAttribute('name'))
+    contentArray.push(nullkeyReplacement(cng_web.value, false))
     contentArray.push(nullkeyReplacement(cng_usn.value, false))
     contentArray.push(nullkeyReplacement(cng_pwd.value, false))
     contentArray.push(nullkeyReplacement(cng_pin.value, false))
@@ -353,6 +354,7 @@ async function editFile(fileName) {
 }
 
 function openEditMenu(path, data) {
+    cng_web.defaultValue = nullkeyReplacement(data[0], true)
     cng_usn.defaultValue = nullkeyReplacement(data[1], true)
     cng_usn.setAttribute('name', data[7])
     cng_pwd.defaultValue = nullkeyReplacement(data[2], true)
