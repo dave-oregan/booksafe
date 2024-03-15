@@ -1,3 +1,8 @@
+:root {
+    --goldfilter: invert(80%) sepia(20%) saturate(2300%) hue-rotate(350deg) brightness(385%) contrast(83%);
+    --goldfilterm: invert(81%) sepia(12%) saturate(7486%) hue-rotate(355deg) brightness(95%) contrast(79%);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -6,6 +11,159 @@ body {
     text-align: center;
     --sb-var: grey;
     --sbt-var: #A8A8A8;
+}
+
+#download_background {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+#download_background h1 {
+    font-size: 3em;
+}
+
+
+#download_background p {
+    font-size: 1.2em;
+}
+
+#download_disc {
+    width: 80%;
+}
+
+.download_box {
+    margin-bottom: 2em;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.download_box div {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 18%;
+    min-width: fit-content;
+    margin-left: .8em;
+    margin-right: .8em;
+}
+
+.download_box div img {
+    margin-top: 1em;
+    max-width: 8em;
+    margin-bottom: 1.5em;
+}
+
+.download_button {
+    background-color: goldenrod;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: .2em;
+    border-style: none;
+    padding: 1.5em 1.5em;
+    min-width: 12em;
+    box-sizing: border-box;
+    transition-duration: 0.5s;
+}
+
+.download_button:hover {
+    filter: brightness(85%);
+}
+
+#topbar {
+    height: 6.5em;
+    background-color: black;
+    width: 100%;
+}
+
+#topbar img {
+    height: 6em;
+    max-width: 80%;
+    background-color: black;
+    cursor: pointer;
+}
+
+.mobiledlpage {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -1.7em;
+}
+
+.mobiledlpage div {
+    width: 40%;
+}
+
+.mobiledlpage div img {
+    max-width: 15em;
+}
+
+.mobiledlpage div a {
+    padding: 1.5em 1.5em;
+    min-width: 12em;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.mobilecprt {
+    width: 75%;
+    margin-bottom: 1em;
+}
+
+.mobilehead {
+    height: 11em !important;
+}
+
+.mobilehead img {
+    height: 11em !important;
+}
+
+.mobiledldisc {
+    margin-bottom: -4.5em;
+}
+
+#sociallinks {
+    margin-top: -.5em;
+}
+
+#sociallinks a {
+    text-decoration: none;
+}
+
+.logolink {
+    filter: invert();
+}
+
+.logolink:hover {
+    transition-duration: .25s;
+    filter: var(--goldfilter);
+}
+
+.logolink_m:hover {
+    transition-duration: .25s;
+    filter: var(--goldfilterm);
+}
+
+.mobilelinks {
+    margin-bottom: 5em;
+}
+
+.mobilelinks img {
+    height: 6em;
+    margin-right: .4em;
+    margin-left: .4em;
 }
 
 #top {
