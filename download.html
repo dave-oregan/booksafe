@@ -1,86 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> BookSafe | Download </title>
-        <link rel=stylesheet href=style.css>
-        <link rel="shortcut icon" type=image/x-icon href=lockicon.ico>
-        <link rel="apple-touch-icon" href=img/lockiconWhite.png>
-        <meta name=msapplication-square70x70logo href=img/lockicon.png>
-        <meta name=msapplication-square150x150logo href=img/lockicon.png>
-        <meta name=msapplication-square310x310logo href=img/lockicon.png>
-        <meta name=msapplication-wide310x150logo href=img/lockicon.png>
-        <meta name=msapplication-TileColor content=#FFFFFF>
-        <script src=jquery-3.6.0.js></script>
-    </head>
-    <body id=download_background>
-        <div id=topbar>
-            <a href='https://horizonzz.com'><img src="https://horizonzz.com/images/horizonzzlogo.png"></a>
-        </div>
-        <div id=download_disc>
-            <h1> Download BookSafe</h1>
-            <p>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.</p>
-            <p>All passwords are saved locally on your device, minimizing the risk of them being stolen or leaked.</p>
-        </div>
-        <br><br>
-        <div class=download_box>
-            <div>
-                <img src=img/windows.png>
-                <a href='https://github.com/dave-oregan/booksafe/releases/download/v1.0.0/BookSafe-v1.0.0-Setup.exe' class=download_button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                    </svg>&nbsp;&nbsp;
-                    Windows
-                </a>
-            </div>
-            <div>
-                <img src=img/github.png>
-                <a href='https://github.com/dave-oregan/booksafe/releases/tag/v1.0.0' class=download_button>
-                    GitHub Release
-                </a>
-            </div>
-            <div>
-                <img src=img/apple.png>
-                <a href='https://github.com/dave-oregan/booksafe/releases/download/v1.0.0/BookSafe-v1.0.0-arm64.dmg' class=download_button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-                    </svg>&nbsp;&nbsp;
-                    MacOS
-                </a>
-            </div>
-        </div>
-        <br>
-        <div id=copyright><p>Copyright © 2024 David Abhishek O'Regan - All Rights Reserved.</p></div>
-        <div id=sociallinks>
-            <a href=https://horizonzz.itch.io target=_blank rel="noopener noreferrer">
-                <img class=logolink src=https://horizonzz.com/images/itchLogo.png alt=itchio_logo height=38px>
-            </a>&nbsp;&nbsp;
-            <a href=https://venmo.com/davidoregan/ target=_blank rel="noopener noreferrer">
-                <img class=logolink_m src=img/venmo.png alt=venmo_logo height=40px>
-            </a>&nbsp;&nbsp;
-            <a href=https://github.com/dave-oregan target=_blank rel="noopener noreferrer">
-                <img class=logolink src=https://horizonzz.com/images/gitLogo.png alt=github_logo height=38px>
-            </a>&nbsp;&nbsp;
-            <a href=https://paypal.me/daveoregan/ target=_blank rel="noopener noreferrer">
-                <img class=logolink_m src=img/paypal.png alt=paypal_logo height=39px>
-            </a>&nbsp;&nbsp;
-            <a href=https://steamcommunity.com/id/horizonzz/ target=_blank rel="noopener noreferrer">
-                <img class=logolink src=https://horizonzz.com/images/steamicon.png alt=steam_logo height=40px>
+
+<head>
+    <title> BookSafe | Download </title>
+    <link rel=stylesheet href=style.css>
+    <link rel="shortcut icon" type=image/x-icon href=lockicon.ico>
+    <link rel="apple-touch-icon" href=img/lockiconWhite.png>
+    <meta name=msapplication-square70x70logo href=img/lockicon.png>
+    <meta name=msapplication-square150x150logo href=img/lockicon.png>
+    <meta name=msapplication-square310x310logo href=img/lockicon.png>
+    <meta name=msapplication-wide310x150logo href=img/lockicon.png>
+    <meta name=msapplication-TileColor content=#FFFFFF>
+    <script src=jquery-3.6.0.js></script>
+</head>
+
+<body id=download_background>
+    <div id=topbar>
+        <a href='https://davidoregan.com'><img src="https://davidoregan.com/images/horizonzzlogo.png"></a>
+    </div>
+    <div id=download_disc>
+        <h1> Download BookSafe</h1>
+        <p>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive
+            way possible.</p>
+        <p>All passwords are saved locally on your device, minimizing the risk of them being stolen or leaked.</p>
+    </div>
+    <br><br>
+    <div class=download_box>
+        <div>
+            <img src=img/windows.png>
+            <a href='https://github.com/dave-oregan/booksafe/releases/download/v1.0.0/BookSafe-v1.0.0-Setup.exe'
+                class=download_button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                    <path
+                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+                </svg>&nbsp;&nbsp;
+                Windows
             </a>
         </div>
-        <script>
-            $(document).ready(() =>
-            {
-                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini|Nexus|Nokia/i.test(navigator.userAgent) ) 
-                {
-                    $('.download_box').addClass('mobiledlpage')
-                    $('#copyright').addClass('mobilecprt')
-                    $('#topbar').addClass('mobilehead')
-                    $('#download_disc').addClass('mobiledldisc')
-                    $('#sociallinks').addClass('mobilelinks')
-                }
-            });
-        </script>
-    </body>
+        <div>
+            <img src=img/github.png>
+            <a href='https://github.com/dave-oregan/booksafe/releases/tag/v1.0.0' class=download_button>
+                GitHub Release
+            </a>
+        </div>
+        <div>
+            <img src=img/apple.png>
+            <a href='https://github.com/dave-oregan/booksafe/releases/download/v1.0.0/BookSafe-v1.0.0-arm64.dmg'
+                class=download_button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                    <path
+                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+                </svg>&nbsp;&nbsp;
+                MacOS
+            </a>
+        </div>
+    </div>
+    <br>
+    <div id=copyright>
+        <p>Copyright © 2024 David Abhishek O'Regan - All Rights Reserved.</p>
+    </div>
+    <div id=sociallinks>
+        <a href=https://horizonzz.itch.io target=_blank rel="noopener noreferrer">
+            <img class=logolink src=https://daveoregan.com/images/itchLogo.png alt=itchio_logo height=38px>
+        </a>&nbsp;&nbsp;
+        <a href=https://venmo.com/davidoregan/ target=_blank rel="noopener noreferrer">
+            <img class=logolink_m src=img/venmo.png alt=venmo_logo height=40px>
+        </a>&nbsp;&nbsp;
+        <a href=https://github.com/dave-oregan target=_blank rel="noopener noreferrer">
+            <img class=logolink src=https://daveoregan.com/images/gitLogo.png alt=github_logo height=38px>
+        </a>&nbsp;&nbsp;
+        <a href=https://paypal.me/daveoregan/ target=_blank rel="noopener noreferrer">
+            <img class=logolink_m src=img/paypal.png alt=paypal_logo height=39px>
+        </a>&nbsp;&nbsp;
+        <a href=https://steamcommunity.com/id/horizonzz/ target=_blank rel="noopener noreferrer">
+            <img class=logolink src=https://daveoregan.com/images/steamicon.png alt=steam_logo height=40px>
+        </a>
+    </div>
+    <script>
+        $(document).ready(() => {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini|Nexus|Nokia/i.test(navigator.userAgent)) {
+                $('.download_box').addClass('mobiledlpage')
+                $('#copyright').addClass('mobilecprt')
+                $('#topbar').addClass('mobilehead')
+                $('#download_disc').addClass('mobiledldisc')
+                $('#sociallinks').addClass('mobilelinks')
+            }
+        });
+    </script>
+</body>
+
 </html>
