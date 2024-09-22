@@ -20,26 +20,30 @@
             <div class=typerpop id=about>
                 <div id=aboutpage>
                     <h1 id=title_abt>About</h1>
-                    <p id=ap1>BookSafe is an app that aims to help you keep track of all your accounts in the most convenient, non-invasive way possible.</p>
+                    <p id=ap1>BookSafe is an app that aims to help you keep track of all your accounts in the most
+                        convenient, non-invasive way possible.</p>
                     <hr>
                     <p><b id=ap2>Does BookSafe have any of my data?</b></p>
-                    <p id=ap3>No, BookSafe stores none of your data on servers. Your data is only saved on your device.</p>
+                    <p id=ap3>No, BookSafe stores none of your data on servers. Your data is only saved on your device.
+                    </p>
                     <p><b id=ap4>How can I find my exported passwords?</b></p>
-                    <p id=ap5>Go to settings, then click on the 'FOLDER' button. This will reveal the export folder in your explorer.</p>
+                    <p id=ap5>Go to settings, then click on the 'FOLDER' button. This will reveal the export folder in
+                        your explorer.</p>
                     <p><b id=ap6>Is BookSafe supported on all devices?</b></p>
-                    <p id=ap7>Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.</p>
+                    <p id=ap7>Unfortunately, due to compatibility issues, BookSafe is not currently available for phones
+                        or tablets. I (the developer) am currently working on a port for mobile devices.</p>
                     <p><b id=ap8>More questions?</b></p>
-                    <p id=ap9>Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a></p>
+                    <p id=ap9>Reach out to the developer at <a class=abtlink id=linktoweb>daveoregan.com/contact</a></p>
                     <hr>
-                    <p id=ap10>Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a></p>
-                    <p id=ap11>Copyright © 2024 HorizonZz - All Rights Reserved.</p>
+                    <p id=ap10>Developer Website: <a class=abtlink id=linktoweb>daveoregan.com</a></p>
+                    <p id=ap11>Copyright © 2024 David Ahishek O'Regan - All Rights Reserved.</p>
                 </div>
                 <ul class=submitUL>
                     <li class=ulBut><span class=button id=btn_cl2 onclick='hide("ab_container")'>CLOSE</span></li>
                 </ul>
                 <script>
                     document.getElementById('linktoweb').addEventListener('click', () => {
-                        const openLink = api.openLink('https://horizonzz.com')
+                        const openLink = api.openLink('https://daveoregan.com')
                     })
                 </script>
             </div>
@@ -49,7 +53,9 @@
             <div class=typerpop id=settings>
                 <ul class=submitUL>
                     <li class=nTitle id=title_set> Settings </li>
-                    <li><a id=set_bkn>Book Name</a>: <input type=text class=ipBox id=zip_name_box placeholder='booksafe_export' oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
+                    <li><a id=set_bkn>Book Name</a>: <input type=text class=ipBox id=zip_name_box
+                            placeholder='booksafe_export'
+                            oninput='this.value = this.value.replace(/[^a-zA-Z0-9-_]/g, "")'></li>
                     <li class=ulBut>
                         <span class=button id=set_new onclick='reveal("clear_container")'>NEW</span>
                         <span class=button id=set_ope onclick='reveal("import_saved_container")'>OPEN</span>
@@ -75,13 +81,20 @@
                     </li>
                     <li><a id=set_fnt>Fonts</a>:
                         <select onchange=changeFont(this.value) class=settingBox id=fonts>
-                            <option style="font-family: Courier New, monospace;" id=courier value='Courier New, monospace'>Courier New</option>
-                            <option style="font-family: Garamond, serif;" id=garamond value='Garamond, serif'>Garamond</option>
-                            <option style="font-family: Georgia, serif;" id=georgia value='Georgia, serif'>Georgia</option>
-                            <option style="font-family: Helvetica, sans-serif;" id=helvetica value='Helvetica, sans-serif'>Helvetica</option>
-                            <option style="font-family: Tahoma, sans-serif;" id=tahoma value='Tahoma, sans-serif'>Tahoma</option>
-                            <option style="font-family: Times New Roman, serif;" id=roman value='Times New Roman, serif'>Times New Roman</option>
-                            <option style="font-family: Trebuchet MS, sans-serif;" id=trebuchet value='Trebuchet MS, sans-serif' selected>Trebuchet MS</option>
+                            <option style="font-family: Courier New, monospace;" id=courier
+                                value='Courier New, monospace'>Courier New</option>
+                            <option style="font-family: Garamond, serif;" id=garamond value='Garamond, serif'>Garamond
+                            </option>
+                            <option style="font-family: Georgia, serif;" id=georgia value='Georgia, serif'>Georgia
+                            </option>
+                            <option style="font-family: Helvetica, sans-serif;" id=helvetica
+                                value='Helvetica, sans-serif'>Helvetica</option>
+                            <option style="font-family: Tahoma, sans-serif;" id=tahoma value='Tahoma, sans-serif'>Tahoma
+                            </option>
+                            <option style="font-family: Times New Roman, serif;" id=roman
+                                value='Times New Roman, serif'>Times New Roman</option>
+                            <option style="font-family: Trebuchet MS, sans-serif;" id=trebuchet
+                                value='Trebuchet MS, sans-serif' selected>Trebuchet MS</option>
                         </select>
                     </li>
                     <li><a id=set_plt>Palette</a>:
@@ -93,7 +106,8 @@
                         </select>
                     </li>
                     <li class=ulBut>
-                        <span class=button id=btn_rst onclick=resetWindow()>RESET</span><span class=button id=btn_cl1 onclick='hide("s_container")'>CLOSE</span>
+                        <span class=button id=btn_rst onclick=resetWindow()>RESET</span><span class=button id=btn_cl1
+                            onclick='hide("s_container")'>CLOSE</span>
                     </li>
                 </ul>
             </div>
@@ -142,7 +156,9 @@
             <div class=typerpop id=import_confirm>
                 <ul class=submitUL>
                     <li class=nTitle id=title_ib2> Import New Book </li>
-                    <li id=dsc_ib2>Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.</li>
+                    <li id=dsc_ib2>Would you like to immediately open the new book? If so, any passwords in the current
+                        book not yet exported will be lost. Choosing to import without opening will place the zip file
+                        into the export folder of this application for ease of access later.</li>
                     <li class=ulBut>
                         <span class=button id=btn_imp onclick='importZip(false)'>IMPORT</span>
                         <span class=button id=btn_iao onclick='importZip(true)'>IMPORT AND OPEN</span>
@@ -156,7 +172,8 @@
             <div class=typerpop id=saved_import_confirm>
                 <ul class=submitUL>
                     <li class=nTitle id=title_isb> Import Saved Book </li>
-                    <li id=dsc_isb>Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!</li>
+                    <li id=dsc_isb>Remember: Opening another saved book without exporting this one will cause you to
+                        lose unsaved passwords. For your own security, please export before doing this!</li>
                     <li class=ulBut>
                         <span class=button id=btn_ope onclick='importSavedZip()'>OPEN</span>
                         <span class=button id=btn_rt4 onclick='hide("import_saved_container")'>RETURN</span>
@@ -169,14 +186,20 @@
             <div class=typerpop id=newaccount>
                 <ul class=submitUL>
                     <li class=nTitle id=title_nac> New Account </li>
-                    <li><a id=web_1>Website:</a> <input type=text class=ipBox id=new_sit placeholder='Type here...'></li>
-                    <li><a id=usn_1>Username:</a> <input type=text class=ipBox id=new_usn placeholder='Type here...'></li>
-                    <li><a id=pwd_1>Password:</a> <input type=text class=ipBox id=new_pwd placeholder='Type here...'></li>
+                    <li><a id=web_1>Website:</a> <input type=text class=ipBox id=new_sit placeholder='Type here...'>
+                    </li>
+                    <li><a id=usn_1>Username:</a> <input type=text class=ipBox id=new_usn placeholder='Type here...'>
+                    </li>
+                    <li><a id=pwd_1>Password:</a> <input type=text class=ipBox id=new_pwd placeholder='Type here...'>
+                    </li>
                     <li><a id=pin_1>PIN:</a> <input type=text class=ipBox id=new_pin placeholder='Type here...'></li>
                     <li><a id=eml_1>Email:</a> <input type=text class=ipBox id=new_eml placeholder='Type here...'></li>
                     <li><a id=phn_1>Phone:</a> <input type=text class=ipBox id=new_num placeholder='Type here...'></li>
-                    <li><a id=det_1>Details:</a> <input type=text class=ipBox id=new_oth placeholder='Type here...'></li>
-                    <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button id=res_new_acc>RESET</span> <span class=button id=btn_cc2 onclick='hide("na_container")'>CANCEL</span>
+                    <li><a id=det_1>Details:</a> <input type=text class=ipBox id=new_oth placeholder='Type here...'>
+                    </li>
+                    <li class=ulBut><span class=button id=new_acc>SUBMIT</span> <span class=button
+                            id=res_new_acc>RESET</span> <span class=button id=btn_cc2
+                            onclick='hide("na_container")'>CANCEL</span>
                     </li>
                 </ul>
             </div>
@@ -186,14 +209,19 @@
             <div class=typerpop id=cngaccount>
                 <ul class=submitUL>
                     <li class=nTitle id=title_edt> Edit Account </li>
-                    <li><a id=web_2>Website:</a> <input type=text class=ipBox id=cng_sit placeholder='Type here...'></li>
-                    <li><a id=usn_2>Username:</a> <input type=text class=ipBox id=cng_usn placeholder='Type here...'></li>
-                    <li><a id=pwd_2>Password:</a> <input type=text class=ipBox id=cng_pwd placeholder='Type here...'></li>
+                    <li><a id=web_2>Website:</a> <input type=text class=ipBox id=cng_sit placeholder='Type here...'>
+                    </li>
+                    <li><a id=usn_2>Username:</a> <input type=text class=ipBox id=cng_usn placeholder='Type here...'>
+                    </li>
+                    <li><a id=pwd_2>Password:</a> <input type=text class=ipBox id=cng_pwd placeholder='Type here...'>
+                    </li>
                     <li><a id=pin_2>PIN:</a> <input type=text class=ipBox id=cng_pin placeholder='Type here...'></li>
                     <li><a id=eml_2>Email:</a> <input type=text class=ipBox id=cng_eml placeholder='Type here...'></li>
                     <li><a id=phn_2>Phone:</a> <input type=text class=ipBox id=cng_num placeholder='Type here...'></li>
-                    <li><a id=det_2>Details:</a> <input type=text class=ipBox id=cng_oth placeholder='Type here...'></li>
-                    <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button id=btn_cc3 onclick='hide("cng_container")'>CANCEL</span></li>
+                    <li><a id=det_2>Details:</a> <input type=text class=ipBox id=cng_oth placeholder='Type here...'>
+                    </li>
+                    <li class=ulBut><span class=button id=cng_acc>SAVE</span> <span class=button id=btn_cc3
+                            onclick='hide("cng_container")'>CANCEL</span></li>
                 </ul>
             </div>
             <div id=naback onclick='hide("cng_container")'></div>
@@ -209,7 +237,8 @@
                     <li><a id=eml_3>Email:</a> <input type=text class=ipBox id=del_eml readonly=readonly></li>
                     <li><a id=phn_3>Phone:</a> <input type=text class=ipBox id=del_num readonly=readonly></li>
                     <li><a id=det_3>Details:</a> <input type=text class=ipBox id=del_oth readonly=readonly></li>
-                    <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button id=btn_cc4 onclick='hide("del_container")'>CANCEL</span></li>
+                    <li class=ulBut><span class=button id=del_acc>DELETE</span> <span class=button id=btn_cc4
+                            onclick='hide("del_container")'>CANCEL</span></li>
                 </ul>
             </div>
             <div id=naback onclick='hide("del_container")'></div>
@@ -220,7 +249,8 @@
                     <li class=nTitle id=title_dl2> Delete Account </li>
                     <li id=dsc_dl2>Please confirm by typing 'DELETE' below:</li>
                     <li><input type=text class=ipBox id=cfm_del placeholder='Type here...'></li>
-                    <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button id=btn_cc5 onclick='hide("cfmdel_container")'>CANCEL</span></li>
+                    <li class=ulBut><span class=button id=cfmdel_acc>CONFIRM</span> <span class=button id=btn_cc5
+                            onclick='hide("cfmdel_container")'>CANCEL</span></li>
                 </ul>
             </div>
             <div id=naback onclick='hide("cfmdel_container")'></div>
@@ -438,8 +468,10 @@
             <a id=scrহ onclick='windowScroll("হ")'>হ</a>
             <a id=scr- onclick='windowScroll("-")'>#</a>
             <a id=s_btn onclick='toggleSearch("s_bar_container")'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                 </svg>
             </a>
         </div>

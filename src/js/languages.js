@@ -45,7 +45,7 @@ const language_list = [
             "هل ترغب في فتح الكتاب الجديد فورًا؟ إذا كان الأمر كذلك، ستفقد أي كلمات مرور في الكتاب الحالي غير المصدرة حتى الآن. اختيار الاستيراد دون الفتح سيضع ملف الضغط في مجلد التصدير لهذا التطبيق لسهولة الوصول في وقت لاحق.",
             "تذكير: فتح كتاب محفوظ آخر دون تصدير هذا الكتاب سيؤدي إلى فقدان كلمات المرور التي لم يتم حفظها. لضمان أمانك، يرجى تصدير البيانات قبل القيام بذلك!",
             "تذكير: يفترض منك تأكيد ذلك عن طريق كتابة 'حذف' أدناه:",
-            "הספר שלך","נשמר לתיקיית הייצוא!",
+            "הספר שלך", "נשמר לתיקיית הייצוא!",
             "حدث خطأ أثناء تصدير الكتاب الخاص بك:",
             "حدث خطأ أثناء استيراد كتابك:"
         ],
@@ -58,8 +58,8 @@ const language_list = [
             "هل يتم دعم بوك سيف على جميع الأجهزة؟",
             "للأسف، بسبب مشكلات التوافق، بوك سيف غير متاح حاليًا على الهواتف الذكية أو الأجهزة اللوحية. أنا (المطور) حاليًا أعمل على نسخة للأجهزة المحمولة.",
             "أسئلة إضافية؟",
-            "البريد الإلكتروني للمطور على <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "موقع المطور: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "تواصل مع المطور على <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "موقع المطور: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "حقوق الطبع والنشر © 2024 ديفيد أبهيشيك أوريجان - جميع الحقوق محفوظة."
         ]
     },
@@ -99,7 +99,7 @@ const language_list = [
             "আপনি কি তাড়াতাড়ি নতুন বইটি খোলতে চান? তাদের মধ্যে কোনও পাসওয়ার্ড যা এখনো রপ্তানি করা হয়নি তা হারিয়ে যাবে। খোলা না করে আমদানি করলে, তা পরে সহজে পাওয়ার জন্য এই অ্যাপ্লিকেশনের রপ্তানি ফোল্ডারে zip ফাইলটি রাখা হবে।",
             "মনে রাখবেন: এই বইটি রপ্তানি করার আগে অন্য কোনও সংরক্ষিত বই খোললে আপনি সংরক্ষিত না হওয়া পাসওয়ার্ড হারাবেন। আপনার নিজের নিরাপত্তা জন্য, এটা করার আগে দয়া করে রপ্তানি করুন!",
             "নীচে 'মুছুন' টাইপ করে নিশ্চিত করুন:",
-            "আপনার বই","এক্সপোর্ট ফোল্ডারে সংরক্ষণ করা হয়েছে!",
+            "আপনার বই", "এক্সপোর্ট ফোল্ডারে সংরক্ষণ করা হয়েছে!",
             "আপনার বই রপ্তানি করার সময় নিম্নলিখিত ত্রুটি ঘটেছে:",
             "আপনার বই আমদানি করার সময় নিম্নলিখিত ত্রুটি ঘটেছে:"
         ],
@@ -112,8 +112,8 @@ const language_list = [
             "কি বুকসেইফ সমস্ত ডিভাইসে সমর্থিত?",
             "দুঃখিত, সাথে সাথে সাজগোজগের সমস্যার জন্য, বুকসেইফ বর্তমানে ফোন বা ট্যাবলেটের জন্য পাওয়া যাচ্ছে না। আমি (ডেভেলপার) বর্তমানে মোবাইল ডিভাইসের জন্য একটি পোর্টে কাজ করছি।",
             "আরো কোনো প্রশ্ন আছে?",
-            "ডেভেলপারের কাছে ইমেইল করুন: <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "বিকাশকারী ওয়েবসাইট: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "<a class=abtlink id=linktoweb>daveoregan.com/contact</a>-এ ডেভেলপারের সাথে যোগাযোগ করুন",
+            "বিকাশকারী ওয়েবসাইট: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "কপিরাইট © 2024 ডেভিড অভিষেক ও'রেগন - সমস্ত অধিকার সংরক্ষিত."
         ]
     },
@@ -153,7 +153,7 @@ const language_list = [
             "Would you like to immediately open the new book? If so, any passwords in the current book not yet exported will be lost. Choosing to import without opening will place the zip file into the export folder of this application for ease of access later.",
             "Remember: Opening another saved book without exporting this one will cause you to lose unsaved passwords. For your own security, please export before doing this!",
             "Please confirm by typing 'DELETE' below:",
-            "Your book","has been saved to the exports folder!",
+            "Your book", "has been saved to the exports folder!",
             "The following error occurred while exporting your book:",
             "The following error occurred while importing your book:"
         ],
@@ -166,8 +166,8 @@ const language_list = [
             "Is BookSafe supported on all devices?",
             "Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.",
             "More questions?",
-            "Email the developer at <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Developer Website: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Reach out to the developer at <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Developer Website: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Copyright © 2024 David Abhishek O'Regan - All Rights Reserved."
         ]
     },
@@ -207,7 +207,7 @@ const language_list = [
             "Souhaitez-vous ouvrir immédiatement le nouveau livre ? Si oui, tous les mots de passe dans le livre actuel qui n'ont pas encore été exportés seront perdus. Choisir d'importer sans ouvrir placera le fichier zip dans le dossier d'exportation de cette application pour un accès facile ultérieur.",
             "Rappelez-vous : ouvrir un autre livre enregistré sans exporter celui-ci entraînera la perte des mots de passe non enregistrés. Pour votre sécurité, veuillez exporter avant de procéder!",
             "Veuillez confirmer en tapant 'SUPPRIMER' ci-dessous:",
-            "Votre livre","a été enregistré dans le dossier des exports!",
+            "Votre livre", "a été enregistré dans le dossier des exports!",
             "L'erreur suivante s'est produite lors de l'exportation de votre livre:",
             "L'erreur suivante s'est produite lors de l'importation de votre livre:"
         ],
@@ -220,8 +220,8 @@ const language_list = [
             "BookSafe est-il pris en charge sur tous les appareils?",
             "Malheureusement, en raison de problèmes de compatibilité, BookSafe n'est actuellement pas disponible pour les téléphones ou les tablettes. Je (le développeur) travaille actuellement sur un portage pour les appareils mobiles.",
             "D'autres questions",
-            "Envoyez un email au développeur à <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Site Web du Développeur: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Contactez le développeur à l'adresse <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Site Web du Développeur: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Droits D'auteur © 2024 David Abhishek O'Regan - Tous Droits Réservés."
         ]
     },
@@ -229,7 +229,7 @@ const language_list = [
         name: "German",
         title: "BookSafe: Passwortbuch",
         number: 4,
-        transform_limit:  {
+        transform_limit: {
             courier: 749,
             garamond: 678,
             georgia: 759,
@@ -261,7 +261,7 @@ const language_list = [
             "Möchten Sie das neue Buch sofort öffnen? Wenn ja, gehen alle Passwörter im aktuellen Buch, die noch nicht exportiert wurden, verloren. Die Option, ohne Öffnen zu importieren, platziert die Zip-Datei im Exportordner dieser Anwendung für späteren Zugriff.",
             "Merken Sie sich: Das Öffnen eines anderen gespeicherten Buches ohne Exportieren dieses wird dazu führen, dass Sie nicht gespeicherte Passwörter verlieren. Zu Ihrer eigenen Sicherheit exportieren Sie bitte, bevor Sie dies tun!",
             "Bestätigen Sie durch Eingabe von 'LÖSCHEN' unten:",
-            "Ihr Buch","wurde in den Exportordner gespeichert!",
+            "Ihr Buch", "wurde in den Exportordner gespeichert!",
             "Der folgende Fehler ist beim Exportieren Ihres Buches aufgetreten:",
             "Der folgende Fehler ist beim Importieren Ihres Buches aufgetreten:"
         ],
@@ -274,8 +274,8 @@ const language_list = [
             "Ist BookSafe auf allen Geräten unterstützt?",
             "Leider ist BookSafe aufgrund von Kompatibilitätsproblemen derzeit nicht für Telefone oder Tablets verfügbar. Ich (der Entwickler) arbeite derzeit an einer Portierung für mobile Geräte.",
             "Mehr Fragen?",
-            "Der Entwickler per Email erreichen unter <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Entwickler-Website: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Kontaktieren Sie den Entwickler unter <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Entwickler-Website: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Urheberrecht © 2024 David Abhishek O'Regan - Alle Rechte Vorbehalten."
         ]
     },
@@ -315,7 +315,7 @@ const language_list = [
             "האם תרצה לפתוח את הספר החדש מייד? אם כן, כל הסיסמאות שלא נוצאו לייצוא מהספר הנוכחי ייאבדו. בחירה לייבא בלעדייך לפתיחה תכניס את קובץ ה-ZIP לתיקיית הייצוא של יישום זה לצורך גישה נוחה מאוחר יותר.",
             "זכור: פתיחת ספר שמור נוסף בלעדייך לייצוא של ספר זה תגרום לאובדן סיסמאות שלא נשמרו. למענה על בטחונך, אנא יצא לפני ביצוע פעולה זו!",
             "אנא אשר על ידי כתיבת 'מחק' למטה:",
-            "הספר שלך","נשמר בתיקיית הייצוא!",
+            "הספר שלך", "נשמר בתיקיית הייצוא!",
             "התרחשה שגיאה במהלך הייצור של הספר שלך:",
             "התרחשה שגיאה במהלך היבוא של הספר שלך:"
         ],
@@ -328,8 +328,8 @@ const language_list = [
             "האם בוקסייף נתמך בכל המכשירים؟",
             "לצערי, בשל בעיות תאימות, בוקסייף אינה זמינה כרגע עבור טלפונים ניידים או טאבלטים. אני (המפתח) עובד כרגע על העברת האפליקציה למכשירים ניידים.",
             "שאלות נוספות؟",
-            'שלח דוא"ל למפתח בכתובת <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>',
-            "אתר מפתחים: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            'צור קשר עם המפתח בכתובת <a class=abtlink id=linktoweb>daveoregan.com/contact</a>',
+            "אתר מפתחים: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "זכויות יוצרים © 2024 דיוויד אבישק או'רגן - כל הזכויות שמורות."
         ]
     },
@@ -337,7 +337,7 @@ const language_list = [
         name: "Hindi",
         title: "बुकसेफ: पासवर्ड किताब",
         number: 6,
-        transform_limit:  {
+        transform_limit: {
             courier: 672,
             garamond: 640,
             georgia: 643,
@@ -369,7 +369,7 @@ const language_list = [
             "क्या आप तुरंत नई किताब खोलना चाहेंगे? ऐसा करने पर, जो कोई पासवर्ड वर्तमान किताब में निर्यात नहीं किया गया है, वह सभी हो जाएंगे। बिना खोले आयात करने का चयन करने पर यह एप्लिकेशन के निर्यात फ़ोल्डर में जल्दी पहुँचने के लिए ZIP फ़ाइल रखा जाएगा।",
             "ध्यान रखें: इसे निर्यात किए बिना इसे एक और सहेजी गई किताब खोलने से आप असहेजे पासवर्ड को खो सकते हैं। अपनी सुरक्षा के लिए, कृपया इससे पहले निर्यात करें!",
             "कृपया 'हटाएं' नीचे टाइप करके पुष्टि करें:",
-            "आपकी किताब","को निर्यात फोल्डर में सहेज लिया गया है!",
+            "आपकी किताब", "को निर्यात फोल्डर में सहेज लिया गया है!",
             "किताब निर्यात करते समय निम्नलिखित त्रुटि हुई:",
             "किताब आयात करते समय निम्नलिखित त्रुटि हुई:"
         ],
@@ -382,8 +382,8 @@ const language_list = [
             "क्या बुकसेफ सभी डिवाइसों पर समर्थित है?",
             "दुर्भाग्यवश, संगतता समस्याओं के कारण, वर्तमान में बुकसेफ फ़ोन या टैबलेट्स के लिए उपलब्ध नहीं है। मैं (डेवलपर) वर्तमान में मोबाइल डिवाइस के लिए एक पोर्ट पर काम कर रहा हूँ।",
             "कोई और सवाल?",
-            "डेवलपर से संपर्क करने के लिए <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a> पर ईमेल करें।",
-            "डेवलपर का वेबसाइट: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "<a class=abtlink id=linktoweb>daveoregan.com/contact</a> पर डेवलपर से संपर्क करें",
+            "डेवलपर का वेबसाइट: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "कॉपीराइट © 2024 डेविड अभिषेक ओ'रेगन - सभी अधिकार सुरक्षित हैं।"
         ]
     },
@@ -391,7 +391,7 @@ const language_list = [
         name: "Italian",
         title: "BookSafe: Libro delle Password",
         number: 7,
-        transform_limit:  {
+        transform_limit: {
             courier: 989,
             garamond: 856,
             georgia: 958,
@@ -423,7 +423,7 @@ const language_list = [
             "Vuoi aprire immediatamente il nuovo libro? In tal caso, tutte le password nel libro attuale non ancora esportate saranno perse. Scegliendo di importare senza aprire, il file zip sarà collocato nella cartella di esportazione di questa applicazione per un accesso più facile in seguito.",
             "Ricorda: Aprire un altro libro salvato senza esportare questo comporterà la perdita delle password non salvate. Per la tua sicurezza, ti preghiamo di esportare prima di procedere!",
             "Si prega di confermare digitando 'ELIMINA' qui sotto:",
-            "Il tuo libro","è stato salvato nella cartella di esportazione!",
+            "Il tuo libro", "è stato salvato nella cartella di esportazione!",
             "Si è verificato il seguente errore durante l'esportazione del tuo libro:",
             "Si è verificato il seguente errore durante l'importazione del tuo libro:"
         ],
@@ -436,8 +436,8 @@ const language_list = [
             "BookSafe è supportato su tutti i dispositivi?",
             "Purtroppo, a causa di problemi di compatibilità, al momento BookSafe non è disponibile per telefoni o tablet. (Lo sviluppatore) sta attualmente lavorando a una versione per dispositivi mobili.",
             "Altre domande?",
-            "Invia un'email allo sviluppatore all'indirizzo <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Sito web dello sviluppatore: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Contatta lo sviluppatore all'indirizzo <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Sito web dello sviluppatore: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Diritti d'autore © 2024 David Abhishek O'Regan - Tutti i diritti riservati."
         ]
     },
@@ -477,7 +477,7 @@ const language_list = [
             "Você gostaria de abrir imediatamente o novo livro? Se sim, quaisquer senhas no livro atual que ainda não foram exportadas serão perdidas. Escolher importar sem abrir colocará o arquivo zip na pasta de exportação deste aplicativo para facilitar o acesso posteriormente.",
             "Lembre-se: Abrir outro livro salvo sem exportar este fará com que você perca as senhas não salvas. Por sua própria segurança, por favor, exporte antes de fazer isso!",
             "Por favor, confirme digitando 'EXCLUIR' abaixo:",
-            "Seu livro","foi salvo na pasta de exportação!",
+            "Seu livro", "foi salvo na pasta de exportação!",
             "O seguinte erro ocorreu ao exportar seu livro:",
             "O seguinte erro ocorreu ao importar seu livro:"
         ],
@@ -490,8 +490,8 @@ const language_list = [
             "O BookSafe é compatível com todos os dispositivos?",
             "Infelizmente, devido a problemas de compatibilidade, o BookSafe não está atualmente disponível para telefones ou tablets. Eu (o desenvolvedor) estou trabalhando atualmente em uma versão para dispositivos móveis.",
             "Mais alguma pergunta?",
-            "Envie um email para o desenvolvedor em <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Website do Desenvolvedor: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Entre em contato com o desenvolvedor em <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Website do Desenvolvedor: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Direitos Autorais © 2024 David Abhishek O'Regan - Todos os Direitos Reservados."
         ]
     },
@@ -499,7 +499,7 @@ const language_list = [
         name: "Russian",
         title: "БукСейф: Парольная Книга",
         number: 9,
-        transform_limit:  {
+        transform_limit: {
             courier: 826,
             garamond: 803,
             georgia: 888,
@@ -531,7 +531,7 @@ const language_list = [
             "Хотели бы вы сразу открыть новую книгу? Если да, все пароли в текущей книге, которые еще не были экспортированы, будут потеряны. Выбор импорта без открытия поместит файл zip в папку экспорта этого приложения для удобства доступа позже.",
             "Помните: открытие другой сохраненной книги без экспорта текущей приведет к потере несохраненных паролей. В целях вашей безопасности, пожалуйста, сначала выполните экспорт!",
             "Пожалуйста, подтвердите, введя 'УДАЛИТЬ' ниже:",
-            "Ваша книга","была сохранена в папке экспорта!",
+            "Ваша книга", "была сохранена в папке экспорта!",
             "Произошла следующая ошибка при экспорте вашей книги:",
             "Произошла следующая ошибка при импорте вашей книги:"
         ],
@@ -544,8 +544,8 @@ const language_list = [
             "БукСейф поддерживается на всех устройствах?",
             "К сожалению, из-за проблем совместимости, BookSafe в настоящее время не доступен для телефонов или планшетов. Я (разработчик) в настоящее время работаю над портом для мобильных устройств.",
             "Больше вопросов?",
-            "Отправьте электронное письмо разработчику по адресу <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Веб-сайт разработчика: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Свяжитесь с разработчиком по адресу <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Веб-сайт разработчика: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Авторское Право © 2024 Дэвид Абхишек О'Риган - Все Права Защищены."
         ]
     },
@@ -553,7 +553,7 @@ const language_list = [
         name: "Spanish",
         title: "BookSafe: Libro Contraseña",
         number: 10,
-        transform_limit:  {
+        transform_limit: {
             courier: 797,
             garamond: 687,
             georgia: 779,
@@ -585,7 +585,7 @@ const language_list = [
             "¿Te gustaría abrir el nuevo libro de inmediato? Si lo haces, todas las contraseñas en el libro actual que aún no hayas exportado se perderán. Elegir importar sin abrir colocará el archivo zip en la carpeta de exportación de esta aplicación para facilitar el acceso más tarde.",
             "Recuerda: Abrir otro libro guardado sin exportar este causará la pérdida de contraseñas no guardadas. ¡Por tu propia seguridad, por favor exporta antes de hacerlo!",
             "Por favor, confirma escribiendo 'BORRAR' a continuación:",
-            "¡Tu libro","se ha guardado en la carpeta de exportaciones!",
+            "¡Tu libro", "se ha guardado en la carpeta de exportaciones!",
             "Ocurrió el siguiente error al exportar tu libro:",
             "Ocurrió el siguiente error al importar tu libro:"
         ],
@@ -598,8 +598,8 @@ const language_list = [
             "¿BookSafe es compatible con todos los dispositivos?",
             "Desafortunadamente, debido a problemas de compatibilidad, BookSafe no está disponible actualmente para teléfonos o tabletas. Yo (el desarrollador) estoy trabajando actualmente en una versión para dispositivos móviles.",
             "¿Más preguntas?",
-            "Envía un correo electrónico al desarrollador a <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Sitio Web del Desarrollador: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Comuníquese con el desarrollador en <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Sitio Web del Desarrollador: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Derecho de Autor © 2024 David Abhishek O'Regan - Todos los Derechos Reservados."
         ]
     },
@@ -607,7 +607,7 @@ const language_list = [
         name: "Ukrainian",
         title: "БукСейф: Парольна Книга",
         number: 11,
-        transform_limit:  {
+        transform_limit: {
             courier: 759,
             garamond: 739,
             georgia: 818,
@@ -639,7 +639,7 @@ const language_list = [
             "Ви бажаєте негайно відкрити нову книгу? Якщо так, будь-які паролі в поточній книзі, які ще не були експортовані, будуть втрачені. Вибір імпорту без відкриття розмістить zip-файл у папці експорту цього додатка для зручного доступу пізніше.",
             "Пам'ятайте: відкриття іншої збереженої книги без експорту цієї призведе до втрати незбережених паролів. З міркувань безпеки, будь ласка, експортуйте їх перед виконанням цієї дії!",
             "Будь ласка, підтвердьте, введучи 'ВИДАЛИТИ' нижче:",
-            "Ваша книга","була збережена у папці експорту!",
+            "Ваша книга", "була збережена у папці експорту!",
             "Виникла помилка під час експорту вашої книги:",
             "Виникла помилка під час імпорту вашої книги:"
         ],
@@ -652,8 +652,8 @@ const language_list = [
             "Чи підтримується BookSafe на всіх пристроях?",
             "На жаль, через проблеми сумісності, наразі BookSafe не доступний для телефонів чи планшетів. Я (розробник) в даний момент працюю над портом для мобільних пристроїв.",
             "Більше питань?",
-            "Напишіть розробнику за адресою <a class=abtlink href=mailto:horizonzzQuery@gmail.com>horizonzzQuery@gmail.com </a>",
-            "Веб-сайт Розробника: <a class=abtlink id=linktoweb>horizonzz.com</a>",
+            "Зверніться до розробника за адресою <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
+            "Веб-сайт Розробника: <a class=abtlink id=linktoweb>daveoregan.com</a>",
             "Авторське право © 2024 Девід Абгішек О'Ріган - Всі права захищені."
         ]
     },
