@@ -632,6 +632,10 @@ function setZipName(newName) {
     document.getElementById('zip_name_box').value = newName
 }
 
+function website(link) {
+    const openLink = api.openLink(link)
+}
+
 window.onload = async () => {
     configure()
     await loadsettings()

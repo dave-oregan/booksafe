@@ -58,8 +58,8 @@ const language_list = [
             "هل يتم دعم بوك سيف على جميع الأجهزة؟",
             "للأسف، بسبب مشكلات التوافق، بوك سيف غير متاح حاليًا على الهواتف الذكية أو الأجهزة اللوحية. أنا (المطور) حاليًا أعمل على نسخة للأجهزة المحمولة.",
             "أسئلة إضافية؟",
-            "تواصل مع المطور على <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "موقع المطور: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "تواصل مع المطور على <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "موقع المطور: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "حقوق الطبع والنشر © 2024 ديفيد أبهيشيك أوريجان - جميع الحقوق محفوظة."
         ]
     },
@@ -112,8 +112,8 @@ const language_list = [
             "কি বুকসেইফ সমস্ত ডিভাইসে সমর্থিত?",
             "দুঃখিত, সাথে সাথে সাজগোজগের সমস্যার জন্য, বুকসেইফ বর্তমানে ফোন বা ট্যাবলেটের জন্য পাওয়া যাচ্ছে না। আমি (ডেভেলপার) বর্তমানে মোবাইল ডিভাইসের জন্য একটি পোর্টে কাজ করছি।",
             "আরো কোনো প্রশ্ন আছে?",
-            "<a class=abtlink id=linktoweb>daveoregan.com/contact</a>-এ ডেভেলপারের সাথে যোগাযোগ করুন",
-            "বিকাশকারী ওয়েবসাইট: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "<a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>-এ ডেভেলপারের সাথে যোগাযোগ করুন",
+            "বিকাশকারী ওয়েবসাইট: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "কপিরাইট © 2024 ডেভিড অভিষেক ও'রেগন - সমস্ত অধিকার সংরক্ষিত."
         ]
     },
@@ -166,8 +166,8 @@ const language_list = [
             "Is BookSafe supported on all devices?",
             "Unfortunately, due to compatibility issues, BookSafe is not currently available for phones or tablets. I (the developer) am currently working on a port for mobile devices.",
             "More questions?",
-            "Reach out to the developer at <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Developer Website: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Reach out to the developer at <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Developer Website: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Copyright © 2024 David Abhishek O'Regan - All Rights Reserved."
         ]
     },
@@ -220,8 +220,8 @@ const language_list = [
             "BookSafe est-il pris en charge sur tous les appareils?",
             "Malheureusement, en raison de problèmes de compatibilité, BookSafe n'est actuellement pas disponible pour les téléphones ou les tablettes. Je (le développeur) travaille actuellement sur un portage pour les appareils mobiles.",
             "D'autres questions",
-            "Contactez le développeur à l'adresse <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Site Web du Développeur: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Contactez le développeur à l'adresse <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Site Web du Développeur: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Droits D'auteur © 2024 David Abhishek O'Regan - Tous Droits Réservés."
         ]
     },
@@ -274,8 +274,8 @@ const language_list = [
             "Ist BookSafe auf allen Geräten unterstützt?",
             "Leider ist BookSafe aufgrund von Kompatibilitätsproblemen derzeit nicht für Telefone oder Tablets verfügbar. Ich (der Entwickler) arbeite derzeit an einer Portierung für mobile Geräte.",
             "Mehr Fragen?",
-            "Kontaktieren Sie den Entwickler unter <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Entwickler-Website: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Kontaktieren Sie den Entwickler unter <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Entwickler-Website: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Urheberrecht © 2024 David Abhishek O'Regan - Alle Rechte Vorbehalten."
         ]
     },
@@ -328,8 +328,8 @@ const language_list = [
             "האם בוקסייף נתמך בכל המכשירים؟",
             "לצערי, בשל בעיות תאימות, בוקסייף אינה זמינה כרגע עבור טלפונים ניידים או טאבלטים. אני (המפתח) עובד כרגע על העברת האפליקציה למכשירים ניידים.",
             "שאלות נוספות؟",
-            'צור קשר עם המפתח בכתובת <a class=abtlink id=linktoweb>daveoregan.com/contact</a>',
-            "אתר מפתחים: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "צור קשר עם המפתח בכתובת <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "אתר מפתחים: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "זכויות יוצרים © 2024 דיוויד אבישק או'רגן - כל הזכויות שמורות."
         ]
     },
@@ -382,8 +382,8 @@ const language_list = [
             "क्या बुकसेफ सभी डिवाइसों पर समर्थित है?",
             "दुर्भाग्यवश, संगतता समस्याओं के कारण, वर्तमान में बुकसेफ फ़ोन या टैबलेट्स के लिए उपलब्ध नहीं है। मैं (डेवलपर) वर्तमान में मोबाइल डिवाइस के लिए एक पोर्ट पर काम कर रहा हूँ।",
             "कोई और सवाल?",
-            "<a class=abtlink id=linktoweb>daveoregan.com/contact</a> पर डेवलपर से संपर्क करें",
-            "डेवलपर का वेबसाइट: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "<a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a> पर डेवलपर से संपर्क करें",
+            "डेवलपर का वेबसाइट: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "कॉपीराइट © 2024 डेविड अभिषेक ओ'रेगन - सभी अधिकार सुरक्षित हैं।"
         ]
     },
@@ -436,8 +436,8 @@ const language_list = [
             "BookSafe è supportato su tutti i dispositivi?",
             "Purtroppo, a causa di problemi di compatibilità, al momento BookSafe non è disponibile per telefoni o tablet. (Lo sviluppatore) sta attualmente lavorando a una versione per dispositivi mobili.",
             "Altre domande?",
-            "Contatta lo sviluppatore all'indirizzo <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Sito web dello sviluppatore: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Contatta lo sviluppatore all'indirizzo <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Sito web dello sviluppatore: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Diritti d'autore © 2024 David Abhishek O'Regan - Tutti i diritti riservati."
         ]
     },
@@ -490,8 +490,8 @@ const language_list = [
             "O BookSafe é compatível com todos os dispositivos?",
             "Infelizmente, devido a problemas de compatibilidade, o BookSafe não está atualmente disponível para telefones ou tablets. Eu (o desenvolvedor) estou trabalhando atualmente em uma versão para dispositivos móveis.",
             "Mais alguma pergunta?",
-            "Entre em contato com o desenvolvedor em <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Website do Desenvolvedor: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Entre em contato com o desenvolvedor em <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Website do Desenvolvedor: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Direitos Autorais © 2024 David Abhishek O'Regan - Todos os Direitos Reservados."
         ]
     },
@@ -544,8 +544,8 @@ const language_list = [
             "БукСейф поддерживается на всех устройствах?",
             "К сожалению, из-за проблем совместимости, BookSafe в настоящее время не доступен для телефонов или планшетов. Я (разработчик) в настоящее время работаю над портом для мобильных устройств.",
             "Больше вопросов?",
-            "Свяжитесь с разработчиком по адресу <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Веб-сайт разработчика: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Свяжитесь с разработчиком по адресу <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Веб-сайт разработчика: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Авторское Право © 2024 Дэвид Абхишек О'Риган - Все Права Защищены."
         ]
     },
@@ -598,8 +598,8 @@ const language_list = [
             "¿BookSafe es compatible con todos los dispositivos?",
             "Desafortunadamente, debido a problemas de compatibilidad, BookSafe no está disponible actualmente para teléfonos o tabletas. Yo (el desarrollador) estoy trabajando actualmente en una versión para dispositivos móviles.",
             "¿Más preguntas?",
-            "Comuníquese con el desarrollador en <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Sitio Web del Desarrollador: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Comuníquese con el desarrollador en <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Sitio Web del Desarrollador: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Derecho de Autor © 2024 David Abhishek O'Regan - Todos los Derechos Reservados."
         ]
     },
@@ -652,8 +652,8 @@ const language_list = [
             "Чи підтримується BookSafe на всіх пристроях?",
             "На жаль, через проблеми сумісності, наразі BookSafe не доступний для телефонів чи планшетів. Я (розробник) в даний момент працюю над портом для мобільних пристроїв.",
             "Більше питань?",
-            "Зверніться до розробника за адресою <a class=abtlink id=linktoweb>daveoregan.com/contact</a>",
-            "Веб-сайт Розробника: <a class=abtlink id=linktoweb>daveoregan.com</a>",
+            "Зверніться до розробника за адресою <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>",
+            "Веб-сайт Розробника: <a class=abtlink onclick='website(`https://daveoregan.com`)'>daveoregan.com</a>",
             "Авторське право © 2024 Девід Абгішек О'Ріган - Всі права захищені."
         ]
     },

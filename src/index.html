@@ -33,19 +33,15 @@
                     <p id=ap7>Unfortunately, due to compatibility issues, BookSafe is not currently available for phones
                         or tablets. I (the developer) am currently working on a port for mobile devices.</p>
                     <p><b id=ap8>More questions?</b></p>
-                    <p id=ap9>Reach out to the developer at <a class=abtlink id=linktoweb>daveoregan.com/contact</a></p>
+                    <p id=ap9>Reach out to the developer at <a class=abtlink onclick='website(`https://daveoregan.com/contact`)'>daveoregan.com/contact</a>
+                    </p>
                     <hr>
-                    <p id=ap10>Developer Website: <a class=abtlink id=linktoweb>daveoregan.com</a></p>
+                    <p id=ap10>Developer Website: <a class=abtlink onclick='website("https://daveoregan.com")'>daveoregan.com</a></p>
                     <p id=ap11>Copyright © 2024 David Ahishek O'Regan - All Rights Reserved.</p>
                 </div>
                 <ul class=submitUL>
                     <li class=ulBut><span class=button id=btn_cl2 onclick='hide("ab_container")'>CLOSE</span></li>
                 </ul>
-                <script>
-                    document.getElementById('linktoweb').addEventListener('click', () => {
-                        const openLink = api.openLink('https://daveoregan.com')
-                    })
-                </script>
             </div>
             <div id=naback onclick='hide("ab_container")'></div>
         </div>
