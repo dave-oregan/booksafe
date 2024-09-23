@@ -83,13 +83,13 @@ body {
 }
 
 #topbar {
-    height: 6.5em;
+    height: 8em;
     background-color: black;
     width: 100%;
 }
 
 #topbar img {
-    height: 6em;
+    height: 8em;
     max-width: 80%;
     background-color: black;
     cursor: pointer;
